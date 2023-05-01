@@ -1,0 +1,76 @@
+\section{Avtomorfizmi Riemannovih poloskev}
+
+\subsection{Sfere in torusi}
+
+Za določanje grupe avtomorfizmov Riemannovih ploskev so pomembne
+njihove topološke lastnosti -- vsak avtomorfizem je namreč tudi
+homeomorfizem. Iz geometrijske topologije vemo, da je vsaka
+orientabilna kompaktna ploskev homeomorfna vsoti $g$ torusov.
+Številu $g$ pravimo rod ploskve.
+
+Najprej si oglejmo ploskve z ničelnim rodom -- topološko so to kar
+sfere. V prejšnjih razdelkih smo ugotovili, da je grupa
+avtomorfizmov Riemannove sfere enaka
+\[
+\Aut \br{\rs} = \setb{\frac{az + b}{cz + d}}{ad - bc = 1}.
+\]
+
+Vemo pa, da je grupa avtomorfizmov odvisna ne samo od topoloških
+lastnosti objekta, ampak tudi njegove kompleksne strukture.
+%TODO To ni problem
+
+Naslednji izziv so ploskve z rodom $g=1$ -- torusi. Za toruse
+IZREK ne velja, zato imamo več različnih grup avtomorfizmov.
+Oglejmo si, kako jih dobimo:
+%TODO Kvocienti in stvari
+
+\subsection{Ploskve večjih rodov}
+
+\begin{trditev}
+Naj bo $T \in \Aut M$ netrivialen avtomorfizem. Tedaj ima $T$
+največ $2g + 2$ fiksnih točk.
+\end{trditev}
+
+\begin{proof}
+Naj bo $P \in M$ točka, za katero je $T(P) \ne P$. Tedaj obstaja
+meromorfna funkcija $f \in \mathscr{K}(M)$ s polarnim deliteljem
+$P^r$ za nek $1 \leq r \leq g + 1$. Oglejmo si funkcijo
+$h = f - f \circ T$. Njen polarni delitelj je očitno
+$P^r (T^{-1}P)^r$. Velja torej
+\[
+\deg h^{-1}(0) = \deg h^{-1}(\infty) = 2r \leq 2g + 2,
+\]
+zato ima $g$ kvečjemu $2g + 2$ ničel. Ni težko videti, da so njene
+ničle natanko fiksne točke avtomorfizma $T$.
+\end{proof}
+
+\begin{lema}
+Naj bo $M$ kompaktna Riemannova ploskev roda $g \geq 2$, $W$ pa
+množica njenih Weierstrassovih točk. Tedaj ta vsak avtomorfizem
+$T \in \Aut M$ velja $T(W) = W$.
+\end{lema}
+
+\begin{proof}
+Avtomorfizmi ohranjajo GAPE.
+\end{proof}
+
+\begin{izrek}[Schwarz]
+Grupe avtomorfizmov kompaktnih ploskev roda $g \geq 2$ so končne.
+\end{izrek}
+
+\begin{proof}
+Po zgornji lemi sledi, da obstaja homomorfizem
+$\lambda \colon \Aut M \to S_W$, kjer je $S_W$ simetrična grupa.
+Dovolj je pokazati, da ima $\lambda$ končno jedro. Ločimo dva
+primera.
+
+\begin{enumerate}[a)]
+\item Če $M$ ni hipereliptična, ima več kot $2g + 2$
+Weierstrassovih točk. Vsak avtomorfizem, ki fiksira Weierstrassove
+točke, je zato kar identiteta, zato je $\ker \lambda$ trivialno.
+
+\item Če je $M$ hipereliptična, velja kar
+$\ker \lambda = \skl{J}$, kjer je $J$ hipereliptična involucija,
+velja pa $\abs{\skl{J}} = 2$. \qedhere
+\end{enumerate}
+\end{proof}

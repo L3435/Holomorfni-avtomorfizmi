@@ -1,3 +1,7 @@
+## Additional stuff
+*.bst
+*.xmpdata
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof

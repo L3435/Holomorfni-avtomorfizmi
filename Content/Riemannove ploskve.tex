@@ -1,0 +1,97 @@
+\section{Riemannove ploskve}
+
+\subsection{Gladke in kompleksne mnogoterosti}
+
+%TODO Definicije gladkih mnogoterosti
+
+\subsection{Riemann-Rochov izrek}
+
+\begin{definicija}
+\emph{Delitelj} na Riemannovi ploskvi $M$ je formalni simbol
+\[
+\mathfrak{A} = \prod_{P \in M} P^{\alpha(P)},
+\]
+kjer za vsak $P$ velja $\alpha(P) \in \Z$ in je $\alpha(P) \ne 0$
+za kvečjemu končno mnogo točk $P \in M$. \emph{Stopnja} delitelja
+$\mathfrak{A}$ je definirana kot
+\[
+\deg \mathfrak{A} = \sum_{P \in M} \alpha(P).
+\]
+\end{definicija}
+
+Delitelji na $M$ tvorijo grupo za naravno definirano množenje --
+to grupo označimo z $\Div(M)$. Tako je
+$\deg \colon \Div(M) \to \Z$ homomorfizem grup.
+
+Za vsako neničelno meromorfno funkcijo $f \in \mathscr{K}(M)$
+definiramo njen \emph{glavni delitelj} kot
+\[
+(f) = \prod_{P \in M} P^{\ord_P f}.
+\]
+Definiramo lahko še \emph{polarni delitelj}
+\[
+f^{-1}(\infty) = \prod_{P \in M} P^{\max(-\ord_P f, 0)}
+\]
+in \emph{ničelni delitelj}
+\[
+f^{-1}(0) = \prod_{P \in M} P^{\max(\ord_P f, 0)}.
+\]
+Opazimo, da velja
+\[
+(f) = \frac{f^{-1}(0)}{f^{-1}(\infty)}.
+\]
+
+\begin{lema}
+Za vsako neničelno funkcijo $f \in \mathscr{K}(M)$ velja
+$\deg (f) = 0$. Posledično je
+$\deg f^{-1}(0) = \deg f^{-1}(\infty)$.
+\end{lema}
+
+%TODO Weights
+%TODO Riemann-Roch
+
+\subsection{Weierstrassove točke}
+
+\begin{izrek}
+Naj bo $M$ ploskev roda $g > 0$ in $P \in M$. Tedaj obstaja
+natanko $g$ števil
+\[
+1 = n_1 < n_2 < \dots < n_g < 2g,
+\]
+za katera ne obstaja funkcija $f \in \mathscr{K}(M)$, ki je
+holomorfna na $M \setminus \set{P}$ in ima pol reda $n_j$ v $P$.
+Tem številom pravimo GAP.
+\end{izrek}
+
+\begin{definicija}
+Točka $P \in M$ je \emph{Weierstrassova točka}, če na $M$ obstaja
+neničelna holomorfna diferencialna $1$-forma z ničlo reda vsaj
+$g$ v $P$.\footnote{V splošnem definiramo $q$-Weierstrassove točke
+-- obstaja $q$-forma z ničlo reda vsaj $\dim \mathscr{H}^q(M)$.}
+\end{definicija}
+
+\begin{lema}
+Ekvivalentno, vsaj eno izmed števil $2, \dots, g$ ni GAP.
+\end{lema}
+
+\begin{proof}
+Obstoj diferencialne $1$-forme z ničlo reda vsaj $g$ v $P$ je
+ekvivalentna pogoju $i(P^g) > 0$. Po Riemann-Rochovem izreku je ta
+neenakost ekvivalentna
+\[
+r \br{P^{-g}} - 1 > 0,
+\]
+oziroma $r \br{P^{-g}} \geq 2$. Ker je $r(1) = 1$, med
+$2, \dots, g$ obstaja število, ki ni GAP.
+%TODO Zakaj r(1) = 1?
+\end{proof}
+
+\begin{lema}
+Naj bo $M$ kompaktna Riemannova ploskev roda $g \geq 2$. Tedaj za
+število $w$ Weierstrassovih točk veljata oceni
+\[
+2g + 2 \leq w \leq g^3 - g.
+\]
+\end{lema}
+
+\subsection{Hipereliptične ploskve}

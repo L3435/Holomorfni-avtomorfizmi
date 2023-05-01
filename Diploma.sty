@@ -1,0 +1,50 @@
+\RequirePackage[shortlabels]{enumitem}
+
+\providecommand{\R}{\mathbb{R}}
+\providecommand{\C}{\mathbb{C}}
+\providecommand{\Z}{\mathbb{Z}}
+
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Div}{Div}
+\DeclareMathOperator{\ord}{ord}
+
+\providecommand{\set}[1]{\left\{#1\right\}}
+\providecommand{\setb}[2]{\left\{#1~\middle\vert~#2\right\}}
+\providecommand{\abs}[1]{\left\lvert #1\right\rvert}
+\providecommand{\skl}[1]{\left\langle #1\right\rangle}
+\providecommand{\eval}[3]{\left. #1\right|_{#2}^{#3}}
+\providecommand{\oline}{\overline}
+\providecommand{\br}[1]{\left(#1\right)}
+\providecommand{\rs}{\widehat{\C}}
+
+\RequirePackage{amsfonts, mathrsfs}
+\DeclareMathAlphabet{\mathbbe}{U}{bbold}{m}{n}
+\DeclareFontFamily{U}{bbold}{}
+\DeclareFontShape{U}{bbold}{m}{n}
+ {  <-5.5> s*[1.1] bbold5
+    <5.5-6.5> s*[1.1] bbold6
+    <6.5-7.5> s*[1.1] bbold7
+    <7.5-8.5> s*[1.1] bbold8
+    <8.5-9.5> s*[1.1] bbold9
+    <9.5-11.5> s*[1.1] bbold10
+    <11.5-16> s*[1.1] bbold12
+    <16-> s*[1.1] bbold17
+ }{}
+\providecommand{\dsk}{\mathbbe{\Delta}}
+\providecommand{\dskx}{\mathbbe{\Delta}\!^*}
+
+\providecommand{\kvoc}[2]{
+\mathchoice
+{% \displaystyle
+\left.\text{\raise0.4ex\hbox{$\textstyle#1$}}\middle/\text{\lower0.4ex\hbox{$\textstyle#2$}}\right.%
+}
+{% \textstyle
+\left.\text{\raise0.25ex\hbox{$#1$}}\middle/\text{\lower0.25ex\hbox{$#2$}}\right.
+}
+{% \scriptstyle
+\left.\text{\raise0.15ex\hbox{$#1$}}\middle/\text{\lower0.15ex\hbox{$#2$}}\right.
+}
+{% \scriptscriptstyle
+\left.#1\middle/#2\right.
+}
+}

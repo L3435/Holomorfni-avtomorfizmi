@@ -1,0 +1,91 @@
+\section{Holomorfni avtomorfizmi v kompleksni ravnini}
+
+\subsection{Enostavno povezana območja}
+
+\begin{definicija}
+\emph{Območje} v kompleksni ravnini $\C$ je vsaka odprta povezana
+množica.
+\end{definicija}
+
+\begin{definicija}
+\emph{Holomorfni avtomorfizem} območja $\Omega$ je bijektivna
+holomorfna preslikava $f \colon \Omega \to \Omega$ s holomorfnim
+inverzom.
+\end{definicija}
+
+Opazimo, da je zadosten pogoj že to, da je $f$ bijektivna z
+neničelnim odvodom. Opazimo še, da množica avtomorfizmov nekega
+območja tvori grupo z operacijo kompozitum. To grupo označimo z
+$\Aut(\Omega)$.
+
+\begin{primer}
+Kompleksna ravnina je območje v $\C$. Njena grupa avtomorfizmov
+je enaka
+\[
+\Aut(\C) = \setb{az + b}{a \ne 0}. \qedhere
+\]
+\end{primer}
+
+\begin{primer}
+Naj bo $\dsk$ odprt enotski disk v $\C$. Tedaj je
+\[
+\Aut(\dsk) =
+\setb{e^{i \theta} \cdot \frac{z-a}{1 - \oline{a} z}}
+{a \in \dsk \land \theta \in [0, 2\pi)}. \qedhere
+\]
+\end{primer}
+
+Izkaže se, da smo s tem do izomorfizma natančno opisali grupe
+avtomorfizmov vseh povezanih in enostavno povezanih množic v $\C$.
+Velja namreč naslednja lema:
+
+\begin{lema}
+Naj bosta $\Omega_1$ in $\Omega_2$ biholomorfno ekvivalentni
+območji v $\C$. Tedaj je $\Aut(\Omega_1) \cong \Aut(\Omega_2)$.
+\end{lema}
+
+\begin{proof}
+Naj bo $f \colon \Omega_1 \to \Omega_2$ biholomorfna preslikava.
+Sedaj definiramo preslikavo
+$\Phi \colon \Aut(\Omega_1) \to \Aut(\Omega_2)$ s predpisom
+\[
+\Phi(\phi) = f^{-1} \circ \phi \circ f.
+\]
+Ker je s predpisom
+\[
+\Phi^{-1}(\psi) = f \circ \psi \circ f^{-1}
+\]
+očitno podan predpis inverza preslikave $\Phi$, je ta bijektivna.
+Velja pa
+\[
+\Phi(\phi \circ \psi) = f^{-1} \circ \phi \circ \psi \circ f =
+\br{f^{-1} \circ \phi \circ f} \circ
+\br{f^{-1} \circ \psi \circ f} =
+\Phi(\phi) \circ \Phi(\psi),
+\]
+zato je $\Phi$ homomorfizem.
+\end{proof}
+
+Spomnimo se na Riemannov upodobitveni izrek, ki pravi, da je
+vsako povezano in enostavno povezano območje v kompleksni ravnini
+ali biholomorfno ekvivalentno $\dsk$ ali pa kar enako $\C$. Grupe
+avtomorfizmov povezanih in enostavno povezanih območij so do
+izomorfizma natančno tako le $\Aut(\dsk)$ in $\Aut(\C)$.
+
+Omenimo še, da lahko kompleksno ravnino dopolnimo do Riemannove
+sfere $\rs$. Njeni avtomorfizmi so Möbiusove transformacije, torej
+\[
+\Aut \br{\rs} = \setb{\frac{az + b}{cz + d}}{ad - bc = 1}.
+\]
+
+\subsection{Kolobarji in punktirani diski}
+
+Po obravnavi enostavno povezanih območij so naslednji korak
+območja z ">luknjami"<. Najosnovnejši tak primer je seveda
+kolobar.
+
+%TODO
+
+Opazimo, da se pri velikem številu lukenj grupa avtomorfizmov
+bistveno zmanjša -- enostavno povezana območja imajo neskončno
+avtomorfizmov, prav tako območja z eno luknjo.
