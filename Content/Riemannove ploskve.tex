@@ -42,13 +42,102 @@ Opazimo, da velja
 \]
 
 \begin{lema}
-Za vsako neničelno funkcijo $f \in \mathscr{K}(M)$ velja
-$\deg (f) = 0$. Posledično je
-$\deg f^{-1}(0) = \deg f^{-1}(\infty)$.
+Naj bo $M$ kompaktna Riemannova ploskev. Za vsako neničelno
+funkcijo $f \in \mathscr{K}(M)$ velja
+$\deg f^{-1}(0) = \deg f^{-1}(\infty)$. Ekvivalentno je
+$\deg (f) = 0$.
 \end{lema}
 
-%TODO Weights
-%TODO Riemann-Roch
+\begin{proof}
+Predpostavimo lahko, da je $f$ nekonstantna. Iz kompleksne analize
+vemo, da za vsako točko $P \in M$ obstajajo take lokalne
+koordinate $\tilde{z}$, da je $f(\tilde{z}) = f(P) + \tilde{z}^n$.
+Število $n$ označimo z $b(P)$.
+
+Za vsako naravno število $m$ naj bo
+\[
+\Sigma_m = \setb{\alpha \in \rs}{\sum_{f(P)=\alpha} b(P) \geq m}.
+\]
+Označimo še
+\[
+\varphi(\alpha) = \sum_{f(P)=\alpha} b(P).
+\]
+Vse množice $\Sigma_m \setminus \set{\infty}$ so odprte -- če je
+$b(P) = n$, lahko v lokalnih koordinatah zapišemo
+$f(\tilde{z}) = \alpha + \tilde{z}^n$. Enačba
+$f(\tilde{z}) = \alpha + \varepsilon$ ima tako natanko $n$
+rešitev, zato na dovolj majhni okolici točke $P$ velja
+\[
+b(P) = \sum_{f(Q) = \alpha + \varepsilon} b(Q).
+\]
+Če to enakost seštejemo po okolicah vseh točk $P$, dobimo
+\[
+m \leq \varphi(\alpha) \leq \varphi(\alpha + \varepsilon).
+\]
+
+Pokažimo še, da so te množice zaprte v $\rs$. Naj bo $Q$ limita
+zaporedja točk $Q_k \in \Sigma_m$, pri čemer je brez škode za
+splošnost $b(P) = 0$ za vsak $P \in f^{-1}(Q_k)$. Ker imajo vse
+množice $f^{-1}(Q_k)$ vsaj $m$ elementov, lahko najdemo tako
+podzaporedje zaporedja $(Q_k)_{n=1}^\infty$, da lahko iz njihovih
+praslik tvorimo $m$ konvergentnih zaporedij. Tako sledi
+\[
+\sum_{P \in f^{-1}(Q)} b(P) \geq m.
+\]
+Sledi, da so vse množice $\Sigma_m$ odprte in zaprte v $\C$. Čim
+je ena izmed množic $\Sigma_m \setminus \set{\infty}$ neprazna,
+je tako enaka celotni kompleksni ravnini. Ker je $\Sigma_m$ poleg
+tega še zaprta v $\rs$, velja kar $\Sigma_m = \rs$. Sledi, da
+obstaja tako naravno število $m$, da je $\varphi(\alpha) = m$ za
+vsa kompleksna števila $\alpha$, poleg tega pa velja še
+$\varphi(\infty) \leq m$.
+
+Ker lahko identičen razmislek naredimo tudi za funkcijo
+$\frac{1}{f}$, sledi še neenakost $\varphi(\infty) \geq m$. Tako
+je $\varphi$ konstantna na $\rs$.
+
+Za zaključek dokaza je dovolj opaziti, da velja
+\[
+f^{-1}(0) = \varphi(0) = \varphi(\infty) = f^{-1}(\infty).
+\qedhere
+\]
+\end{proof}
+
+Posebej velja opomniti, da to pomeni, da imajo funkcije na
+kompaktnih Riemannovih ploskvah enako število ničel in polov
+(štetih z večkratnostmi).
+
+Na deliteljih lahko uvedemo relacijo delne urejenosti kot
+\[
+\prod_{P \in M} P^{\alpha(P)} \geq \prod_{P \in M} P^{\beta(P)}
+\iff
+\forall P \in M \colon \alpha(P) \geq \beta(P).
+\]
+Ni težko videti, da je za vsak delitelj $\mathfrak{A}$ na $M$
+množica
+\[
+L(\mathfrak{A}) =
+\setb{f \in \mathscr{K}(M)}{(f) \geq \mathfrak{A}}
+\]
+vektorski prostor -- njegovo dimenzijo označimo z
+$i(\mathfrak{A})$. Podobno je tudi
+\[
+\Omega(\mathfrak{A}) =
+\setb{df}{f \in \mathscr{H}(M) \land (df) \geq \mathfrak{A}}
+\]
+vektorski prostor. Označimo
+$i(\mathfrak{A}) = \dim \Omega(\mathfrak{A})$.
+
+\begin{izrek}[Riemann-Roch]
+Naj bo $M$ kompaktna Riemannova ploskev roda $g$ in $\mathfrak{A}$
+delitelj na $M$. Tedaj velja
+\[
+r \br{\mathfrak{A}^{-1}} =
+\deg \mathfrak{A} - g + 1 + i(\mathfrak{A}).
+\]
+\end{izrek}
+
+%TODO Proof?
 
 \subsection{Weierstrassove točke}
 
@@ -93,5 +182,7 @@ Naj bo $M$ kompaktna Riemannova ploskev roda $g \geq 2$. Tedaj za
 2g + 2 \leq w \leq g^3 - g.
 \]
 \end{lema}
+
+%TODO Proof -- weights
 
 \subsection{Hipereliptične ploskve}
