@@ -186,7 +186,7 @@ r \br{\mathfrak{A}^{-1}} =
 
 \subsection{Weierstrassove točke}
 
-\begin{izrek}
+\begin{izrek}[Weierstrass]
 Naj bo $M$ ploskev roda $g > 0$ in $P \in M$. Tedaj obstaja
 natanko $g$ števil
 \[
@@ -197,7 +197,39 @@ holomorfna na $M \setminus \set{P}$ in ima pol reda $n_j$ v $P$.
 Tem številom pravimo GAP.
 \end{izrek}
 
-%TODO Proof
+\begin{proof}
+Najprej opazimo, da je število $n$ GAP natanko tedaj, ko je
+$r(P^{-n}) = r(P^{1-n})$. Ker je $r(P^{-n}) \leq r(P^{1-n}) + 1$,
+število $n$ ni GAP natanko tedaj, ko velja
+\[
+r(P^{-n}) - r(P^{1-n}) = 1.
+\]
+Po Riemann-Rochovem izreku velja
+\[
+r(P^{-k}) = k-g+1 + i(P^k),
+\]
+zato sledi
+\begin{align*}
+r(P^{-n}) - r(1) &= \sum_{k=1}^n \br{r(P^{-k}) - r(P^{1-k})}
+\\
+&=
+\sum_{k=1}^n \br{1 + i(P^k) - i(P^{k-1})}
+\\
+&=
+n + i(P^n) - i(1).
+\end{align*}
+Ker je $i(1) = g$ in za vse $n > 2g-2$ velja $i(P^n) = 0$, sledi
+\[
+r(P^n) - 1 = n - g.
+\]
+Opazimo, da leva stran šteje ravno število NEGAPOV $\leq n$.
+Sledi, da je teh natanko $g$ in so vsi manjši od $2g-1$.
+\end{proof}
+
+%TODO Popravi \left \right
+%TODO Zakaj r(1) = 1?
+%TODO Zakaj i(1) = g?
+%TODO Zakaj i(P^n) = 0?
 
 \begin{definicija}
 Točka $P \in M$ je \emph{Weierstrassova točka}, če na $M$ obstaja
