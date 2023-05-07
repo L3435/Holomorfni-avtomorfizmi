@@ -4,6 +4,98 @@
 
 %TODO Definicije gladkih mnogoterosti
 
+\begin{trditev}
+\label{td:deg}
+Naj bo $f \colon M \to N$ nekonstantna holomorfna preslikava med
+kompaktnima Riemannovima ploskvama. Tedaj obstaja naravno število
+$m$, za katero $f$ doseže vsako točko $Q \in N$ natanko
+$m$-krat.\footnote{Šteto z večkratnostmi.}
+\end{trditev}
+
+\begin{proof}
+Iz kompleksne analize vemo, da za vsako točko $P \in M$ obstajajo
+take lokalne koordinate $\tilde{z}$, da je
+$f(\tilde{z}) = f(P) + \tilde{z}^n$. Število $n-1$ označimo z
+$b(P)$ in mu pravimo BRANCHING NUMBER.
+
+Za vsako naravno število $m$ naj bo
+\[
+\Sigma_m =
+\setb{X \in N}{\sum_{f(P)=X} (b(P)+1) \geq m}.
+\]
+Označimo še
+\[
+\varphi(X) = \sum_{f(P) = X} (b(P)+1).
+\]
+Vse množice $\Sigma_m$ so odprte -- če je $b(P) = n-1$, lahko v
+lokalnih koordinatah zapišemo $f(\tilde{z}) = \tilde{z}^n$. Enačba
+$f(\tilde{z}) = \varepsilon$ ima tako natanko $n$ rešitev, zato za
+okolico $U$ točke $P$ velja
+\[
+b(P) + 1 = \sum_{Q \in U \cap f^{-1}(P')} (b(Q) + 1),
+\]
+kjer je $P' \in f(U)$. Če to enakost seštejemo po okolicah vseh točk $P \in f^{-1}(X)$, dobimo
+\[
+m \leq \varphi(X) \leq \varphi(P').
+\]
+
+Pokažimo še, da so te množice zaprte v $\rs$. Naj bo $Q$ limita
+zaporedja točk $Q_k \in \Sigma_m$, pri čemer je brez škode za
+splošnost $b(P) = 0$ za vsak $P \in f^{-1}(Q_k)$. Ker imajo vse
+množice $f^{-1}(Q_k)$ vsaj $m$ elementov, lahko najdemo tako
+podzaporedje zaporedja $(Q_k)_{n=1}^\infty$, da lahko iz njihovih
+praslik tvorimo $m$ konvergentnih zaporedij. Tako sledi
+\[
+\sum_{P \in f^{-1}(Q)} (b(P)+1) \geq m.
+\]
+Sledi, da so vse množice $\Sigma_m$ odprte in zaprte v $\rs$. Čim
+je ena izmed množic $\Sigma_m$ neprazna, je tako enaka celotni
+Riemannovi sferi, saj je ta povezana.
+\end{proof}
+
+Številu $m$ pravimo \emph{stopnja} preslikave $f$.
+
+\begin{definicija}
+Za kompaktni Riemannovo ploskvi $M$ in $N$ ter nekonstantno
+preslikavo $f \colon M \to N$ definiramo
+\emph{TOTAL BRANCHING NUMBER} kot
+\[
+B = \sum_{P \in M} b_f(P).
+\]
+\end{definicija}
+
+Število je dobro definirano, saj je množica
+$\setb{P \in M}{b_f(P)}$ diskretna in tako zaradi kompaktnosti
+končna.
+
+\begin{izrek}[Riemann-Hurwitz]
+\label{iz:rie-hur}
+Naj bosta $M$ in $N$ kompaktni Riemannovi ploskvi rodov $g$ in
+$\gamma$, $f \colon M \to N$ pa nekonstantna preslikava stopnje
+$N$. Tedaj za TOTAL BRANCHING NUMBER $B$ velja
+\[
+g = n(\gamma - 1) + 1 + \frac{B}{2}.
+\]
+\end{izrek}
+
+\begin{proof}
+Ker je množica $\setb{P \in M}{b_f(P) > 0}$ končna, jo lahko
+uporabimo za triangulacijo ploskve $N$. Denimo, da ima
+triangulacija $F$ lic, $E$ povezav in $V$ vozlišč. To
+triangulacijo lahko z $f^{-1}$ preslikamo na $M$. Tako dobimo
+triangulacijo ploskve $M$ z $nF$ lici, $nE$ povezavami in $nV - B$
+vozlišči. Sledi, da je
+\begin{align*}
+F - E + V &= 2 - 2 \gamma,
+\\
+nF - nE + nV - B &= 2 - 2g.
+\end{align*}
+Iz teh enačb očitno sledi
+\[
+g = n(\gamma - 1) + 1 + \frac{B}{2}. \qedhere
+\]
+\end{proof}
+
 \subsection{Riemann-Rochov izrek}
 
 \begin{definicija}
@@ -49,45 +141,10 @@ $\deg (f) = 0$.
 \end{lema}
 
 \begin{proof}
-Predpostavimo lahko, da je $f$ nekonstantna. Iz kompleksne analize
-vemo, da za vsako točko $P \in M$ obstajajo take lokalne
-koordinate $\tilde{z}$, da je $f(\tilde{z}) = f(P) + \tilde{z}^n$.
-Število $n$ označimo z $b(P)$.
-
-Za vsako naravno število $m$ naj bo
-\[
-\Sigma_m = \setb{\alpha \in \rs}{\sum_{f(P)=\alpha} b(P) \geq m}.
-\]
-Označimo še
-\[
-\varphi(\alpha) = \sum_{f(P)=\alpha} b(P).
-\]
-Vse množice $\Sigma_m$ so odprte -- če je $b(P) = n$, lahko v
-lokalnih koordinatah zapišemo
-$f(\tilde{z}) = \tilde{z}^n$. Enačba $f(\tilde{z}) = \varepsilon$
-ima tako natanko $n$ rešitev, zato na dovolj majhni okolici točke
-$P$ velja
-\[
-b(P) = \sum_{f(Q) = \alpha + \varepsilon} b(Q).
-\]
-%TODO Popravi da ne bo \varepsilon kjer ni treba
-Če to enakost seštejemo po okolicah vseh točk $P$, dobimo
-\[
-m \leq \varphi(\alpha) \leq \varphi(\alpha + \varepsilon).
-\]
-
-Pokažimo še, da so te množice zaprte v $\rs$. Naj bo $Q$ limita
-zaporedja točk $Q_k \in \Sigma_m$, pri čemer je brez škode za
-splošnost $b(P) = 0$ za vsak $P \in f^{-1}(Q_k)$. Ker imajo vse
-množice $f^{-1}(Q_k)$ vsaj $m$ elementov, lahko najdemo tako
-podzaporedje zaporedja $(Q_k)_{n=1}^\infty$, da lahko iz njihovih
-praslik tvorimo $m$ konvergentnih zaporedij. Tako sledi
-\[
-\sum_{P \in f^{-1}(Q)} b(P) \geq m.
-\]
-Sledi, da so vse množice $\Sigma_m$ odprte in zaprte v $\rs$. Čim
-je ena izmed množic $\Sigma_m$ neprazna, je tako enaka celotni
-Riemannovi sferi, saj je ta povezana.
+Stopnja polarnega delitelja funkcije $f$ je natanko število njenih
+polov, štetih z večkratnostmi, stopnja ničelnega delitelja pa
+število njenih ničel. Ti števili sta enaki po
+trditvi~\ref{td:deg}.
 \end{proof}
 
 Posebej velja opomniti, da to pomeni, da imajo funkcije na
@@ -251,7 +308,7 @@ $J(h) = -h$. Tako je $J$ holomorfna tudi na $W$.
 Predpostavimo sedaj, da obstaja involucija $J \in \Aut M$ z
 $2g + 2$ fiksnimi točkami. Ker se projekcija
 $f \colon M \to \kvoc{M}{\skl{J}}$ BRANCHA v natanko $2g + 2$
-točkah, po Riemann-Hurwitzu dobimo, da je rod ploskve
+točkah, po izreku~\ref{iz:rie-hur} sledi, da je rod ploskve
 $\kvoc{M}{\skl{J}}$ enak $0$. Sledi, da je
 $\kvoc{M}{\skl{J}} \cong \rs$, zato je $f$ meromorfna funkcija z
 dvema poloma.
