@@ -1,6 +1,8 @@
 ## Additional stuff
 *.bst
 *.xmpdata
+*.asy
+Horjak-27201083-2023-*
 
 ## Core latex/pdflatex auxiliary files:
 *.aux

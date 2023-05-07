@@ -1,0 +1,77 @@
+\begin{figure}[!ht]
+\centering
+
+\begin{asy}
+int ITER = 1000;
+real STEP = 0.3;
+pair a = (0.6,-0.3);
+real theta = 0.3pi;
+pair aut(pair X){
+  return X;
+}
+
+path Re(real y, pair A(pair)){
+  guide g;
+  for(int i = 0; i < 1000; ++i){
+    g = g--(A((2*sqrt(1-y*y)*i/ITER - sqrt(1-y*y),y)));
+  }
+  path p = g;
+  return p;
+}
+
+path Im(real x, pair A(pair)){
+  guide g;
+  for(int i = 0; i < 1000; ++i){
+    g = g--(A((x,2*sqrt(1-x*x)*i/ITER - sqrt(1-x*x))));
+  }
+  path p = g;
+  return p;
+}
+draw(circle((0,0),1));
+for(real t = -0.9; t <= 1; t += STEP){
+	draw(Re(t, aut),red);
+	draw(Im(t, aut),blue);
+}
+dot(a);
+xaxis("$\Re$",Ticks(Label(fontsize(8pt)),new real[]{}),xmin=-1.25,xmax=1.25);
+yaxis("$\Im$",Ticks(Label(fontsize(8pt)),new real[]{}),ymin=-1.25,ymax=1.25);
+\end{asy}
+\hfill
+\begin{asy}
+int ITER = 1000;
+real STEP = 0.3;
+pair a = (0.6,-0.3);
+real theta = 0.3pi;
+pair aut(pair X){
+  return exp(I*theta) * (X-a) / (1-conj(a)*X);
+}
+
+path Re(real y, pair A(pair)){
+  guide g;
+  for(int i = 0; i < 1000; ++i){
+    g = g--(A((2*sqrt(1-y*y)*i/ITER - sqrt(1-y*y),y)));
+  }
+  path p = g;
+  return p;
+}
+
+path Im(real x, pair A(pair)){
+  guide g;
+  for(int i = 0; i < 1000; ++i){
+    g = g--(A((x,2*sqrt(1-x*x)*i/ITER - sqrt(1-x*x))));
+  }
+  path p = g;
+  return p;
+}
+draw(circle((0,0),1));
+for(real t = -0.9; t <= 1; t += STEP){
+	draw(Re(t, aut),red);
+	draw(Im(t, aut),blue);
+}
+dot(aut((0,0)));
+xaxis("$\Re$",Ticks(Label(fontsize(8pt)),new real[]{}),xmin=-1.25,xmax=1.25);
+yaxis("$\Im$",Ticks(Label(fontsize(8pt)),new real[]{}),ymin=-1.25,ymax=1.25);
+\end{asy}
+\caption{Primer avtomorfizma diska. Označeni sta točki $f^{-1}(0)$
+in $f(0)$.}
+\end{figure}

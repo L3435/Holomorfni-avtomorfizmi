@@ -8,7 +8,7 @@ množica.
 \end{definicija}
 
 \begin{definicija}
-\emph{Holomorfni avtomorfizem} območja $\Omega$ je bijektivna
+\emph{Holomorfen avtomorfizem} območja $\Omega$ je bijektivna
 holomorfna preslikava $f \colon \Omega \to \Omega$ s holomorfnim
 inverzom.
 \end{definicija}
@@ -22,7 +22,7 @@ $\Aut(\Omega)$.
 Kompleksna ravnina je območje v $\C$. Njena grupa avtomorfizmov
 je enaka
 \[
-\Aut(\C) = \setb{az + b}{a \ne 0}. \qedhere
+\Aut(\C) = \setb{z \mapsto az + b}{a \ne 0}. \qedhere
 \]
 \end{primer}
 
@@ -30,10 +30,12 @@ je enaka
 Naj bo $\dsk$ odprt enotski disk v $\C$. Tedaj je
 \[
 \Aut(\dsk) =
-\setb{e^{i \theta} \cdot \frac{z-a}{1 - \oline{a} z}}
+\setb{z \mapsto e^{i \theta} \cdot \frac{z-a}{1 - \oline{a} z}}
 {a \in \dsk \land \theta \in [0, 2\pi)}. \qedhere
 \]
 \end{primer}
+
+\input{asy/aut_dsk.tex}
 
 Izkaže se, da smo s tem do izomorfizma natančno opisali grupe
 avtomorfizmov vseh povezanih in enostavno povezanih množic v $\C$.
@@ -75,17 +77,74 @@ izomorfizma natančno tako le $\Aut(\dsk)$ in $\Aut(\C)$.
 Omenimo še, da lahko kompleksno ravnino dopolnimo do Riemannove
 sfere $\rs$. Njeni avtomorfizmi so Möbiusove transformacije, torej
 \[
-\Aut \br{\rs} = \setb{\frac{az + b}{cz + d}}{ad - bc = 1}.
+\Aut \br{\rs} =
+\setb{z \mapsto \frac{az + b}{cz + d}}{ad - bc = 1}.
 \]
 
-\subsection{Kolobarji in punktirani diski}
+\subsection{Punktirani diski in kolobarji}
 
 Po obravnavi enostavno povezanih območij so naslednji korak
-območja z ">luknjami"<. Najosnovnejši tak primer je seveda
-kolobar.
+območja z ">luknjami"<. Eden izmed osnovnejših primerov takih
+območij je punktiran disk
+$\dsk_\alpha = \dsk \setminus \set{\alpha}$.
 
-%TODO
+Disk $\dskx = \dsk \setminus \set{0}$ je biholomorfno
+ekvivalenten vsakemu punktiranemu disku, saj je preslikava
+$f \colon \dsk_\alpha \to \dskx$ s predpisom
+\[
+f(z) = \frac{z - \alpha}{1 - \oline{\alpha} z}
+\]
+biholomorfna. Sledi, da je
+$\Aut(\dsk_\alpha) \cong \Aut(\dskx)$.
 
-Opazimo, da se pri velikem številu lukenj grupa avtomorfizmov
-bistveno zmanjša -- enostavno povezana območja imajo neskončno
-avtomorfizmov, prav tako območja z eno luknjo.
+\begin{trditev}
+Za punktiran disk velja
+\[
+\Aut(\dskx) =
+\setb{z \mapsto e^{i \pi \theta} z}{\theta \in [0, 2\pi)}.
+\]
+\end{trditev}
+
+\begin{proof}
+Naj bo $f \colon \dskx \to \dskx$ poljuben avtomorfizem. Tedaj je
+točka $0$ izolirana singularnost funkcije $f$. Ker je $f$ omejena,
+je to odpravljiva singularnost.
+
+Naj bo $\widetilde{f} \colon \dsk \to \C$ funkcija, ki jo dobimo
+tako, da $f$ razširimo na celoten disk. Predpostavimo, da velja
+$\widetilde{f}(0) \ne 0$. Ker je $\widetilde{f}$ holomorfna, je
+odprta, zato sledi $\abs{\widetilde{f}(0)} < 1$. Oglejmo si točko
+$\alpha \ne 0$, za katero je $f(\alpha) = \widetilde{f}(0)$.
+Izberemo si lahko disjunktni okolici $U$ in $V$ točk $0$ in
+$\alpha$. Ker je $\widetilde{f}$ odprta, je odprta tudi množica
+$W = \widetilde{f}(U) \cap \widetilde{f}(V)$. Hitro opazimo, da
+velja $\widetilde{f}(0) \in W$, zato je ta množica neprazna.
+Sledi, da je $W$ neskončna, kar je protislovje, saj velja
+$f(U \setminus \set{0}) \cap f(V) = \emptyset$.
+
+Sledi, da je $\widetilde{f}(0) = 0$, zato je $\widetilde{f}$
+avtomorfizem diska. Sledi, da je
+\[
+\Aut(\dskx) \subseteq \setb{f \in \Aut(\dsk)}{f(0) = 0}.
+\]
+Ni težko preveriti, da velja tudi obratna inkluzija. Tako dobimo
+\[
+\Aut(\dskx) =
+\setb{z \mapsto e^{i \pi \theta} z}{\theta \in [0, 2\pi)}.
+\qedhere
+\]
+\end{proof}
+
+Kaj pa se zgodi, če število lukenj povečamo? Naj bo
+$\dsk_2 = \dsk \setminus \set{0, \alpha}$.\footnote{Podobno kot
+prej lahko privzamemo, da je ena izmed lukenj enaka $0$.} Po
+enakem razmisleku kot prej ugotovimo, da za vsak avtomorfizem
+$f \in \Aut(\dsk_2)$ velja $f(0) \in \dsk$ in hkrati
+$f(0) \not \in \dsk_2$. Enako velja za točko $\alpha$. Sedaj ni
+težko videti, da velja
+\[
+\Aut(\dsk_2) =
+\skl{z \mapsto \frac{\alpha - z}{1 - \oline{\alpha} z}} \cong
+\Z_2,
+\]
+saj je avtomorfizem diska natančno določen z dvema točkama.
