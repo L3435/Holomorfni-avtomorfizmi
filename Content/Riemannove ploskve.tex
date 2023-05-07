@@ -62,14 +62,15 @@ Označimo še
 \[
 \varphi(\alpha) = \sum_{f(P)=\alpha} b(P).
 \]
-Vse množice $\Sigma_m \setminus \set{\infty}$ so odprte -- če je
-$b(P) = n$, lahko v lokalnih koordinatah zapišemo
-$f(\tilde{z}) = \alpha + \tilde{z}^n$. Enačba
-$f(\tilde{z}) = \alpha + \varepsilon$ ima tako natanko $n$
-rešitev, zato na dovolj majhni okolici točke $P$ velja
+Vse množice $\Sigma_m$ so odprte -- če je $b(P) = n$, lahko v
+lokalnih koordinatah zapišemo
+$f(\tilde{z}) = \tilde{z}^n$. Enačba $f(\tilde{z}) = \varepsilon$
+ima tako natanko $n$ rešitev, zato na dovolj majhni okolici točke
+$P$ velja
 \[
 b(P) = \sum_{f(Q) = \alpha + \varepsilon} b(Q).
 \]
+%TODO Popravi da ne bo \varepsilon kjer ni treba
 Če to enakost seštejemo po okolicah vseh točk $P$, dobimo
 \[
 m \leq \varphi(\alpha) \leq \varphi(\alpha + \varepsilon).
@@ -84,23 +85,9 @@ praslik tvorimo $m$ konvergentnih zaporedij. Tako sledi
 \[
 \sum_{P \in f^{-1}(Q)} b(P) \geq m.
 \]
-Sledi, da so vse množice $\Sigma_m$ odprte in zaprte v $\C$. Čim
-je ena izmed množic $\Sigma_m \setminus \set{\infty}$ neprazna,
-je tako enaka celotni kompleksni ravnini. Ker je $\Sigma_m$ poleg
-tega še zaprta v $\rs$, velja kar $\Sigma_m = \rs$. Sledi, da
-obstaja tako naravno število $m$, da je $\varphi(\alpha) = m$ za
-vsa kompleksna števila $\alpha$, poleg tega pa velja še
-$\varphi(\infty) \leq m$.
-
-Ker lahko identičen razmislek naredimo tudi za funkcijo
-$\frac{1}{f}$, sledi še neenakost $\varphi(\infty) \geq m$. Tako
-je $\varphi$ konstantna na $\rs$.
-
-Za zaključek dokaza je dovolj opaziti, da velja
-\[
-f^{-1}(0) = \varphi(0) = \varphi(\infty) = f^{-1}(\infty).
-\qedhere
-\]
+Sledi, da so vse množice $\Sigma_m$ odprte in zaprte v $\rs$. Čim
+je ena izmed množic $\Sigma_m$ neprazna, je tako enaka celotni
+Riemannovi sferi, saj je ta povezana.
 \end{proof}
 
 Posebej velja opomniti, da to pomeni, da imajo funkcije na
@@ -123,7 +110,8 @@ vektorski prostor -- njegovo dimenzijo označimo z
 $i(\mathfrak{A})$. Podobno je tudi
 \[
 \Omega(\mathfrak{A}) =
-\setb{df}{f \in \mathscr{H}(M) \land (df) \geq \mathfrak{A}}
+\setb{df}{\text{$\omega$ je meromorfna $1$-forma} \land
+1(w) \geq \mathfrak{A}}
 \]
 vektorski prostor. Označimo
 $i(\mathfrak{A}) = \dim \Omega(\mathfrak{A})$.
@@ -151,6 +139,8 @@ za katera ne obstaja funkcija $f \in \mathscr{K}(M)$, ki je
 holomorfna na $M \setminus \set{P}$ in ima pol reda $n_j$ v $P$.
 Tem številom pravimo GAP.
 \end{izrek}
+
+%TODO Proof
 
 \begin{definicija}
 Točka $P \in M$ je \emph{Weierstrassova točka}, če na $M$ obstaja
@@ -186,3 +176,112 @@ Naj bo $M$ kompaktna Riemannova ploskev roda $g \geq 2$. Tedaj za
 %TODO Proof -- weights
 
 \subsection{Hipereliptične ploskve}
+
+\begin{definicija}
+Kompaktna Riemannova ploskev $M$ je \emph{hipereliptična}, če
+obstaja nekonstantna meromorfna funkcija $f \colon M \to \rs$ z
+natanko dvema poloma.\footnote{Pri tem pole štejemo z
+večkratnostmi.}
+\end{definicija}
+
+Ekvivalentno to pomeni, da obstaja tak CEL delitelj
+$D \in \Div M$, da je $\deg D = 2$ in $r(D^{-1}) \geq 2$.
+
+\begin{trditev}
+Vsaka kompaktna Riemannova ploskev roda $g \leq 2$ je
+hipereliptična.
+\end{trditev}
+
+%TODO BRANCH točke so Weierstrassove
+
+\begin{trditev}
+Naj bosta $f$ in $g$ dve funkciji $f \colon M \to \rs$ stopnje
+$2$. Tedaj obstaja Möbiusova transformacija $A$, za katero je
+\[
+g = A \circ f.
+\]
+\end{trditev}
+
+\begin{proof}
+Naj bo $f^{-1}(\infty) = P_1 Q_1$ in $g^{-1}(\infty) = P_2 Q_2$.
+Ker na $M$ ne obstajajo funkcije stopnje $1$, sledi
+$r(P_1^{-1} Q_1^{-1}) = r(P_2^{-1} Q_2^{-1}) = 2$. Prostora
+$L(P_1^{-1} Q_1^{-1})$ in $L(P_2^{-1} Q_2^{-1})$ imata tako
+zaporedoma bazi $\set{1, f}$ in $\set{1, g}$. Ker velja
+$P_1 Q_1 \sim P_2 Q_2$,
+%TODO Kaj to pomeni in zakaj?
+sledi, da obstajajo konstante $\alpha, \beta, \gamma$ in $\delta$,
+za katere je
+\[
+1 = \alpha h + \beta hf
+\quad \text{in} \quad
+g = \gamma h + \delta hf,
+\]
+kjer je $(h) = P_1 Q_1 P_2^{-1} Q_2^{-1}$. Očitno je namreč
+$\varphi \mapsto h \varphi$ izomorfizem prostorov
+$L(P_1^{-1} Q_1^{-1})$ in $L(P_2^{-1} Q_2^{-1})$. Tako lahko
+izrazimo
+\[
+g = \frac{\gamma + \delta f}{\alpha + \beta f}. \qedhere
+\]
+\end{proof}
+
+\begin{trditev}
+Naj bo $M$ kompaktna Riemannova ploskev roda $g$. Tedaj je $M$
+hipereliptična natanko tedaj, ko obstaja involucija $J \in \Aut M$
+z natanko $2g + 2$ fiksnimi točkami.
+\end{trditev}
+
+\begin{proof}
+Predpostavimo najprej, da je $M$ hipereliptična. Naj bo
+$f \colon M \to \rs$ meromorfna funkcija stopnje $2$. Za vsak
+$P \in M$ tako obstaja še ena točka $Q \in M$, za katero je
+$f(P) = f(Q)$ (če je $\ord_P f = 2$, vzamemo $Q=P$). Tako lahko
+enostavno definiramo $J(P) = Q$. Ni težko videti, da je $J$
+res involucija z $2g + 2$ fiksnimi točkami.
+
+Če je $Q = J(P) \ne P$, lahko na okolici $U_Q$ točke $Q$ zapišemo
+\[
+J(X) = \br{\eval{f}{U_Q}{}}^{-1}(f(X)),
+\]
+zato je $J$ holomorfna na $M \setminus W$. Če pa je $J(P) = P$, pa
+je $h = \sqrt{f - f(P)}$ lokalna koordinata, pri čemer velja
+$J(h) = -h$. Tako je $J$ holomorfna tudi na $W$.
+
+Predpostavimo sedaj, da obstaja involucija $J \in \Aut M$ z
+$2g + 2$ fiksnimi točkami. Ker se projekcija
+$f \colon M \to \kvoc{M}{\skl{J}}$ BRANCHA v natanko $2g + 2$
+točkah, po Riemann-Hurwitzu dobimo, da je rod ploskve
+$\kvoc{M}{\skl{J}}$ enak $0$. Sledi, da je
+$\kvoc{M}{\skl{J}} \cong \rs$, zato je $f$ meromorfna funkcija z
+dvema poloma.
+\end{proof}
+
+%TODO Zakaj je ta kvocient ploskev?
+
+Opazimo, da so fiksne točke hipereliptične involucije natanko
+Weierstrassove točke.
+
+\begin{trditev}
+Naj bo $M$ hipereliptična Riemannova ploskev roda $g \geq 2$ in
+$T \in \Aut M$. Če je $T \not \in \skl{J}$, ima $T$ kvečjemu $4$
+fiksne točke.
+\end{trditev}
+
+\begin{proof}
+Naj bo $f \colon M \to \rs$ funkcija z natanko dvema poloma. Tedaj
+je taka tudi $z \circ T$, zato obstaja Möbiusova transformacija
+$A$, za katero je
+\[
+f \circ T = A \circ f.
+\]
+%TODO Zakaj?
+Naj bo $P$ fiksna točka avtomorfizma $T$. Sledi, da je
+\[
+A(f(P)) = f(T(P)) = f(P),
+\]
+zato je $f(P)$ fiksna točka preslikave $A$. Opazimo, da je
+$A \ne \id$, saj bi v nasprotnem primeru veljalo $f \circ T = f$,
+kar implicira $T \in \skl{J}$. Tako ima $A$ kvečjemu $2$ fiksni
+točki, zato jih ima $T$ največ $4$.
+\end{proof}
