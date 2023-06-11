@@ -72,7 +72,7 @@ končna.
 \label{iz:rie-hur}
 Naj bosta $M$ in $N$ kompaktni Riemannovi ploskvi rodov $g$ in
 $\gamma$, $f \colon M \to N$ pa nekonstantna preslikava stopnje
-$N$. Tedaj za TOTAL BRANCHING NUMBER $B$ velja
+$n$. Tedaj za TOTAL BRANCHING NUMBER $B$ velja
 \[
 g = n(\gamma - 1) + 1 + \frac{B}{2}.
 \]
@@ -95,6 +95,12 @@ Iz teh enačb očitno sledi
 g = n(\gamma - 1) + 1 + \frac{B}{2}. \qedhere
 \]
 \end{proof}
+
+%TODO Struktura na kvocientih
+%\begin{definicija}
+%Naj bo $H \subseteq \Aut M$ končna podgrupa grupe avtomorfizmov
+%ploskve $M$. Na množici $\kvoc{M}{H}$ uvedemo kompleksno strukturo
+%\end{definicija}
 
 \subsection{Riemann-Rochov izrek}
 
@@ -157,6 +163,7 @@ Na deliteljih lahko uvedemo relacijo delne urejenosti kot
 \iff
 \forall P \in M \colon \alpha(P) \geq \beta(P).
 \]
+%TODO Definiraj še \sim
 Ni težko videti, da je za vsak delitelj $\mathfrak{A}$ na $M$
 množica
 \[
@@ -164,11 +171,20 @@ L(\mathfrak{A}) =
 \setb{f \in \mathscr{K}(M)}{(f) \geq \mathfrak{A}}
 \]
 vektorski prostor -- njegovo dimenzijo označimo z
-$i(\mathfrak{A})$. Podobno je tudi
+$i(\mathfrak{A})$.
+
+\begin{zgled}
+Velja $r(1) = 1$. Pogoj $(f) \geq 1$ je namreč ekvivalenten temu,
+da je $f$ holomorfna. Ker so vse holomorfne funkcije na kompaktnih
+Riemannovih ploskvah konstantne, je zato $L(1) \cong \C$, kar je
+enodimenzionalen prostor.
+\end{zgled}
+
+Podobno je tudi
 \[
 \Omega(\mathfrak{A}) =
 \setb{df}{\text{$\omega$ je meromorfna $1$-forma} \land
-1(w) \geq \mathfrak{A}}
+(w) \geq \mathfrak{A}}
 \]
 vektorski prostor. Označimo
 $i(\mathfrak{A}) = \dim \Omega(\mathfrak{A})$.
@@ -181,6 +197,13 @@ r \br{\mathfrak{A}^{-1}} =
 \deg \mathfrak{A} - g + 1 + i(\mathfrak{A}).
 \]
 \end{izrek}
+
+\begin{zgled}
+Z uporabo zgornjega izreka lahko izračunamo $i(1)$. Velja namreč
+\[
+i(1) = r(1) - \deg 1 + g - 1 = g. \qedhere
+\]
+\end{zgled}
 
 %TODO Proof?
 
@@ -281,7 +304,53 @@ Vsaka kompaktna Riemannova ploskev roda $g \leq 2$ je
 hipereliptična.
 \end{trditev}
 
-%TODO BRANCH točke so Weierstrassove
+\begin{trditev}
+Weierstrassove ploskve imajo natanko $2g+2$ BRANCH točk.
+\end{trditev}
+
+\begin{proof}
+Po izreku~\ref{iz:rie-hur} velja
+\[
+g = 2 \cdot (0-1) + 1 + \frac{B}{2}. \qedhere
+\]
+\end{proof}
+
+\begin{trditev}
+BRANCH točke preslikave $f$ so natanko Weierstrassove točke ploskve
+$M$.
+\end{trditev}
+
+\begin{proof}
+Naj bo $P \in M$ BRANCH točka. Če je $P$ pol funkcije $f$, je
+njegova stopnja tako enaka $2$. V nasprotnem primeru ima funkcija
+\[
+g \equiv \frac{1}{f - f(P)}
+\]
+pol stopnje $2$ v $P$. V obeh primerih sledi, da $2$ ni GAP za
+točko $P$, zato je ta Weierstrassova.
+
+Vsaka BRANCH točka ima tako TEŽO
+\[
+\sum_{k=1}^g \br{2k-1} - \sum_{k=1}^g k = \frac{1}{2} g (g-1),
+\]
+zato je njihova skupna teža $g^3 - g$. Sledi, da so to vse
+Weierstrassove točke.
+\end{proof}
+
+\begin{lema}
+Naj bo $P$ Weierstrassova točka hipereliptične ploskve $M$ in
+$f \in \mathscr{K}(M)$ funkcija stopnje $2$. Tedaj velja
+$f^{-1}(\infty) \sim P^2$.
+\end{lema}
+
+\begin{proof}
+Če je $P$ pol funkcije $f$, relacija očitno velja. Sicer si oglejmo
+funkcijo
+\[
+g = \frac{1}{f - f(P)}.
+\]
+Ni težko videti, da je $(g) = f^{-1}(\infty) P^{-2}$.
+\end{proof}
 
 \begin{trditev}
 Naj bosta $f$ in $g$ dve funkciji $f \colon M \to \rs$ stopnje
@@ -296,20 +365,20 @@ Naj bo $f^{-1}(\infty) = P_1 Q_1$ in $g^{-1}(\infty) = P_2 Q_2$.
 Ker na $M$ ne obstajajo funkcije stopnje $1$, sledi
 $r(P_1^{-1} Q_1^{-1}) = r(P_2^{-1} Q_2^{-1}) = 2$. Prostora
 $L(P_1^{-1} Q_1^{-1})$ in $L(P_2^{-1} Q_2^{-1})$ imata tako
-zaporedoma bazi $\set{1, f}$ in $\set{1, g}$. Ker velja
-$P_1 Q_1 \sim P_2 Q_2$,
-%TODO Kaj to pomeni in zakaj?
-sledi, da obstajajo konstante $\alpha, \beta, \gamma$ in $\delta$,
-za katere je
+zaporedoma bazi $\set{1, f}$ in $\set{1, g}$. Ker za Weierstrassovo
+točko $P$ velja $P_1 Q_1 \sim P \sim P_2 Q_2$, sledi, da obstaja
+meromorfna preslikava $h$, za katero je
+$(h) = P_1 Q_1 P_2^{-1} Q_2^{-1}$. Ker je s predpisom
+$\varphi \mapsto h \cdot \varphi$ očitno podan izomorfizem
+prostorov $L(P_1^{-1} Q_1^{-1})$ in $L(P_2^{-1} Q_2^{-1})$,
+obstajajo konstante $\alpha, \beta, \gamma$ in $\delta$, za katere
+je
 \[
 1 = \alpha h + \beta hf
 \quad \text{in} \quad
-g = \gamma h + \delta hf,
+g = \gamma h + \delta hf.
 \]
-kjer je $(h) = P_1 Q_1 P_2^{-1} Q_2^{-1}$. Očitno je namreč
-$\varphi \mapsto h \varphi$ izomorfizem prostorov
-$L(P_1^{-1} Q_1^{-1})$ in $L(P_2^{-1} Q_2^{-1})$. Tako lahko
-izrazimo
+Tako lahko izrazimo
 \[
 g = \frac{\gamma + \delta f}{\alpha + \beta f}. \qedhere
 \]
@@ -334,8 +403,12 @@ res involucija z $2g + 2$ fiksnimi točkami.
 J(X) = \br{\eval{f}{U_Q}{}}^{-1}(f(X)),
 \]
 zato je $J$ holomorfna na $M \setminus W$. Če pa je $J(P) = P$, pa
-je $h = \sqrt{f - f(P)}$ lokalna koordinata, pri čemer velja
-$J(h) = -h$. Tako je $J$ holomorfna tudi na $W$.
+je $h = \sqrt{f - f(P)}$ lokalna koordinata, za katero velja
+$J(h) = -h$, saj je
+\[
+f(P_h) = h^2 + f(P) = (-h)^2 + f(P) = f(P_{-h}).
+\]
+Tako je $J$ holomorfna tudi na $W$.
 
 Predpostavimo sedaj, da obstaja involucija $J \in \Aut M$ z
 $2g + 2$ fiksnimi točkami. Ker se projekcija
