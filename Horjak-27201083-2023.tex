@@ -21,7 +21,7 @@
 
 % - klasifikacijske oznake, ločene z vejicami
 %   Oznake, ki opisujejo področje dela, so dostopne na strani https://www.ams.org/msc/
-\klasifikacija{..., ...}
+\klasifikacija{30F10, 30C20}
 
 % - ključne besede, ki nastopajo v delu, ločene s \sep
 \kljucnebesede{...\sep ...}
@@ -30,22 +30,24 @@
 \keywords{...\sep ...} % angleški prevod ključnih besed
 
 % - angleško-slovenski slovar strokovnih izrazov
+% - manually sorted
 \slovar{
-% \geslo{angleški izraz}{slovenski izraz}
-% ...
+\geslo{Riemann surface}{Riemannova ploskev}
 }
 
 % - ime datoteke z viri (vključno s končnico .bib), če uporabljate BibTeX
 
 \usepackage{Diploma}
+\literatura{Diploma.bib}
+\nocite{*} %TODO To odstrani
 
 \begin{document}
 
 %\section{Uvod}
 % ...
-\include{Content/Holomorfni avtomorfizmi v kompleksni ravnini}
-\include{Content/Riemannove ploskve}
-\include{Content/Avtomorfizmi Riemannovih poloskev}
+\input{Content/Holomorfni avtomorfizmi v kompleksni ravnini}
+\input{Content/Riemannove ploskve}
+\input{Content/Avtomorfizmi Riemannovih poloskev}
 % \section{Zaključek}
 % ...
 

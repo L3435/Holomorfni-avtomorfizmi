@@ -688,7 +688,7 @@
 \bibliography{\@literatura}
 \fi
 \cleardoublepage
-\printindex
+%\printindex
 
 \@ifthen{\boolean{@trst}}{
   \newtheorem{assioma}{Assioma}
