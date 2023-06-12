@@ -2,7 +2,7 @@
 *.bst
 *.xmpdata
 *.asy
-Horjak-27201083-2023-*
+asy/build*
 latexmkrc
 
 ## Core latex/pdflatex auxiliary files:

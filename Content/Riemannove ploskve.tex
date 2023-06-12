@@ -4,6 +4,38 @@
 
 %TODO Definicije gladkih mnogoterosti
 
+\begin{definicija}
+\emph{Meromorfen diferencial} Riemannove ploskve je dodelitev
+meromorfne funkcije $f$ vsaki lokalni koordinati, pri čemer je
+$f(z)\,dz$ neodvisna od lokalne koordinate.
+\end{definicija}
+
+Naj bosta $(U, \varphi)$ in $(V, \psi)$ lokalni karti, za kateri
+velja $U \cap V \ne \emptyset$. Če jima meromorfen diferencial
+$\omega$ priredi funkciji $\omega_U$ in $\omega_V$, mora tako
+veljati $\omega_U = \omega_V \cdot \br{\psi \circ \varphi^{-1}}'$.
+
+\begin{trditev}
+Naj bosta $\alpha$ in $\beta$ meromorfna diferenciala. Tedaj je
+$\frac{\alpha}{\beta}$ meromorfna funkcija.
+\end{trditev}
+
+\begin{proof}
+Z zgornjimi oznakami velja
+\[
+\frac{\alpha_U}{\beta_U} =
+\frac{\alpha_V \cdot \br{\psi \circ \varphi^{-1}}'}
+{\beta_V \cdot \br{\psi \circ \varphi^{-1}}'} =
+\frac{\alpha_V}{\beta_V}.
+\]
+Kvocient $\frac{\alpha}{\beta}$ tako ni odvisen od lokalnih
+koordinat.
+\end{proof}
+
+Očitno velja tudi obratno -- če je $\alpha$ meromorfen diferencial
+in $f$ meromorfna funkcija, je tudi $f \alpha$ meromorfen
+diferencial.
+
 \begin{trditev}
 \label{td:deg}
 Naj bo $f \colon M \to N$ nekonstantna holomorfna preslikava med
@@ -163,7 +195,7 @@ Na deliteljih lahko uvedemo relacijo delne urejenosti kot
 \iff
 \forall P \in M \colon \alpha(P) \geq \beta(P).
 \]
-%TODO Definiraj še \sim
+%TODO Definiraj še \sim in CELOST
 Ni težko videti, da je za vsak delitelj $\mathfrak{A}$ na $M$
 množica
 \[
@@ -171,7 +203,7 @@ L(\mathfrak{A}) =
 \setb{f \in \mathscr{K}(M)}{(f) \geq \mathfrak{A}}
 \]
 vektorski prostor -- njegovo dimenzijo označimo z
-$i(\mathfrak{A})$.
+$r(\mathfrak{A})$.
 
 \begin{zgled}
 Velja $r(1) = 1$. Pogoj $(f) \geq 1$ je namreč ekvivalenten temu,
@@ -180,14 +212,42 @@ Riemannovih ploskvah konstantne, je zato $L(1) \cong \C$, kar je
 enodimenzionalen prostor.
 \end{zgled}
 
+\begin{zgled}
+Če je $\deg \mathfrak{A} > 0$, je $r(\mathfrak{A}) = 0$. Iz
+neenakosti $(f) \geq \mathfrak{A}$ za neničenlno funkcijo $f$
+namreč sledi $0 = \deg (f) \geq \deg \mathfrak{A} > 0$, kar je
+protislovje.
+\end{zgled}
+
+%TODO Nekje omeni zakaj so holomorfne konstantne
+
 Podobno je tudi
 \[
 \Omega(\mathfrak{A}) =
-\setb{df}{\text{$\omega$ je meromorfna $1$-forma} \land
-(w) \geq \mathfrak{A}}
+\setb{\omega}{\text{$\omega$ je meromorfna $1$-forma} \land
+(\omega) \geq \mathfrak{A}}
 \]
 vektorski prostor. Označimo
 $i(\mathfrak{A}) = \dim \Omega(\mathfrak{A})$.
+
+%TODO Definiraj še (\omega)
+
+\begin{trditev}\label{td:mero_dif}
+Naj bo $\mathfrak{A}$ poljuben delitelj in $\omega$ meromorfen
+diferencial. Tedaj je
+\[
+i(\mathfrak{A}) = r \br{\mathfrak{A} (\omega)^{-1}}.
+\]
+\end{trditev}
+
+\begin{proof}
+Naj bo $\varphi \colon
+\Omega(\mathfrak{A}) \to L \br{\mathfrak{A} (\omega)^{-1}}$
+preslikava s predpisom
+$\varphi \colon \zeta \mapsto \frac{\zeta}{\omega}$. Seveda je
+predpis dobro definiran, ni pa težko videti, da je to izomorfizem
+vektorskih prostorov. Sledi, da imata enako dimenzijo.
+\end{proof}
 
 \begin{izrek}[Riemann-Roch]
 Naj bo $M$ kompaktna Riemannova ploskev roda $g$ in $\mathfrak{A}$
@@ -198,6 +258,8 @@ r \br{\mathfrak{A}^{-1}} =
 \]
 \end{izrek}
 
+Dokaz izreka najdemo v~\cite[theorem~III.4.11]{Farkas_Kra_1980}.
+
 \begin{zgled}
 Z uporabo zgornjega izreka lahko izračunamo $i(1)$. Velja namreč
 \[
@@ -205,7 +267,26 @@ i(1) = r(1) - \deg 1 + g - 1 = g. \qedhere
 \]
 \end{zgled}
 
-%TODO Proof?
+\begin{trditev}
+Naj bo $\deg \mathfrak{A} > 2g - 2$. Tedaj je
+$i(\mathfrak{A}) = 0$.
+\end{trditev}
+
+\begin{proof}
+Naj bo $\omega \in i(1)$ neničelna holomorfna $1$-forma. Tedaj je
+\[
+r \br{(\omega)^{-1}} = \deg (\omega) - g + 1 + i \br{(\omega)}.
+\]
+Po trditvi~\ref{td:mero_dif} je $r \br{(\omega)^{-1}} = i(1) = g$
+in $i \br{(\omega)} = r(1) = 1$. Od tod sledi, da je
+$\deg (\omega) = 2g - 2$.
+
+Sedaj dobimo
+\[
+i(\mathfrak{A}) = r \br{\mathfrak{A} (\omega)^{-1}} = 0,
+\]
+saj je $\deg \br{\mathfrak{A} (\omega)^{-1}} > 0$.
+\end{proof}
 
 \subsection{Weierstrassove točke}
 
@@ -225,34 +306,50 @@ Najprej opazimo, da je število $n$ GAP natanko tedaj, ko je
 $r(P^{-n}) = r(P^{1-n})$. Ker je $r(P^{-n}) \leq r(P^{1-n}) + 1$,
 število $n$ ni GAP natanko tedaj, ko velja
 \[
-r(P^{-n}) - r(P^{1-n}) = 1.
+r \br{P^{-n}} - r \br{P^{1-n}} = 1.
 \]
 Po Riemann-Rochovem izreku velja
 \[
-r(P^{-k}) = k-g+1 + i(P^k),
+r \br{P^{-k}} = k-g+1 + i \br{P^k},
 \]
 zato sledi
 \begin{align*}
-r(P^{-n}) - r(1) &= \sum_{k=1}^n \br{r(P^{-k}) - r(P^{1-k})}
+r \br{P^{-n}} - r(1) &=
+\sum_{k=1}^n \br{r \br{P^{-k}} - r \br{P^{1-k}}}
 \\
 &=
-\sum_{k=1}^n \br{1 + i(P^k) - i(P^{k-1})}
+\sum_{k=1}^n \br{1 + i \br{P^k} - i \br{P^{k-1}}}
 \\
 &=
-n + i(P^n) - i(1).
+n + i \br{P^n} - i(1).
 \end{align*}
 Ker je $i(1) = g$ in za vse $n > 2g-2$ velja $i(P^n) = 0$, sledi
 \[
-r(P^n) - 1 = n - g.
+r \br{P^{-n}} - 1 = n - g.
 \]
 Opazimo, da leva stran šteje ravno število NEGAPOV $\leq n$.
-Sledi, da je teh natanko $g$ in so vsi manjši od $2g-1$.
+Sledi, da je GAPOV natanko $g$ in so vsi strogo manjši od $2g$.
 \end{proof}
 
-%TODO Popravi \left \right
-%TODO Zakaj r(1) = 1?
-%TODO Zakaj i(1) = g?
-%TODO Zakaj i(P^n) = 0?
+%TODO Posploši in dokaži lemo z determinanto Wronskega
+\begin{definicija}
+TEŽA točke $P \in M$ je vsota
+\[
+\tau(P) = \sum_{j=1}^g (n_j - j),
+\]
+kjer so $n_j$ GAPI za $P$.
+\end{definicija}
+
+\begin{lema}
+Naj bo $M$ kompaktna Riemannova ploskev z rodom $g \geq 2$. Tedaj
+je
+\[
+\sum_{P \in M} \tau(P) = g^3-g.
+\]
+\end{lema}
+
+%TODO Proof: det Wronskega je m-ta potenca holomorfne diferencialne
+%            forme, zato je vsota redov m * (2g-2)
 
 \begin{definicija}
 Točka $P \in M$ je \emph{Weierstrassova točka}, če na $M$ obstaja
@@ -274,7 +371,6 @@ r \br{P^{-g}} - 1 > 0,
 \]
 oziroma $r \br{P^{-g}} \geq 2$. Ker je $r(1) = 1$, med
 $2, \dots, g$ obstaja število, ki ni GAP.
-%TODO Zakaj r(1) = 1?
 \end{proof}
 
 \begin{lema}
@@ -285,7 +381,26 @@ Naj bo $M$ kompaktna Riemannova ploskev roda $g \geq 2$. Tedaj za
 \]
 \end{lema}
 
-%TODO Proof -- weights
+\begin{proof}
+Ker je $\tau(P) \geq 1$ za vsako Weierstrassovo točko in velja
+\[
+\sum_{P \in M} = g^3 - g,
+\]
+takoj sledi $w \leq g^3 - g$. Velja pa
+\begin{align*}
+\tau(P) &= \sum_{j=1}^g (n_j - j)
+\\
+&=
+\sum_{j=1}^{2g} j - \sum_{j=1}^g \alpha_j - \sum_{j=1}^g j
+\\
+&=
+\sum_{j=g+1}^{2g-1} j - \sum_{j=1}^{g-1} \alpha_j
+\\
+&\leq \frac{g^2-g}{2}. \qedhere
+\end{align*}
+\end{proof}
+
+%TODO Definicija \alpha_i in lemice
 
 \subsection{Hipereliptične ploskve}
 
@@ -344,8 +459,9 @@ $f^{-1}(\infty) \sim P^2$.
 \end{lema}
 
 \begin{proof}
-Če je $P$ pol funkcije $f$, relacija očitno velja. Sicer si oglejmo
-funkcijo
+Točka $P$ je BRANCH točka funkcije $f$. Če je $P$ pol te funkcije,
+je zato reda $2$ in je $f^{-1}(\infty) = P^2$. V nasprotnem primeru
+definiramo funkcijo
 \[
 g = \frac{1}{f - f(P)}.
 \]
@@ -366,7 +482,7 @@ Ker na $M$ ne obstajajo funkcije stopnje $1$, sledi
 $r(P_1^{-1} Q_1^{-1}) = r(P_2^{-1} Q_2^{-1}) = 2$. Prostora
 $L(P_1^{-1} Q_1^{-1})$ in $L(P_2^{-1} Q_2^{-1})$ imata tako
 zaporedoma bazi $\set{1, f}$ in $\set{1, g}$. Ker za Weierstrassovo
-točko $P$ velja $P_1 Q_1 \sim P \sim P_2 Q_2$, sledi, da obstaja
+točko $P$ velja $P_1 Q_1 \sim P^2 \sim P_2 Q_2$, sledi, da obstaja
 meromorfna preslikava $h$, za katero je
 $(h) = P_1 Q_1 P_2^{-1} Q_2^{-1}$. Ker je s predpisom
 $\varphi \mapsto h \cdot \varphi$ očitno podan izomorfizem
@@ -432,12 +548,11 @@ fiksne točke.
 
 \begin{proof}
 Naj bo $f \colon M \to \rs$ funkcija z natanko dvema poloma. Tedaj
-je taka tudi $z \circ T$, zato obstaja Möbiusova transformacija
+je taka tudi $f \circ T$, zato obstaja Möbiusova transformacija
 $A$, za katero je
 \[
 f \circ T = A \circ f.
 \]
-%TODO Zakaj?
 Naj bo $P$ fiksna točka avtomorfizma $T$. Sledi, da je
 \[
 A(f(P)) = f(T(P)) = f(P),

@@ -151,7 +151,7 @@ saj je avtomorfizem diska natančno določen z dvema točkama.
 
 %TODO Kolobar
 
-\subsection{\texorpdfstring{$p$}{p}-povezana območja}
+\subsection{Avtomorfizmi \texorpdfstring{$p$}{p}-povezanih območij}
 
 Oglejmo si avtomorfizme območja
 $\Omega = \C \setminus \setb{x_i}{1 \leq i \leq p}$. Za $p = 1$
@@ -167,87 +167,15 @@ enolično določena s tremi točkami, je moč grupe $\Aut(\Omega)$ tako
 omejena s $p (p-1) (p-2)$.
 
 Izkaže se, da lahko to mejo še bistveno izboljšamo. Znano je
-namreč, da je vsaka končna podgrupa $\Aut(\rs)$ konjugirana grupi
-rotacij $\SO_3$ \cite{Lyndol}. Vse končne podgrupe $\SO_3$ so
-natanko rotacijske, diedrske, tetraedrska, oktaedrska in
+namreč, da je vsaka končna podgrupa $\Aut(\rs)$ konjugirana
+podgrupi grupe rotacij $\SO_3$ \cite{Lyndol}. Vse končne podgrupe
+$\SO_3$ so natanko rotacijske, diedrske, tetraedrska, oktaedrska in
 ikozaedrska \cite{Artin_1991}. Preverimo lahko, da je za $p = 4$
 največja možna moč grupe avtomorfizmov enaka $12$, za $p = 6$ in
 $p = 8$ dobimo $24$, za $p = 12$ in $p = 20$ pa $60$. Za vse ostale
 $p$ je največja grupa simetrij kar dierska, zato je
 $\abs{\Aut(\Omega)} \leq 2p$.
 
-\begin{figure}[!ht]
-\centering
-\begin{asy}
-path3 project(real r, real z) {
-	pair parametrized(real t) {
-		real x = r * cos(t);
-		real y = r * sin(t);
-		return 1/(1 - z) * (x,y);
-	}
-	path path2 = graph(parametrized, 0, 2pi, n=500);
-	return path3(path2, plane = XYplane);
-}
-draw(project(1, 0), red);
-draw(project(sqrt(3)/2, 0.5), green);
-draw(project(sqrt(3)/2, -0.5), green);
-draw(project(0.5, sqrt(3)/2), blue);
-draw(project(0.5, -sqrt(3)/2), blue);
-draw(unitsphere, yellow+opacity(0.4));
-\end{asy}
-\\
-\begin{minipage}{0.4\textwidth}
-\centering
-\begin{asy}
-size(4cm);
-draw(unitsphere, yellow+opacity(0.4));
-path3 equator = circle((0,0,0), r=1, normal=Z);
-path3 upper_tropic = circle(0.5Z, r=sqrt(3)/2, normal=Z);
-path3 lower_tropic = circle(-0.5Z, r=sqrt(3)/2, normal=Z);
-path3 upper_arctic = circle(sqrt(3)/2*Z, r=0.5, normal=Z);
-path3 lower_arctic = circle(-sqrt(3)/2*Z, r=0.5, normal=Z);
-draw(equator, red+linewidth(1.3));
-draw(upper_tropic, green+linewidth(1.3));
-draw(lower_tropic, green+linewidth(1.3));
-draw(upper_arctic, blue+linewidth(1.3));
-draw(lower_arctic, blue+linewidth(1.3));
-\end{asy}
-\end{minipage}
-\begin{minipage}{0.4\textwidth}
-\centering
-\begin{asy}
-size(4cm);
-triple z = (Z + Y) / sqrt(2);
-draw(unitsphere, yellow+opacity(0.4));
-path3 equator = circle((0,0,0), r=1, normal=z);
-path3 upper_tropic = circle(0.5z, r=sqrt(3)/2, normal=z);
-path3 lower_tropic = circle(-0.5z, r=sqrt(3)/2, normal=z);
-path3 upper_arctic = circle(sqrt(3)/2*z, r=0.5, normal=z);
-path3 lower_arctic = circle(-sqrt(3)/2*z, r=0.5, normal=z);
-draw(equator, red+linewidth(1.3));
-draw(upper_tropic, green+linewidth(1.3));
-draw(lower_tropic, green+linewidth(1.3));
-draw(upper_arctic, blue+linewidth(1.3));
-draw(lower_arctic, blue+linewidth(1.3));
-\end{asy}
-\end{minipage}
-\\
-\begin{asy}
-path3 project(real r, real z) {
-	pair parametrized(real t) {
-		real x = r * cos(t);
-		real y = r * sqrt(2)/2 * sin(t) - sqrt(2)/2 * z;
-		return 1/(1 - r*sqrt(2)/2*sin(t) - sqrt(2)/2 * z) * (x,y);
-	}
-	path path2 = graph(parametrized, 0, 2pi, n=500);
-	return path3(path2, plane = XYplane);
-}
-draw(project(1, 0), red);
-draw(project(sqrt(3)/2, 0.5), green);
-draw(project(sqrt(3)/2, -0.5), green);
-draw(project(0.5, sqrt(3)/2), blue);
-draw(project(0.5, -sqrt(3)/2), blue);
-draw(unitsphere, yellow+opacity(0.4));
-\end{asy}
-\caption{Rotacija Riemannove sfere}
-\end{figure}
+%TODO Podrobnejša razlaga
+
+\input{asy/rs_rot.tex}

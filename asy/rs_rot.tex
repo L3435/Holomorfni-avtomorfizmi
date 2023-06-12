@@ -1,0 +1,85 @@
+\begin{figure}[!ht]
+\centering
+\begin{asy}
+size(2cm);
+defaultpen(linewidth(0.25));
+path3 project(real r, real z) {
+	pair parametrized(real t) {
+		real x = r * cos(t);
+		real y = r * sin(t);
+		return 1/(1 - z) * (x,y);
+	}
+	path path2 = graph(parametrized, 0, 2pi, n=500);
+	return path3(path2, plane = XYplane);
+}
+draw(project(1, 0), red);
+draw(project(sqrt(3)/2, 0.5), green);
+draw(project(sqrt(3)/2, -0.5), green);
+draw(project(0.5, sqrt(3)/2), blue);
+draw(project(0.5, -sqrt(3)/2), blue);
+draw(scale3(9) * shift((-0.5,-0.5,0)) * unitplane, gray+opacity(0.1));
+draw(unitsphere, yellow+opacity(0.7));
+shipout(scale(4.0) * currentpicture.fit());
+\end{asy}
+%
+\begin{asy}
+size(1cm);
+defaultpen(linewidth(0.25));
+draw(unitsphere, yellow+opacity(0.7));
+path3 equator = circle((0,0,0), r=1, normal=Z);
+path3 upper_tropic = circle(0.5Z, r=sqrt(3)/2, normal=Z);
+path3 lower_tropic = circle(-0.5Z, r=sqrt(3)/2, normal=Z);
+path3 upper_arctic = circle(sqrt(3)/2*Z, r=0.5, normal=Z);
+path3 lower_arctic = circle(-sqrt(3)/2*Z, r=0.5, normal=Z);
+draw(equator, red+linewidth(0.3));
+draw(upper_tropic, green+linewidth(0.3));
+draw(lower_tropic, green+linewidth(0.3));
+draw(upper_arctic, blue+linewidth(0.3));
+draw(lower_arctic, blue+linewidth(0.3));
+shipout(scale(4.0) * currentpicture.fit());
+\end{asy}
+\\
+\begin{asy}
+size(2cm);
+defaultpen(linewidth(0.25));
+path3 project(real r, real z) {
+	pair parametrized(real t) {
+		real x = r * cos(t);
+		real y = r * sqrt(2)/2 * sin(t) + sqrt(2)/2 * z;
+		return 1/(1 + r*sqrt(2)/2*sin(t) - sqrt(2)/2 * z) * (x,y);
+	}
+	path path2;
+	if(z <= 0) path2 = graph(parametrized, 0, 2pi, n=500);
+	else if(z <= 0.5) path2 = graph(parametrized, -0.3pi, 1.3pi, n=500);
+	else path2 = graph(parametrized, -0.315pi, 1.315pi, n=500);
+	return path3(path2, plane = XYplane);
+}
+draw(project(1, 0), red);
+draw(project(sqrt(3)/2, 0.5), green);
+draw(project(sqrt(3)/2, -0.5), green);
+draw(project(0.5, sqrt(3)/2), blue);
+draw(project(0.5, -sqrt(3)/2), blue);
+draw(scale3(7) * shift((-0.5,-0.5,0)) * unitplane, gray+opacity(0.1));
+draw(unitsphere, yellow+opacity(0.7));
+shipout(scale(4.0) * currentpicture.fit());
+\end{asy}
+%
+\begin{asy}
+size(1cm);
+defaultpen(linewidth(0.25));
+triple z = (Z + Y) / sqrt(2);
+draw(unitsphere, yellow+opacity(0.7));
+path3 equator = circle((0,0,0), r=1, normal=z);
+path3 upper_tropic = circle(0.5z, r=sqrt(3)/2, normal=z);
+path3 lower_tropic = circle(-0.5z, r=sqrt(3)/2, normal=z);
+path3 upper_arctic = circle(sqrt(3)/2*z, r=0.5, normal=z);
+path3 lower_arctic = circle(-sqrt(3)/2*z, r=0.5, normal=z);
+draw(equator, red+linewidth(0.3));
+draw(upper_tropic, green+linewidth(0.3));
+draw(lower_tropic, green+linewidth(0.3));
+draw(upper_arctic, blue+linewidth(0.3));
+draw(lower_arctic, blue+linewidth(0.3));
+shipout(scale(4.0) * currentpicture.fit());
+\end{asy}
+\caption{Kompozitum stereografske projekcije z rotacijo sfere}
+\end{figure}
