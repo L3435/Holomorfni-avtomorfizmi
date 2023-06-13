@@ -1,0 +1,136 @@
+\begin{figure}[!ht]
+\centering
+
+\begin{asy}
+int ITER = 1000;
+real STEP = 0.3;
+pair a = (0.6,-0.3);
+real theta = 0.3pi;
+real r = 0.4;
+
+pair aut(pair X){
+  return X;
+}
+
+path Re(real y, pair A(pair), bool first = true){
+  guide g;
+  if(y * y >= r * r) {
+    if(!first) return (0,0);
+    real d = 2 * sqrt(1-y*y);
+    real start = -sqrt(1-y*y);
+    for(int i = 0; i < 1000; ++i){
+      g = g--(A((d*i/ITER + start, y)));
+    }	
+  }
+  else {
+    real d = sqrt(1-y*y) - sqrt(r*r-y*y);
+    real start = sqrt(r*r-y*y);
+    if(!first) start = -sqrt(1-y*y);
+    for(int i = 0; i < 1000; ++i){
+      g = g--(A((d*i/ITER + start, y)));
+    }
+  }
+  path p = g;
+  return p;
+}
+
+path Im(real x, pair A(pair), bool first = true){
+  guide g;
+  if(x * x >= r * r) {
+    if(!first) return (0,0);
+    real d = 2 * sqrt(1-x*x);
+    real start = -sqrt(1-x*x);
+    for(int i = 0; i < 1000; ++i){
+      g = g--(A((x,d*i/ITER + start)));
+    }	
+  }
+  else {
+    real d = sqrt(1-x*x) - sqrt(r*r-x*x);
+    real start = sqrt(r*r-x*x);
+    if(!first) start = -sqrt(1-x*x);
+    for(int i = 0; i < 1000; ++i){
+      g = g--(A((x,d*i/ITER + start)));
+    }
+  }
+  path p = g;
+  return p;
+}
+draw(circle((0,0),1));
+draw(circle(0,r));
+for(real t = -0.9; t <= 1; t += STEP){
+	draw(Re(t, aut),red);
+	draw(Re(t, aut, false),red);
+	draw(Im(t, aut),blue);
+	draw(Im(t, aut, false),blue);
+}
+xaxis("$\Re$",Ticks(Label(fontsize(8pt)),new real[]{}),xmin=-1.25,xmax=1.25);
+yaxis("$\Im$",Ticks(Label(fontsize(8pt)),new real[]{}),ymin=-1.25,ymax=1.25);
+\end{asy}
+\hfill
+\begin{asy}
+int ITER = 1000;
+real STEP = 0.3;
+pair a = (0.6,-0.3);
+real theta = 0.3pi;
+real r = 0.4;
+
+pair aut(pair X){
+  return exp(I*theta) * r / X;
+}
+
+path Re(real y, pair A(pair), bool first = true){
+  guide g;
+  if(y * y >= r * r) {
+    if(!first) return (0,0);
+    real d = 2 * sqrt(1-y*y);
+    real start = -sqrt(1-y*y);
+    for(int i = 0; i < 1000; ++i){
+      g = g--(A((d*i/ITER + start, y)));
+    }	
+  }
+  else {
+    real d = sqrt(1-y*y) - sqrt(r*r-y*y);
+    real start = sqrt(r*r-y*y);
+    if(!first) start = -sqrt(1-y*y);
+    for(int i = 0; i < 1000; ++i){
+      g = g--(A((d*i/ITER + start, y)));
+    }
+  }
+  path p = g;
+  return p;
+}
+
+path Im(real x, pair A(pair), bool first = true){
+  guide g;
+  if(x * x >= r * r) {
+    if(!first) return (0,0);
+    real d = 2 * sqrt(1-x*x);
+    real start = -sqrt(1-x*x);
+    for(int i = 0; i < 1000; ++i){
+      g = g--(A((x,d*i/ITER + start)));
+    }	
+  }
+  else {
+    real d = sqrt(1-x*x) - sqrt(r*r-x*x);
+    real start = sqrt(r*r-x*x);
+    if(!first) start = -sqrt(1-x*x);
+    for(int i = 0; i < 1000; ++i){
+      g = g--(A((x,d*i/ITER + start)));
+    }
+  }
+  path p = g;
+  return p;
+}
+draw(circle((0,0),1));
+draw(circle(0,r));
+for(real t = -0.9; t <= 1; t += STEP){
+	draw(Re(t, aut),red);
+	draw(Re(t, aut, false),red);
+	draw(Im(t, aut),blue);
+	draw(Im(t, aut, false),blue);
+}
+xaxis("$\Re$",Ticks(Label(fontsize(8pt)),new real[]{}),xmin=-1.25,xmax=1.25);
+yaxis("$\Im$",Ticks(Label(fontsize(8pt)),new real[]{}),ymin=-1.25,ymax=1.25);
+\end{asy}
+\caption{Primer avtomorfizma kolobarja.}
+\end{figure}

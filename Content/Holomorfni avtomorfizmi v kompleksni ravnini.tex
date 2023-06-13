@@ -35,7 +35,7 @@ Naj bo $\dsk$ odprt enotski disk v $\C$. Tedaj je
 \]
 \end{primer}
 
-\input{asy/aut_dsk.tex}
+\input{asy/avtomorfizem_diska.tex}
 
 Izkaže se, da smo s tem do izomorfizma natančno opisali grupe
 avtomorfizmov vseh povezanih in enostavno povezanih množic v $\C$.
@@ -149,7 +149,28 @@ težko videti, da velja
 \]
 saj je avtomorfizem diska natančno določen z dvema točkama.
 
-%TODO Kolobar
+Sedaj si oglejmo še kolobar $R = \dsk \setminus \dsk(r)$. Naj bo
+$f \colon R \to R$ avtomorfizem. Izkaže se, da se $f$ zvezno
+razširi na $\partial R$. Ker lahko $f$ komponiramo s preslikavo
+$\varphi \colon z \mapsto \frac{\rho}{z}$, lahko predpostavimo, da
+je $f(\partial \dsk) = \partial \dsk$.
+
+Naj bo
+\[
+u(z) = \log \abs{f(z)} - \log \abs{z}.
+\]
+Ker je logaritem harmonična funkcija, je $\lapl u = 0$. Ker je
+$\eval{u}{\partial R}{} = 0$, je po principu maksima $u = 0$. Tako
+sledi $\abs{f(z)} = \abs{z}$. Sledi, da je
+\[
+\abs{\frac{f(z)}{z}} = 1.
+\]
+Ker je $\frac{f(z)}{z}$ holomorfna in so nekonstantne holomorfne
+preslikave odprte, sledi, da je $\frac{f(z)}{z}$ konstantna. Tako
+so vsi avtomorfizmi kolobarja kar $z \mapsto e^{i \theta} z$ in
+$z \mapsto e^{i \theta} \frac{r}{z}$.
+
+\input{asy/avtomorfizem_kolobarja.tex}
 
 \subsection{Avtomorfizmi \texorpdfstring{$p$}{p}-povezanih območij}
 
@@ -178,4 +199,6 @@ $\abs{\Aut(\Omega)} \leq 2p$.
 
 %TODO Podrobnejša razlaga
 
-\input{asy/rs_rot.tex}
+\input{asy/rotacija_riemannove_sfere.tex}
+
+%\input{asy/conformal_boundary.tex}
