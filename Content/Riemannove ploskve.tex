@@ -87,6 +87,23 @@ Riemannovi sferi, saj je ta povezana.
 
 Številu $m$ pravimo \emph{stopnja} preslikave $f$.
 
+\begin{posledica}
+Naj bo $M$ kompaktna Riemannova ploskev. Če je $f \colon M \to \C$
+holomorfna preslikava, je konstantna.
+\end{posledica}
+
+\begin{proof}
+Preslikavo $f$ lahko opazujemo kot preslikavo med Riemannovo
+ploskvijo $M$ in Riemannovo sfero $\rs$. Če $f$ ni konstantna, ima
+pozitivno stopnjo, kar pa ni mogoče, saj je $f^{-1}(\infty) = 0$.
+\end{proof}
+
+To posledico lahko pravzaprav dokažemo z uporabo lastnosti
+holomorfnih preslikav. Ker je $M$ kompaktna namreč sledi, da je
+taka tudi $f(M)$. Ker pa so nekonstantne holomorfne preslikave
+odprte, pa sledi, da je $f(M)$ tudi odprta. To seveda pomeni, da je
+$f(M) = \C$, kar je v protislovju s kompaktnostjo.
+
 \begin{definicija}
 Za kompaktni Riemannovo ploskvi $M$ in $N$ ter nekonstantno
 preslikavo $f \colon M \to N$ definiramo
@@ -129,10 +146,21 @@ g = n(\gamma - 1) + 1 + \frac{B}{2}. \qedhere
 \end{proof}
 
 %TODO Struktura na kvocientih
-%\begin{definicija}
-%Naj bo $H \subseteq \Aut M$ končna podgrupa grupe avtomorfizmov
-%ploskve $M$. Na množici $\kvoc{M}{H}$ uvedemo kompleksno strukturo
-%\end{definicija}
+\begin{definicija}
+Naj bo $H \subseteq \Aut M$ končna podgrupa grupe avtomorfizmov
+ploskve $M$. Na množici $\kvoc{M}{H}$ uvedemo kompleksno strukturo
+na naslednji način:
+
+\begin{enumerate}[i)]
+\item Če je množica $H_P = \setb{h \in H}{h(P) = P}$ trivialna,
+lokalna karta pri $P$ inducira lokalno karto pri $\pi(P)$. Seveda
+so vse kompatibilne, saj so prehodne preslikave kar kompozitumi
+lokalnih kart in avtomorfizmov $h \in H$.
+\item Če je v lokalni koordinati $H_P$ generirana s preslikavo
+$z \mapsto e^{\frac{2 \pi i}{k}} z$, za lokalno karto točke $P$
+vzamemo $z^k$.
+\end{enumerate}
+\end{definicija}
 
 \subsection{Riemann-Rochov izrek}
 
@@ -218,8 +246,6 @@ neenakosti $(f) \geq \mathfrak{A}$ za neničenlno funkcijo $f$
 namreč sledi $0 = \deg (f) \geq \deg \mathfrak{A} > 0$, kar je
 protislovje.
 \end{zgled}
-
-%TODO Nekje omeni zakaj so holomorfne konstantne
 
 Podobno je tudi
 \[
