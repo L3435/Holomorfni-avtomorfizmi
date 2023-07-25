@@ -1,0 +1,32 @@
+\begin{figure}[!ht]
+\centering
+\begin{asy}
+size(10cm);
+guide add(guide g, pair[] list) {
+	for(pair P : list) g = g..P;
+	return g;
+}
+
+void center(pair O) {
+	guide lower = O+(-0.8,-0.05)..O+(0,-0.15)..O+(0.8,-0.05);
+	guide upper = O+(-0.8,-0.05)..O+(0,0.2)..O+(0.8,-0.05);
+	draw(upper);
+	draw(O+(-1.1,0.05)..lower..O+(1.1,0.05));
+}
+
+pair[] zgoraj = {(-2,0.65),(-1,0.86),(0,1),(1,0.86),(2,0.65)};
+pair[] desno = {(3,0.86),(4,1),(6,0),(4,-1),(3,-0.86)};
+pair[] spodaj = {(2,-0.65),(1,-0.86),(0,-1),(-1,-0.86),(-2,-0.65)};
+pair[] levo = {(-3,-0.86),(-4,-1),(-6,0),(-4,1),(-3,0.86)};
+guide g;
+g = add(g, zgoraj);
+g = add(g, desno);
+g = add(g, spodaj);
+g = add(g, levo);
+draw(g..cycle);
+center(0);
+center(4);
+center(-4);
+\end{asy}
+\caption{Ploskev roda $g=3$}
+\end{figure}
