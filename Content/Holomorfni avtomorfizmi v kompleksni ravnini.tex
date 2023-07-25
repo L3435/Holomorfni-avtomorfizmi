@@ -2,21 +2,28 @@
 
 \subsection{Enostavno povezana območja}
 
+Da lahko govorimo o holomorfnih funkcijah, se bomo omejili na
+odprte podmnožice kompleksne ravnine.
+
+\begin{definicija}
+\emph{Holomorfen avtomorfizem} odprte množice $\Omega \subseteq \C$
+je bijektivna holomorfna preslikava $f \colon \Omega \to \Omega$ s
+holomorfnim inverzom.
+\end{definicija}
+
+Opazimo, da je zadosten pogoj že to, da je $f$ bijektivna in
+holomorfna. Opazimo še, da množica avtomorfizmov nekega območja
+tvori grupo z operacijo kompozitum. To grupo označimo z
+$\Aut(\Omega)$.
+
+Prepričamo se lahko, da lahko avtomorfizme nepovezanih množic
+opišemo z avtomorfizmi, ki komponente med seboj permutirajo. V
+nadaljevanju se bomo tako omejili na povezane množice.
+
 \begin{definicija}
 \emph{Območje} v kompleksni ravnini $\C$ je vsaka odprta povezana
 množica.
 \end{definicija}
-
-\begin{definicija}
-\emph{Holomorfen avtomorfizem} območja $\Omega$ je bijektivna
-holomorfna preslikava $f \colon \Omega \to \Omega$ s holomorfnim
-inverzom.
-\end{definicija}
-
-Opazimo, da je zadosten pogoj že to, da je $f$ bijektivna z
-neničelnim odvodom. Opazimo še, da množica avtomorfizmov nekega
-območja tvori grupo z operacijo kompozitum. To grupo označimo z
-$\Aut(\Omega)$.
 
 \begin{primer}
 Kompleksna ravnina je območje v $\C$. Njena grupa avtomorfizmov
@@ -123,11 +130,11 @@ Sledi, da je $W$ neskončna, kar je protislovje, saj velja
 $f(U \setminus \set{0}) \cap f(V) = \emptyset$.
 
 Sledi, da je $\widetilde{f}(0) = 0$, zato je $\widetilde{f}$
-avtomorfizem diska. Sledi, da je
+avtomorfizem diska. Tako dobimo inkluzijo
 \[
 \Aut(\dskx) \subseteq \setb{f \in \Aut(\dsk)}{f(0) = 0}.
 \]
-Ni težko preveriti, da velja tudi obratna inkluzija. Tako dobimo
+Ni težko preveriti, da velja tudi obratna inkluzija, oziroma
 \[
 \Aut(\dskx) =
 \setb{z \mapsto e^{i \pi \theta} z}{\theta \in [0, 2\pi)}.

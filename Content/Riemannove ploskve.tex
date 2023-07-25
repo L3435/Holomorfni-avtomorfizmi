@@ -48,7 +48,8 @@ $m$-krat.\footnote{Šteto z večkratnostmi.}
 Iz kompleksne analize vemo, da za vsako točko $P \in M$ obstajajo
 take lokalne koordinate $\tilde{z}$, da je
 $f(\tilde{z}) = f(P) + \tilde{z}^n$. Število $n-1$ označimo z
-$b(P)$ in mu pravimo BRANCHING NUMBER.
+$b(P)$ in mu pravimo BRANCHING NUMBER. To je seveda dobro
+definirano.
 
 Za vsako naravno število $m$ naj bo
 \[
@@ -153,9 +154,10 @@ na naslednji način:
 
 \begin{enumerate}[i)]
 \item Če je množica $H_P = \setb{h \in H}{h(P) = P}$ trivialna,
-lokalna karta pri $P$ inducira lokalno karto pri $\pi(P)$. Seveda
-so vse kompatibilne, saj so prehodne preslikave kar kompozitumi
-lokalnih kart in avtomorfizmov $h \in H$.
+lokalna karta na dovolj majhni okolici $P$ inducira lokalno karto
+pri $\pi(P)$. Seveda so vse kompatibilne, saj so prehodne
+preslikave kar kompozitumi lokalnih kart in avtomorfizmov
+$h \in H$.
 \item Če je v lokalni koordinati $H_P$ generirana s preslikavo
 $z \mapsto e^{\frac{2 \pi i}{k}} z$, za lokalno karto točke $P$
 vzamemo $z^k$.
@@ -165,38 +167,44 @@ vzamemo $z^k$.
 \subsection{Riemann-Rochov izrek}
 
 \begin{definicija}
-\emph{Delitelj} na Riemannovi ploskvi $M$ je formalni simbol
+\emph{Divizor} na Riemannovi ploskvi $M$ je formalni simbol
 \[
 \mathfrak{A} = \prod_{P \in M} P^{\alpha(P)},
 \]
 kjer za vsak $P$ velja $\alpha(P) \in \Z$ in je $\alpha(P) \ne 0$
-za kvečjemu končno mnogo točk $P \in M$. \emph{Stopnja} delitelja
+za kvečjemu končno mnogo točk $P \in M$. \emph{Stopnja} divizorja
 $\mathfrak{A}$ je definirana kot
 \[
 \deg \mathfrak{A} = \sum_{P \in M} \alpha(P).
 \]
 \end{definicija}
 
-Delitelji na $M$ tvorijo grupo za naravno definirano množenje --
+Divizorji na $M$ tvorijo grupo za naravno definirano množenje --
 to grupo označimo z $\Div(M)$. Tako je
 $\deg \colon \Div(M) \to \Z$ homomorfizem grup.
 
 Za vsako neničelno meromorfno funkcijo $f \in \mathscr{K}(M)$
-definiramo njen \emph{glavni delitelj} kot
+definiramo njen \emph{glavni divizor} kot\footnote{Glavne divizorje
+na enak način definiramo še za meromorfne diferenciale.}
 \[
 (f) = \prod_{P \in M} P^{\ord_P f}.
 \]
-Definiramo lahko še \emph{polarni delitelj}
+Definiramo lahko še \emph{divizor polov}
 \[
 f^{-1}(\infty) = \prod_{P \in M} P^{\max(-\ord_P f, 0)}
 \]
-in \emph{ničelni delitelj}
+in \emph{divizor ničel}
 \[
 f^{-1}(0) = \prod_{P \in M} P^{\max(\ord_P f, 0)}.
 \]
 Opazimo, da velja
 \[
 (f) = \frac{f^{-1}(0)}{f^{-1}(\infty)}.
+\]
+Na divizorjih uvedemo ekvivalenčno relacijo $\sim$ na naslednji način:
+\[
+\mathfrak{A} \sim \mathfrak{B} \iff
+\mathfrak{A} \mathfrak{B}^{-1} = (f).
 \]
 
 \begin{lema}
@@ -207,8 +215,8 @@ $\deg (f) = 0$.
 \end{lema}
 
 \begin{proof}
-Stopnja polarnega delitelja funkcije $f$ je natanko število njenih
-polov, štetih z večkratnostmi, stopnja ničelnega delitelja pa
+Stopnja divizorja polov funkcije $f$ je natanko število njenih
+polov, štetih z večkratnostmi, stopnja divizorja ničel pa
 število njenih ničel. Ti števili sta enaki po
 trditvi~\ref{td:deg}.
 \end{proof}
@@ -217,15 +225,15 @@ Posebej velja opomniti, da to pomeni, da imajo funkcije na
 kompaktnih Riemannovih ploskvah enako število ničel in polov
 (štetih z večkratnostmi).
 
-Na deliteljih lahko uvedemo relacijo delne urejenosti kot
+Na divizorjih lahko uvedemo relacijo delne urejenosti kot
 \[
 \prod_{P \in M} P^{\alpha(P)} \geq \prod_{P \in M} P^{\beta(P)}
 \iff
 \forall P \in M \colon \alpha(P) \geq \beta(P).
 \]
-%TODO Definiraj še \sim in CELOST
-Ni težko videti, da je za vsak delitelj $\mathfrak{A}$ na $M$
-množica
+Pravimo, da je divizor $\mathfrak{A}$ \emph{efektiven}, če velja
+$\mathfrak{A} \geq 1$. Ni težko videti, da je za vsak divizor
+$\mathfrak{A}$ na $M$ množica
 \[
 L(\mathfrak{A}) =
 \setb{f \in \mathscr{K}(M)}{(f) \geq \mathfrak{A}}
@@ -256,10 +264,8 @@ Podobno je tudi
 vektorski prostor. Označimo
 $i(\mathfrak{A}) = \dim \Omega(\mathfrak{A})$.
 
-%TODO Definiraj še (\omega)
-
 \begin{trditev}\label{td:mero_dif}
-Naj bo $\mathfrak{A}$ poljuben delitelj in $\omega$ meromorfen
+Naj bo $\mathfrak{A}$ poljuben divizor in $\omega$ meromorfen
 diferencial. Tedaj je
 \[
 i(\mathfrak{A}) = r \br{\mathfrak{A} (\omega)^{-1}}.
@@ -277,7 +283,7 @@ vektorskih prostorov. Sledi, da imata enako dimenzijo.
 
 \begin{izrek}[Riemann-Roch]
 Naj bo $M$ kompaktna Riemannova ploskev roda $g$ in $\mathfrak{A}$
-delitelj na $M$. Tedaj velja
+divizor na $M$. Tedaj velja
 \[
 r \br{\mathfrak{A}^{-1}} =
 \deg \mathfrak{A} - g + 1 + i(\mathfrak{A}).
@@ -367,6 +373,111 @@ kjer so $n_j$ GAPI za $P$.
 \end{definicija}
 
 \begin{lema}
+Naj bodo $\varphi_1$, $\varphi_2$, \dots, $\varphi_n$ meromorfne
+preslikave s paroma različnim redom v točki $P \in X$. Tedaj za
+determinanto
+\[
+\Phi(z) = \det
+\begin{bmatrix}
+\varphi_1(z)    & \varphi_2(z)  & \dots  & \varphi_n(z)  \\
+\varphi_1'(z)   & \varphi_2'(z) & \dots  & \varphi_n'(z) \\
+\vdots          & \vdots        & \ddots & \vdots        \\
+\varphi_1^{(n-1)}(z)            & \varphi_2^{(n-1)}      &
+\dots                           & \varphi_n^{(n-1)}(z)
+\end{bmatrix}
+\]
+velja
+\[
+\ord_z \Phi = \sum_{i=1}^n \br{\ord_z \varphi_i - i + 1}.
+\]
+\end{lema}
+
+\begin{proof}
+Za lažji zapis pišimo
+\[
+\Phi(z) = \det
+\begin{bmatrix}
+\varphi_1(z) & \dots & \varphi_n(z)
+\end{bmatrix}.
+\]
+Trditev dokažemo z indukcijo -- trditev očitno velja za $n=1$. Za
+indukcijski korak si bomo pomagali z dejstvom, da za vsako
+meromorfno funkcijo $f$ velja
+\[
+\Phi_f = \det
+\begin{bmatrix}
+f \cdot \varphi_1(z) & \dots & f \cdot \varphi_n(z)
+\end{bmatrix}
+=
+f^n \cdot \det
+\begin{bmatrix}
+\varphi_1(z) & \dots & \varphi_n(z)
+\end{bmatrix}.
+\]
+Razpišemo lahko namreč
+\[
+\Phi_f
+=
+\det
+\begin{bmatrix}
+f  \varphi_1 & \dots & f \varphi_n \\
+f \varphi_1' + f' \varphi_1 & \dots & f \varphi_n' + f' \varphi_n \\
+\vdots & & \vdots \\
+f \varphi_1^{(n-1)} + \dots + f^{(n-1)} \varphi_1 & \dots & f \varphi_n^{(n-1)} + \dots + f^{(n-1)} \varphi_n
+\end{bmatrix}.
+\]
+S preprostimi linearnimi kombinacijami lahko sedaj dobimo
+\[
+\Phi_f = \det
+\begin{bmatrix}
+f \varphi_1         & \dots & f \varphi_n         \\
+f \varphi_1'        & \dots & f \varphi_n'        \\
+\vdots              &       & \vdots              \\
+f \varphi_1^{(n-1)} & \dots & f \varphi_n^{(n-1)}
+\end{bmatrix}
+= f^n \Phi.
+\]
+Tako dobimo
+\[
+\det
+\begin{bmatrix}
+\varphi_1 & \dots \varphi_n
+\end{bmatrix}
+=
+\varphi_1^n \cdot \det
+\begin{bmatrix}
+1 & \frac{\varphi_2}{\varphi_1} &
+\dots & \frac{\varphi_n}{\varphi_1}
+\end{bmatrix}
+=
+\varphi_1^n \cdot \det
+\begin{bmatrix}
+\br{\frac{\varphi_2}{\varphi_1}}' & \dots &
+\br{\frac{\varphi_n}{\varphi_1}}'
+\end{bmatrix}.
+\]
+Ker za vsak $i$ velja $\ord_z \varphi_1 \ne \ord_z \varphi_i$,
+sledi
+\[
+\ord_z \br{\frac{\varphi_i}{\varphi_1}}' =
+\ord_z \varphi_i - \ord_z \varphi_1 - 1.
+\]
+To so paroma različna števila, zato lahko uporabimo indukcijsko
+predpostavko. Dobimo
+\begin{align*}
+\ord_z \Phi &=
+n \cdot \ord_z \varphi_1 +
+\sum_{i=2}^n \br{\ord_z \varphi_i - \ord_z \varphi_1 - 1 - (i - 2)}
+\\
+&=
+\ord_z \varphi_1 + \sum_{i=2}^n \br{\ord_z \varphi_i - i + 1}
+\\
+&=
+\sum_{i=1}^n \br{\ord_z \varphi_i - i + 1}. \qedhere
+\end{align*}
+\end{proof}
+
+\begin{lema}
 Naj bo $M$ kompaktna Riemannova ploskev z rodom $g \geq 2$. Tedaj
 je
 \[
@@ -410,7 +521,7 @@ Naj bo $M$ kompaktna Riemannova ploskev roda $g \geq 2$. Tedaj za
 \begin{proof}
 Ker je $\tau(P) \geq 1$ za vsako Weierstrassovo točko in velja
 \[
-\sum_{P \in M} = g^3 - g,
+\sum_{P \in M} \tau(P) = g^3 - g,
 \]
 takoj sledi $w \leq g^3 - g$. Velja pa
 \begin{align*}
@@ -437,7 +548,7 @@ natanko dvema poloma.\footnote{Pri tem pole štejemo z
 večkratnostmi.}
 \end{definicija}
 
-Ekvivalentno to pomeni, da obstaja tak CEL delitelj
+Ekvivalentno to pomeni, da obstaja tak efektiven divizor
 $D \in \Div M$, da je $\deg D = 2$ in $r(D^{-1}) \geq 2$.
 
 \begin{trditev}
