@@ -5,18 +5,23 @@
 %TODO Definicije gladkih mnogoterosti
 
 \begin{definicija}
-\emph{Meromorfen diferencial} Riemannove ploskve je dodelitev
-meromorfne funkcije $f$ vsaki lokalni koordinati, pri čemer je
-$f(z)\,dz$ neodvisna od lokalne koordinate.
+\emph{Meromorfen $q$-diferencial} $\omega$ Riemannove ploskve je
+dodelitev meromorfne funkcije $f$ vsaki lokalni koordinati, pri
+čemer je $f(z)\,dz^q$ neodvisna od lokalne koordinate. Meromorfnim
+$1$-diferencialom pravimo kar \emph{meromorfni diferenciali}.
 \end{definicija}
 
 Naj bosta $(U, \varphi)$ in $(V, \psi)$ lokalni karti, za kateri
-velja $U \cap V \ne \emptyset$. Če jima meromorfen diferencial
-$\omega$ priredi funkciji $\omega_U$ in $\omega_V$, mora tako
-veljati $\omega_U = \omega_V \cdot \br{\psi \circ \varphi^{-1}}'$.
+velja $U \cap V \ne \emptyset$. Če jima meromorfen $q$-diferencial
+$\omega$ priredi funkciji $f_U$ in $f_V$, mora tako veljati
+\[
+f_U = f_V \cdot \br{\br{\psi \circ \varphi^{-1}}'}^q.
+\]
+Opazimo, da je $q$-ta potenca meromorfnega diferenciala meromorfen
+$q$-diferencial.
 
 \begin{trditev}
-Naj bosta $\alpha$ in $\beta$ meromorfna diferenciala. Tedaj je
+Naj bosta $\alpha$ in $\beta$ meromorfna $q$-diferenciala. Tedaj je
 $\frac{\alpha}{\beta}$ meromorfna funkcija.
 \end{trditev}
 
@@ -24,17 +29,17 @@ $\frac{\alpha}{\beta}$ meromorfna funkcija.
 Z zgornjimi oznakami velja
 \[
 \frac{\alpha_U}{\beta_U} =
-\frac{\alpha_V \cdot \br{\psi \circ \varphi^{-1}}'}
-{\beta_V \cdot \br{\psi \circ \varphi^{-1}}'} =
+\frac{\alpha_V \cdot \br{\br{\psi \circ \varphi^{-1}}'}^q}
+{\beta_V \cdot \br{\br{\psi \circ \varphi^{-1}}'}^q} =
 \frac{\alpha_V}{\beta_V}.
 \]
 Kvocient $\frac{\alpha}{\beta}$ tako ni odvisen od lokalnih
 koordinat.
 \end{proof}
 
-Očitno velja tudi obratno -- če je $\alpha$ meromorfen diferencial
-in $f$ meromorfna funkcija, je tudi $f \alpha$ meromorfen
-diferencial.
+Očitno velja tudi obratno -- če je $\alpha$ meromorfen
+$q$-diferencial in $f$ meromorfna funkcija, je tudi $f \alpha$
+meromorfen $q$-diferencial.
 
 \begin{trditev}
 \label{td:deg}
@@ -146,7 +151,6 @@ g = n(\gamma - 1) + 1 + \frac{B}{2}. \qedhere
 \]
 \end{proof}
 
-%TODO Struktura na kvocientih
 \begin{definicija}
 Naj bo $H \subseteq \Aut M$ končna podgrupa grupe avtomorfizmov
 ploskve $M$. Na množici $\kvoc{M}{H}$ uvedemo kompleksno strukturo
@@ -155,14 +159,16 @@ na naslednji način:
 \begin{enumerate}[i)]
 \item Če je množica $H_P = \setb{h \in H}{h(P) = P}$ trivialna,
 lokalna karta na dovolj majhni okolici $P$ inducira lokalno karto
-pri $\pi(P)$. Seveda so vse kompatibilne, saj so prehodne
-preslikave kar kompozitumi lokalnih kart in avtomorfizmov
-$h \in H$.
+pri $\pi(P)$.
 \item Če je v lokalni koordinati $H_P$ generirana s preslikavo
 $z \mapsto e^{\frac{2 \pi i}{k}} z$, za lokalno karto točke $P$
 vzamemo $z^k$.
 \end{enumerate}
 \end{definicija}
+
+Prepričamo se lahko, da so te lokalne karte med seboj kompatibilne.
+Na kvocientu $\kvoc{M}{H}$ smo torej dobili kompleksno strukturo,
+zato je to Riemannova ploskev.
 
 \subsection{Riemann-Rochov izrek}
 
@@ -258,7 +264,7 @@ protislovje.
 Podobno je tudi
 \[
 \Omega(\mathfrak{A}) =
-\setb{\omega}{\text{$\omega$ je meromorfna $1$-forma} \land
+\setb{\omega}{\text{$\omega$ je meromorfen diferencial} \land
 (\omega) \geq \mathfrak{A}}
 \]
 vektorski prostor. Označimo
@@ -305,7 +311,7 @@ $i(\mathfrak{A}) = 0$.
 \end{trditev}
 
 \begin{proof}
-Naj bo $\omega \in i(1)$ neničelna holomorfna $1$-forma. Tedaj je
+Naj bo $\omega \in i(1)$ neničelna holomorfen diferencial. Tedaj je
 \[
 r \br{(\omega)^{-1}} = \deg (\omega) - g + 1 + i \br{(\omega)}.
 \]
@@ -363,7 +369,18 @@ Opazimo, da leva stran šteje ravno število NEGAPOV $\leq n$.
 Sledi, da je GAPOV natanko $g$ in so vsi strogo manjši od $2g$.
 \end{proof}
 
-%TODO Posploši in dokaži lemo z determinanto Wronskega
+Število $n$ je GAP natanko tedaj, ko je
+$r \br{P^{-n}} = r \br{P^{1-n}}$. To je po Riemann-Rochovem izreku
+ekvivalentno $i \br{P^{n-1}} - i \br{P^n} = 1$. Sledi, da imajo
+holomorfni diferenciali na $M$ v točki $P$ lahko red enak le enemu
+iz števil
+\[
+n_1 - 1, n_2 - 1, \dots, n_g - 1.
+\]
+Posebej, obstaja baza $\setb{\omega_i}{1 \leq i \leq g}$
+holomorfnih diferencialov, pri čemer velja
+$\ord_P \omega_i = n_i - 1$.
+
 \begin{definicija}
 TEŽA točke $P \in M$ je vsota
 \[
@@ -477,27 +494,96 @@ n \cdot \ord_z \varphi_1 +
 \end{align*}
 \end{proof}
 
-\begin{lema}
+Posledično lahko zapišemo $\tau(P) = \ord_P \Phi$, pri čemer za
+$\varphi_i$ vzamemo kar $\omega_i$.
+
+\begin{trditev}
 Naj bo $M$ kompaktna Riemannova ploskev z rodom $g \geq 2$. Tedaj
 je
 \[
 \sum_{P \in M} \tau(P) = g^3-g.
 \]
-\end{lema}
+\end{trditev}
+
+\begin{proof}
+Pokažimo, da je zgoraj definiran $\Phi$ holomorfen $m$-diferencial
+za $m = \frac{g \cdot (g+1)}{2}$. Denimo, da $\omega_i$ priredi
+okolici $U$ karto $\varphi$, okolici $V$ pa karto $\psi$, $f$ pa
+naj bo prehodna preslikava. Tako velja
+\[
+\psi(f(z)) f'(z) = \varphi(z),
+\]
+dokazujemo pa
+\[
+f'(z)^m \cdot \det
+\begin{bmatrix}
+\psi_1 & \dots & \psi_g
+\end{bmatrix}
+=
+\det
+\begin{bmatrix}
+\varphi_1 & \dots & \varphi_g
+\end{bmatrix}.
+\]
+Velja pa
+\begin{align*}
+\det
+\begin{bmatrix}
+\varphi_1 & \dots & \varphi_g
+\end{bmatrix}
+&=
+\det
+\begin{bmatrix}
+(\psi_1 \circ f) \cdot (f') & \dots & (\psi_g \circ f) \cdot (f')
+\end{bmatrix}
+\\
+&=
+(f')^g \cdot \det
+\begin{bmatrix}
+\psi_1 \circ f & \dots & \psi_g \circ f
+\end{bmatrix}.
+\end{align*}
+Po pravilu odvoda kompozituma lahko iz vrstice $i$ izpostavimo še
+$(f')^{i-1}$. Tako dobimo
+\[
+\det
+\begin{bmatrix}
+\varphi_1 & \dots & \varphi_g
+\end{bmatrix}
+=
+(f')^m \cdot \br{\det
+\begin{bmatrix}
+\psi_1 & \dots & \psi_g
+\end{bmatrix}
+\circ f}.
+\]
+Spomnimo se, da za meromorfen diferencial $\omega$ velja
+$\deg (\omega) = 2g - 2$. Ker je $\frac{\omega^m}{\Phi}$ meromorfna
+funkcija, sledi
+\[
+\deg (\Phi) = m \cdot \deg (\omega) = m \cdot (2g - 2).
+\]
+Tako je
+\[
+\sum_{P \in M} \tau(P) =
+\sum_{P \in M} \ord_P \Phi =
+(g-1) \cdot g \cdot (g+1). \qedhere
+\]
+\end{proof}
 
 %TODO Proof: det Wronskega je m-ta potenca holomorfne diferencialne
 %            forme, zato je vsota redov m * (2g-2)
 
 \begin{definicija}
 Točka $P \in M$ je \emph{Weierstrassova točka}, če na $M$ obstaja
-neničelna holomorfna diferencialna $1$-forma z ničlo reda vsaj
-$g$ v $P$.\footnote{V splošnem definiramo $q$-Weierstrassove točke
--- obstaja $q$-forma z ničlo reda vsaj $\dim \mathscr{H}^q(M)$.}
+neničelna holomorfen diferencial z ničlo reda vsaj $g$ v
+$P$.\footnote{V splošnem definiramo $q$-Weierstrassove točke --
+obstaja $q$-diferencial z ničlo reda vsaj $\dim \mathscr{H}^q(M)$.}
 \end{definicija}
 
-\begin{lema}
+\begin{trditev}
 Ekvivalentno, vsaj eno izmed števil $2, \dots, g$ ni GAP.
-\end{lema}
+\end{trditev}
 
 \begin{proof}
 Obstoj diferencialne $1$-forme z ničlo reda vsaj $g$ v $P$ je
@@ -510,13 +596,13 @@ oziroma $r \br{P^{-g}} \geq 2$. Ker je $r(1) = 1$, med
 $2, \dots, g$ obstaja število, ki ni GAP.
 \end{proof}
 
-\begin{lema}
+\begin{trditev}
 Naj bo $M$ kompaktna Riemannova ploskev roda $g \geq 2$. Tedaj za
 število $w$ Weierstrassovih točk veljata oceni
 \[
 2g + 2 \leq w \leq g^3 - g.
 \]
-\end{lema}
+\end{trditev}
 
 \begin{proof}
 Ker je $\tau(P) \geq 1$ za vsako Weierstrassovo točko in velja
