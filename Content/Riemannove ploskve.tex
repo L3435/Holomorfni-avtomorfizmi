@@ -371,6 +371,57 @@ Opazimo, da leva stran šteje ravno število NEGAPOV $\leq n$.
 Sledi, da je GAPOV natanko $g$ in so vsi strogo manjši od $2g$.
 \end{proof}
 
+Izkaže se, da je lažje analizirati komplement tega zaporedja, torej
+števila
+\[
+1 < \alpha_1 < \dots < \alpha_g = 2g,
+\]
+za katera obstaja funkcija s polom reda $\alpha_j$ v $P$. Če sta
+števili $\alpha_i$ in $\alpha_j$ NEGAPA, je tako tudi število
+$\alpha_i + \alpha_j$, saj lahko vzamemo kar produkt pripadajočih
+funkcij. Posebej je vsak večkratnik NEGAPA spet NEGAP. Če je
+$\alpha_1 = 2$, so tako vsa soda števila NEGAPI in GAPI natanko
+liha števila, manjša od $2g$.
+
+\begin{lema}
+Za vsako naravno število $j < g$ velja
+\[
+\alpha_j + \alpha_{g-j} \geq 2g.
+\]
+\end{lema}
+
+\begin{proof}
+Denimo, da je $\alpha_j + \alpha_{g-j} < 2g$. Tedaj so vsa števila
+$\alpha_k + \alpha_{g-j}$ za $k \leq j$ NEGAPI, manjši od $2g$.
+Tako imamo skupaj vsaj $g-j + j + 1 = g+1$ NEGAPOV, manjših od
+$2g$. To je seveda protislovje.
+\end{proof}
+
+\begin{lema}
+Velja neenakost
+\[
+\sum_{j=1}^{g} \alpha_j \geq g \cdot(g+1)
+\]
+z enakostjo natanko tedaj, ko je $\alpha_1 = 2$.
+\end{lema}
+
+\begin{proof}
+Za dokaz neenakosti je dovolj uporabiti prejšnjo lemo. Zgornja
+izraza sta enaka natanko tedaj, ko za vsak $j < g$ velja
+\[
+\alpha_j + \alpha_{g-j} = 2g.
+\]
+Če je število $\alpha$ NEGAP, je tako torej tudi $2g - \alpha$.
+Opazimo, da je za NEGAPA $\alpha_i < \alpha_j$ tudi
+$\alpha_i + (2g - \alpha_j)$ NEGAP, zato je tak tudi
+\[
+2g - (\alpha_i + (2g - \alpha_j)) = \alpha_j - \alpha_i.
+\]
+Sledi, da je tudi vsaka razlika NEGAPOV NEGAP. Sledi, da so vsi
+NEGAPI večkratnik najmanjšega NEGAPA (osnovni izrek o deljenju),
+kar pa takoj implicira $\alpha_1 = 2$.
+\end{proof}
+
 Število $n$ je GAP natanko tedaj, ko je
 $r \br{P^{-n}} = r \br{P^{1-n}}$. To je po Riemann-Rochovem izreku
 ekvivalentno $i \br{P^{n-1}} - i \br{P^n} = 1$. Sledi, da imajo
@@ -616,13 +667,16 @@ takoj sledi $w \leq g^3 - g$. Velja pa
 \sum_{j=1}^{2g} j - \sum_{j=1}^g \alpha_j - \sum_{j=1}^g j
 \\
 &=
-\sum_{j=g+1}^{2g-1} j - \sum_{j=1}^{g-1} \alpha_j
+g(2g+1) - \frac{g(g+1)}{2} - \sum_{j=1}^{g-1} \alpha_j
 \\
-&\leq \frac{g^2-g}{2}. \qedhere
+&\leq
+g(2g+1) - \frac{g(g+1)}{2} - g(g+1)
+\\
+&=
+\frac{g(g-1)}{2}.
 \end{align*}
+Posledično je res $w \geq 2g + 2$.
 \end{proof}
-
-%TODO Definicija \alpha_i in lemice
 
 \subsection{Hipereliptične ploskve}
 
