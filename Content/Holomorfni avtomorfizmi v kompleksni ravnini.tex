@@ -168,7 +168,7 @@ u(z) = \log \abs{f(z)} - \log \abs{z}.
 \]
 Ker je logaritem harmonična funkcija, je $\lapl u = 0$. Ker je
 $\eval{u}{\partial R}{} = 0$, je po principu maksima $u = 0$. Tako
-sledi $\abs{f(z)} = \abs{z}$. Sledi, da je
+sledi $\abs{f(z)} = \abs{z}$ in
 \[
 \abs{\frac{f(z)}{z}} = 1.
 \]
@@ -182,10 +182,10 @@ $z \mapsto e^{i \theta} \frac{r}{z}$.
 \subsection{Avtomorfizmi \texorpdfstring{$p$}{p}-povezanih območij}
 
 Oglejmo si avtomorfizme območja
-$\Omega = \C \setminus \setb{x_i}{1 \leq i \leq p}$. Za $p = 1$
-dobimo kompleksno ravnino. Pri $p = 2$ lahko brez škode za
-splošnost vzamemo $x_1 = 0$ in $x_2 = \infty$. Ni težko videti, da
-so vsi avtomorfizmi oblike
+$\Omega = \C \setminus \setb{x_i}{1 \leq i \leq p}$, pri čemer
+brez škode za splošnost vzamemo $x_p = \infty$. Za $p = 1$ dobimo
+kompleksno ravnino. Pri $p = 2$ lahko brez škode za splošnost
+vzamemo $x_1 = 0$. Ni težko videti, da so vsi avtomorfizmi oblike
 $z \mapsto e^{i \theta} \cdot z^{\pm 1}$.
 
 Sedaj si oglejmo še primer $p > 2$. Preverimo lahko, da se vsak
@@ -206,6 +206,70 @@ $\abs{\Aut(\Omega)} \leq 2p$.
 
 %TODO Podrobnejša razlaga
 
-\input{asy/rotacija_riemannove_sfere.tex}
+Oglejmo si še primer, ko robne komponente niso nujno točke.
 
-%\input{asy/conformal_boundary.tex}
+\begin{izrek}
+Naj bo $\Omega$ območje na Riemannovi sferi, katerega robne
+komponente sestavlja $p$ točk ali Jordanovih krivulj. Tedaj za
+moč grupe $\Aut \Omega$ veljajo enake ocene kot zgoraj.
+\end{izrek}
+
+\begin{proof}
+Po posplošitvi Riemannovega upodobitvenega izreka lahko
+predpostavimo, da je $\Omega$ kar enotski disk, ki mu odstranimo
+nekaj točk in diskov. Po Carathéodoryjevem izreku
+\cite[izrek~5.1.1 in opomba~5.1.2]{krantz} sledi, da avtomorfizem
+permutira robne komponente območja $\Omega$. Tako obstaja
+homomorfizem $\lambda \colon \Aut \Omega \to S_{\partial \Omega}$,
+kjer je $S_{\partial{\Omega}}$ permutacijska grupa. Jedro
+homomorfizma so natanko tisti avtomorfizmi, ki fiksirajo vsako
+robno komponento posebej. Pokažimo, da je jedro trivialno.
+
+Naj bo $T \in \ker \lambda$ poljuben avtomorfizem. Najprej se lahko
+znebimo točkastih robnih komponent, saj se te preslikajo same vase.
+Z uporabo Schwarzovega zrcaljenja lahko $T$ razširimo preko vsake
+druge robne komponente. Enostavno je preveriti, da se pri tem
+ohrani injektivnost preslikave. V limiti nam v vsaki komponenti
+$\Omega^\mathsf{c}$ ostane samo ena točka. V vseh omejenih
+komponentah je to odpravljiva singularnost, v neomejeni pa ali
+odpravljiva singularnost ali pol prve stopnje. V obeh primerih se
+$T$ razširi do avtomorfizma Riemannove sfere. Zanimajo nas torej
+avtomorfizmi Riemannove sfere, ki fiksirajo vse robne komponente
+$\Omega$. V nadaljevanju na točkaste robne komponente glejmo kot na
+diske z radijem $0$.
+
+Naj bo $T = \frac{az + b}{cz + d}$. Sedaj obravnavajmo dva primera.
+
+\begin{enumerate}[i)]
+\item Velja $c=0$. V tem primeru je $T$ afina transformacija. To
+implicira, da $T$ poleg robnih komponent fiksira tudi njihova
+središča. Ker sta to vsaj dve različni točki, ima $T$ dve fiksni
+točki, zato velja kar $T = \id$.
+
+\item Velja $c \ne 0$. Tedaj je $T$ kompozitum inverzije v točki
+$z_0 = -\frac{d}{c}$, rotacije in translacije. Ker mora inverzija
+ohranjati radije robnih komponent (preostali preslikavi sta namreč
+izometriji), morajo vse biti ortogonalne na neko krožnico s
+središčem v $z_0$.\footnote{Ne morejo imeti središča v $z_0$, saj
+bi tedaj $T$ območje $\Omega$ slikal v notranjost te krožnice.}
+Sedaj opazimo, da smo prišli do protislovja, saj je inverzija
+obrnila orientacijo središč robnih komponent, česar pa ne moremo
+popraviti z rotacijo in translacijo.
+\end{enumerate}
+
+\input{asy/inverzija.tex}
+
+Sedaj si izberimo poljubno točko $z \not \in \Omega$ in si oglejmo
+njeno orbito, torej množico $A = \setb{T(z)}{T \in \Aut \Omega}$.
+Po enakem razmisleku kot zgoraj se namreč vsak avtomorfizem
+$\Omega$ razširi do avtomorfizma kompleksne ravnine. V vsaki
+komponenti $\Omega^\mathsf{c}$ imamo kvečjemu en element množice
+$A$. Sedaj si izberimo poljubno točko v eni izmed komponent, ki je
+množica $A$ ne obišče, in postopek ponovimo. Tako na koncu dobimo
+množico $S = \setb{z_i}{1 \leq i \leq p}$, pri čemer je v vsaki
+komponenti $\Omega^\mathsf{c}$ natanko ena točka. Poljuben
+avtomorfizem $T \in \Aut \Omega$ se torej razširi do avtomorfizma
+območja $\Omega \setminus S$, s tem pa je izrek dokazan.
+\end{proof}
+
+%TODO Vir izreka

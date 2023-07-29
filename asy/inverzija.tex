@@ -1,0 +1,41 @@
+\begin{figure}[!ht]
+\centering
+\begin{asy}
+path orth(pair X, string s){
+	dot(s, X, dir(X));
+	return shift(X) * scale(sqrt(abs(X)^2-1)) * unitcircle;
+}
+
+draw(circle(0,1), red+dashed);
+
+path[] g;
+g = g ^^ orth(1.8, "$0$");
+g = g ^^ reverse(orth(1.1*dir(25), "$S_A$"));
+dot("$S_B$", dir(-5), 2dir(-5));
+g = g ^^ reverse(orth(1.08*dir(-32), "$S_C$"));
+filldraw(g, cyan+opacity(0.2));
+label("$\Omega$", shift(1.8) * scale(sqrt(1.8^2-1)) * dir(45), align = N+E);
+
+dot("$z_0$", 0, dir(180));
+\end{asy}
+\qquad
+\begin{asy}
+path orth(pair X, string s){
+	dot(s, X, dir(X));
+	return shift(X) * scale(sqrt(abs(X)^2-1)) * unitcircle;
+}
+
+draw(circle(0,1), red+dashed);
+
+path[] g;
+g = g ^^ orth(1.8, "$0$");
+g = g ^^ reverse(orth(1.1*dir(-25), "$S_A'$"));
+dot("$S_B'$", dir(5), 2dir(5));
+g = g ^^ reverse(orth(1.08*dir(32), "$S_C'$"));
+filldraw(g, cyan+opacity(0.2));
+label("$\Omega$", shift(1.8) * scale(sqrt(1.8^2-1)) * dir(45), align = N+E);
+
+dot("$z_0$", 0, dir(180));
+\end{asy}
+\caption{Inverzija prezrcali robne komponente}
+\end{figure}

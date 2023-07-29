@@ -3,7 +3,7 @@
 
 \begin{asy}
 int ITER = 1000;
-real STEP = 0.3;
+real STEP = 0.26;
 pair a = (0.6,-0.3);
 real theta = 0.3pi;
 real r = 0.4;
@@ -57,7 +57,7 @@ path Im(real x, pair A(pair), bool first = true){
 }
 draw(circle((0,0),1));
 draw(circle(0,r));
-for(real t = -0.9; t <= 1; t += STEP){
+for(real t = -3*STEP; t <= 1; t += STEP){
 	draw(Re(t, aut),red);
 	draw(Re(t, aut, false),red);
 	draw(Im(t, aut),blue);
@@ -69,7 +69,7 @@ yaxis("$\Im$",Ticks(Label(fontsize(8pt)),new real[]{}),ymin=-1.25,ymax=1.25);
 \hfill
 \begin{asy}
 int ITER = 1000;
-real STEP = 0.3;
+real STEP = 0.26;
 pair a = (0.6,-0.3);
 real theta = 0.3pi;
 real r = 0.4;
@@ -123,7 +123,7 @@ path Im(real x, pair A(pair), bool first = true){
 }
 draw(circle((0,0),1));
 draw(circle(0,r));
-for(real t = -0.9; t <= 1; t += STEP){
+for(real t = -3*STEP; t <= 1; t += STEP){
 	draw(Re(t, aut),red);
 	draw(Re(t, aut, false),red);
 	draw(Im(t, aut),blue);
