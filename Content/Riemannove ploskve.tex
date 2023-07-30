@@ -93,7 +93,8 @@ je ena izmed množic $\Sigma_m$ neprazna, je tako enaka celotni
 Riemannovi sferi, saj je ta povezana.
 \end{proof}
 
-Številu $m$ pravimo \emph{stopnja} preslikave $f$.
+Številu $m$ pravimo \emph{stopnja} preslikave $f$ in označimo
+$m = \deg f$.
 
 \begin{posledica}
 Naj bo $M$ kompaktna Riemannova ploskev. Če je $f \colon M \to \C$
@@ -115,7 +116,7 @@ $f(M) = \C$, kar je v protislovju s kompaktnostjo.
 \begin{definicija}
 Za kompaktni Riemannovo ploskvi $M$ in $N$ ter nekonstantno
 preslikavo $f \colon M \to N$ definiramo
-\emph{TOTAL BRANCHING NUMBER} kot
+\emph{TOTAL BRANCH NUMBER} kot
 \[
 B = \sum_{P \in M} b_f(P).
 \]
@@ -153,13 +154,73 @@ g = n(\gamma - 1) + 1 + \frac{B}{2}. \qedhere
 \]
 \end{proof}
 
+\begin{trditev}
+Naj bo $H \subseteq \Aut M$ končna podgrupa grupe avtomorfizmov
+Riemannove ploskve $M$. Tedaj je podgrupa
+$H_P = \setb{h \in H}{h(P) = P}$ ciklična.
+\end{trditev}
+
+\begin{proof}
+Dokazali bomo, da obstaja enostavno povezana množica $D$, ki je
+invariantna za $H_P$ -- za vsak $h \in H_P$ torej velja $h(D) = D$.
+Po Riemannovem upodobitvenem izreku namreč tedaj obstaja
+biholomorfna preslikava $f \colon D \to \dsk$, za katero velja
+$f(P) = 0$. Avtomorfizmi diska $f \circ h \circ f^{-1}$ so torej
+rotacije, vsaka končna grupa rotacij pa je ciklična.
+
+Opazujmo avtomorfizme v lokalni koordinati točke $P$. Pokažimo, da
+vsak element $h \in H_P$ slika dovolj majhne diske v konveksne
+množice. Dovolj je pokazati, da dovolj majhne krožnice slika v
+konveksne krivulje, oziroma da je argument smeri tangentnega
+vektorja na sliko krožnice monotona.
+
+Tangentni vektor v točki $z$ na sliko krožnice z radijem
+$r = \abs{z}$ dobimo kot
+\[
+h'(z) \cdot \frac{z}{\abs{z}} \cdot i,
+\]
+kar pomeni, da je njegov argument enak
+\[
+\arg{h'(z)} + \arg(z) + \frac{\pi}{2}.
+\]
+Dokazujemo torej, da je
+\[
+\arg \br{h' \br{r \cdot e^{i \varphi}}} + \varphi
+\]
+naraščajoča funkcija v $\varphi$ za vse dovolj majhne $r$, ker pa
+lahko lokalno definiramo\footnote{Ker je $h$ avtomorfizem, velja
+$h'(z) \ne 0$.}
+\[
+\arg(z) = \Im(\log(z)),
+\]
+je dovolj pokazati, da je
+\[
+\varphi + \Im \br{\log \br{h' \br{r \cdot e^{i \varphi}}}}
+\]
+naraščajoča. Njen odvod je enak kar
+\[
+1 + \Im \br{\frac{h'' \br{r \cdot e^{i \varphi}}}
+{h' \br{r \cdot e^{i \varphi}}} \cdot
+r \cdot i \cdot e^{i \varphi}} =
+1 + \Re \br{\frac{z \cdot h''(z)}{h'(z)}},
+\]
+kar je za dovolj majhne $z$ zaradi zveznosti seveda pozitivno.
+
+Sedaj naj bo $r > 0$ tako realno število, da je
+$h(\dsk(r))$ konveksna za vse $h \in H_P$. Tedaj je
+\[
+D = \bigcup_{h \in H_P} h(\dsk(r))
+\]
+konveksna množica, zato je enostavno povezana.
+\end{proof}
+
 \begin{definicija}
 Naj bo $H \subseteq \Aut M$ končna podgrupa grupe avtomorfizmov
-ploskve $M$. Na množici $\kvoc{M}{H}$ uvedemo kompleksno strukturo
-na naslednji način:
+Riemannove ploskve $M$. Na množici $\kvoc{M}{H}$ uvedemo kompleksno
+strukturo na naslednji način:
 
 \begin{enumerate}[i)]
-\item Če je množica $H_P = \setb{h \in H}{h(P) = P}$ trivialna,
+\item Če je grupa $H_P = \setb{h \in H}{h(P) = P}$ trivialna,
 lokalna karta na dovolj majhni okolici $P$ inducira lokalno karto
 pri $\pi(P)$.
 \item Če je v lokalni koordinati $H_P$ generirana s preslikavo
@@ -167,8 +228,6 @@ $z \mapsto e^{\frac{2 \pi i}{k}} z$, za lokalno karto točke $P$
 vzamemo $z^k$.
 \end{enumerate}
 \end{definicija}
-
-%TODO Zakaj je H_P ciklična?
 
 Prepričamo se lahko, da so te lokalne karte med seboj kompatibilne.
 Na kvocientu $\kvoc{M}{H}$ smo torej dobili kompleksno strukturo,

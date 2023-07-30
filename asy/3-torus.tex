@@ -1,32 +1,31 @@
 \begin{figure}[!ht]
 \centering
+\vspace{-0.7cm}
 \begin{asy}
-size(10cm);
-guide add(guide g, pair[] list) {
-	for(pair P : list) g = g..P;
-	return g;
+size(3cm);
+import smoothcontour3;
+real R = 0.7;
+currentprojection=perspective((0,10,5));
+
+real torus(real x,  real y, real z) {
+	real r = sqrt(x^2 + y^2);
+	return (r-2)^2 + z^2 - R^2;
 }
 
-void center(pair O) {
-	guide lower = O+(-0.8,-0.05)..O+(0,-0.15)..O+(0.8,-0.05);
-	guide upper = O+(-0.8,-0.05)..O+(0,0.2)..O+(0.8,-0.05);
-	draw(upper);
-	draw(O+(-1.1,0.05)..lower..O+(1.1,0.05));
+real f(real x, real y, real z) {
+	real f1 = torus(x, y, z);
+	real f2 = torus(x + 4.1 + R, y, z);
+	real f3 = torus(x - 4.1 - R, y, z);
+	return f1 * f2 * f3 - 0.1;
 }
 
-pair[] zgoraj = {(-2,0.65),(-1,0.86),(0,1),(1,0.86),(2,0.65)};
-pair[] desno = {(3,0.86),(4,1),(6,0),(4,-1),(3,-0.86)};
-pair[] spodaj = {(2,-0.65),(1,-0.86),(0,-1),(-1,-0.86),(-2,-0.65)};
-pair[] levo = {(-3,-0.86),(-4,-1),(-6,0),(-4,1),(-3,0.86)};
-guide g;
-g = add(g, zgoraj);
-g = add(g, desno);
-g = add(g, spodaj);
-g = add(g, levo);
-draw(g..cycle);
-center(0);
-center(4);
-center(-4);
+triple max = (3*(2+R), 2+R, R) + (0.1, 0.1, 0.1);
+
+surface s = implicitsurface(f, -max, max, overlapedges=true, nx=35, ny=35, nz=20);
+draw(s, white);
+
+shipout(scale(4) * currentpicture.fit());
 \end{asy}
+\vspace{-0.7cm}
 \caption{Ploskev roda $g=3$}
 \end{figure}

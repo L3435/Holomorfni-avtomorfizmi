@@ -26,8 +26,8 @@ Topološko je torus kvocient $\kvoc{\R^2}{\Z^2}$, pri čemer $\Z^2$
 deluje na $\R^2$ s predpisom $(m,n) \cdot (x,y) = (x+m, y+n)$.
 Množico $\R^2$ lahko seveda enačimo s $\C$. Delovanje grupe $\Z^2$
 je povsem nezvezno in brez negibnih točk, zato je kvocient
-$\kvoc{\C}{\Z^2}$ spet kompleksna mnogoterost (FORSTNERIČ). Tako
-smo dobili kompleksno strukturo na torusu.
+$\kvoc{\C}{\Z^2}$ spet kompleksna mnogoterost (VIR). Tako smo
+dobili kompleksno strukturo na torusu.
 
 Seveda pa lahko za delovanje grupe $\Z^2$ vzamemo tudi kak drug
 predpis, na primer $(m,n) \cdot z = z + m \lambda+ n \mu$ za
@@ -79,8 +79,8 @@ T \circ \pi = \pi \circ F.
 Najprej opazimo, da lahko $T$ razširimo do preslikave
 $f \colon \C \to \kvoc{\C}{\Lambda}$ s predpisom $f = T \circ \pi$,
 kjer je $\pi$ krovna projekcija. Mnogoterost $\C$ je enostavno
-povezana, zato po izreku o dvigu preslikave v krov obstaja taka
-holomorfna funkcija $F \colon \C \to \C$, da velja
+povezana, zato po izreku o dvigu preslikave v krov (VIR) obstaja
+taka holomorfna funkcija $F \colon \C \to \C$, da velja
 \[
 T \circ \pi = \pi \circ F.
 \]
@@ -218,4 +218,84 @@ velja $\abs{\skl{J}} = 2$, je grupa $\Aut M$ res končna. \qedhere
 \end{enumerate}
 \end{proof}
 
-%TODO Hurwitz
+\begin{izrek}[Hurwitz]
+Naj bo $M$ kompaktna Riemannova ploskev roda $g \geq 2$. Tedaj je
+\[
+\abs{\Aut M} \leq 84(g-1).
+\]
+\end{izrek}
+
+\begin{proof}
+Ker je $G = \Aut M$ končna grupa, lahko tvorimo kvocient
+$N = \kvoc{M}{G}$. Naj bo $\pi \colon M \to N$ kvocientna
+projekcija. Ni težko videti, da je $\deg \pi = \abs{G}$, saj ima
+vsaka točka $P$, ki ni fiksna točka nobenega netrivialnega
+avtomorfizma, orbito velikosti $\abs{G}$. Za preslikavo $\pi$ so
+BRANCHING NUMBER enaka $b(P) = \ord G_P - 1$, pri čemer označimo
+$G_P = \setb{g \in G}{G(P) = P}$. Vzemimo maksimalno množico
+$\setb{P_j}{1 \leq j \leq r}$ točk, ki so fiksne točke nekega
+netrivialnega avtomorfizma in imajo disjunktne orbite, in označimo
+$v_j = \abs{G_{P_j}}$. Jasno je, da je velikost orbite točke $P_j$
+enaka $\frac{\abs{G}}{v_j}$, zato za TOTAL BRANCH NUMBER velja
+\[
+B = \sum_{j=1}^r \frac{N}{v_j} \cdot \br{v_j - 1},
+\]
+zato po izreku~\ref{iz:rie-hur} sledi
+\[
+2g - 2 = \abs{G} \cdot (2 \gamma - 2) +
+\abs{G} \cdot \sum_{j=1}^r \br{1 - \frac{1}{v_j}},
+\]
+kjer je $\gamma$ rod ploskve $N$. Preostanek dokaza ločimo na tri
+primere:
+
+\begin{enumerate}[i)]
+\item Velja $\gamma \geq 2$. V tem primeru mora veljati
+\[
+2g - 2 \geq \abs{G} \cdot 2,
+\]
+od koder dobimo oceno $\abs{G} \leq g-1$.
+
+\item Velja $\gamma = 1$. Če je $r=0$, dobimo $g=1$, v nasprotnem
+primeru pa velja
+\[
+\sum_{j=1}^r \br{1 - \frac{1}{v_j}} \geq \frac{1}{2},
+\]
+od koder sledi $\abs{G} \leq 4(g-1)$.
+
+\item Velja $\gamma = 0$. Od tod lahko enačbo prepišemo v
+\begin{equation}\label{eq:hur}
+2g - 2 =
+\abs{G} \cdot \br{\sum_{j=1}^r \br{1 - \frac{1}{v_j}} - 2}.
+\end{equation}
+Veljati mora $r \geq 3$, saj je v nasprotnem primeru desna stran
+enačbe negativna. Če je $r \geq 5$, sledi
+\[
+\sum_{j=1}^r \br{1 - \frac{1}{v_j}} \geq \frac{5}{2},
+\]
+zato je $\abs{G} \leq 4(g-1)$. Enostavno se lahko znebimo tudi
+primera $r=4$. V tem primeru namreč ne morejo vsi $v_j$ biti enaki
+$2$, saj bi tedaj desna stran enačbe~\eqref{eq:hur} bila negativna.
+Tako lahko ocenimo
+\[
+\sum_{j=1}^4 \br{1 - \frac{1}{v_j}} \geq
+3 \cdot \frac{1}{2} + \frac{2}{3} =
+\frac{13}{6},
+\]
+zato velja ocena $\abs{G} \leq 12(g-1)$.
+
+Preostane še primer $r=3$. Naj bo $2 \leq v_1 \leq v_2 \leq v_3$.
+Najprej opazimo, da je $v_2 \geq 3$, saj bi v nasprotnem primeru
+desna stran enačbe~\eqref{eq:hur} bila negativna. Iz enakega
+razloga dobimo tudi $v_3 > 3$. Če je $v_3 \geq 7$, tako dobimo
+\[
+\sum_{j=1}^3 \br{1 - \frac{1}{v_j}} \geq
+\frac{1}{2} + \frac{2}{3} + \frac{6}{7} = \frac{85}{42},
+\]
+od koder dobimo oceno iz trditve izreka, to je
+$\abs{G} \leq 84(g-1)$.
+
+Preostane nam še možnost $v_3 \leq 6$. Pri vsakem izmed teh končno
+mnogo primerov dobimo, da je desna stran enačbe~\eqref{eq:hur}
+negativna ali pa sledi ocena $\abs{G} \leq 40(g-1)$. \qedhere
+\end{enumerate}
+\end{proof}
