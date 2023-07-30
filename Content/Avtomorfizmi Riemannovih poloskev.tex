@@ -21,8 +21,150 @@ lastnosti objekta, ampak tudi njegove kompleksne strukture.
 
 Naslednji izziv so ploskve z rodom $g=1$ -- torusi. Za toruse
 IZREK ne velja, zato imamo več različnih grup avtomorfizmov.
-Oglejmo si, kako jih dobimo:
-%TODO Kvocienti in stvari
+
+Topološko je torus kvocient $\kvoc{\R^2}{\Z^2}$, pri čemer $\Z^2$
+deluje na $\R^2$ s predpisom $(m,n) \cdot (x,y) = (x+m, y+n)$.
+Množico $\R^2$ lahko seveda enačimo s $\C$. Delovanje grupe $\Z^2$
+je povsem nezvezno in brez negibnih točk, zato je kvocient
+$\kvoc{\C}{\Z^2}$ spet kompleksna mnogoterost (FORSTNERIČ). Tako
+smo dobili kompleksno strukturo na torusu.
+
+Seveda pa lahko za delovanje grupe $\Z^2$ vzamemo tudi kak drug
+predpis, na primer $(m,n) \cdot z = z + m \lambda+ n \mu$ za
+$\R$-linearno neodvisna $\lambda, \mu \in \C$. Topološko spet
+dobimo enak prostor ne glede na izbiro
+$\lambda, \mu \in \C \setminus \R$, izkaže pa se, da tako dobimo
+bistveno različne kompleksne strukture. To lahko dokažemo tako, da
+poiščemo grupe avtomorfizmov.
+
+Naj bo $\Lambda = \setb{m \lambda + n \mu}{m, n \in \Z}$, torej
+neka mreža v ravnini. Kompleksen torus, generiran s to mrežo,
+označimo s $\kvoc{\C}{\Lambda}$.
+
+Najprej si oglejmo primere preprostih avtomorfizmov, ki jih najdemo
+na vsakem torusu. Najpreprostejša geometrijska transformacija
+torusa je kar rotacija -- v krovnem prostoru to ustreza preslikavi
+$z \mapsto z + r \cdot \lambda$ za realno število $r$. Obstaja pa
+še ena vrsta rotacije, pri kateri se torus rotira ">sam vase"<.
+To so še preslikave $z \mapsto z + r \cdot \mu$. Skupaj tako dobimo
+množico preslikav $z \mapsto z + \alpha$ za poljuben
+$\alpha \in \C$.
+
+\input{asy/torus.tex}
+
+Preslikave oblike
+\[
+f(z + \Lambda) = z + \alpha + \Lambda
+\]
+so res avtomorfizmi torusa, saj so očitno dobro definirane in imajo
+inverz
+\[
+f^{-1}(z + \Lambda) = z-\alpha + \Lambda.
+\]
+oba sta seveda holomorfna, saj je kompleksna struktura na torusu
+podedovana iz kompleksne ravnine. Opazimo še, da je tudi
+$f(z + \Lambda) = -z + \Lambda$ avtomorfizem torusa. To nas privede
+do naslednje trditve:
+
+\begin{trditev}
+Naj bo $T \in \Aut \kvoc{\C}{\Lambda}$ poljuben avtomorfizem in
+$\pi \colon \C \to \kvoc{\C}{\Lambda}$ krovna projekcija. Tedaj
+obstaja taka afina funkcija $F \colon \C \to \C$, da velja
+\[
+T \circ \pi = \pi \circ F.
+\]
+\end{trditev}
+
+\begin{proof}
+Najprej opazimo, da lahko $T$ razširimo do preslikave
+$f \colon \C \to \kvoc{\C}{\Lambda}$ s predpisom $f = T \circ \pi$,
+kjer je $\pi$ krovna projekcija. Mnogoterost $\C$ je enostavno
+povezana, zato po izreku o dvigu preslikave v krov obstaja taka
+holomorfna funkcija $F \colon \C \to \C$, da velja
+\[
+T \circ \pi = \pi \circ F.
+\]
+Naj bo sedaj $\alpha \in \Lambda$ poljubna točka mreže in
+\[
+\Phi(z) = F(z + \alpha) - F(z).
+\]
+Tedaj velja
+\[
+\pi(\Phi(z)) =
+\pi(F(z + \alpha)) - \pi(F(z)) =
+T(\pi(z)) - T(\pi(z + \alpha)) =
+0.
+\]
+Sledi, da je $\Phi(\C) \subseteq \Lambda$, ker pa je to diskretna
+množica in $\Phi$ zvezna funkcija, sledi, da je $\Phi$ konstantna.
+Tako dobimo $F(z + \alpha) = F(z) + c$ za vsak $a \in \Lambda$,
+oziroma $F'(z + \alpha) = F'(z)$. To že pomeni, da je $F'$ omejena,
+zato je po Liouvilleovem izreku konstantna, kar pomeni, da je
+\[
+F(z) = az + b,
+\]
+pri čemer je $a \ne 0$.
+\end{proof}
+
+Sedaj si oglejmo, kakšne avtomorfizme take preslikave $F$
+dopuščajo. Velja
+\[
+T(z + \Lambda) = T(\pi(z)) = \pi(F(z)) = az + b + \Lambda.
+\]
+Ker že vemo, da so translacije avtomorfizmi, je dovolj preveriti,
+katere izmed preslikav $T(z + \Lambda) = az + \Lambda$ so
+avtomorfizmi torusa.
+
+Naj bo $\lambda \in \Lambda$ poljuben element mreže. Tedaj je
+\[
+\Lambda = T(\Lambda) = T(\lambda + \Lambda) = a\lambda + \Lambda,
+\]
+enako pa velja za inverz
+$T^{-1}(z + \Lambda) = \frac{z}{a} + \Lambda$. Tako sledi, da je
+$\lambda \in \Lambda$ natanko tedaj, ko je $a \lambda \in \Lambda$.
+Oglejmo si $\lambda \in \Lambda \setminus \set{0}$ z najmanjšo
+dolžino. Brez škode za splošnost lahko vzamemo $F(0) = 0$, kar
+pomeni, da je $a \lambda \in \Lambda \setminus \set{0}$, od koder
+sledi $\abs{a} \geq 1$. Z enakim premislekom za $T^{-1}$ dobimo še
+$\abs{a} \leq 1$.
+
+Če je $a = \pm 1$, dobimo avtomorfizme, ki smo jih našteli zgoraj.
+Sicer sta $\lambda$ in $a \lambda$ $\R$-linearno neodvisna. Denimo,
+da mreža $\Lambda$ ni generirana z $\lambda$ in $a \lambda$. To
+pomeni, da obstaja element mreže $\mu \in \Lambda$, ki ga ne moremo
+izraziti z $\lambda$ in $a \lambda$. To med drugim pomeni, da $\mu$
+leži v notranjosti (ali na stranici) nekega romba z oglišči
+$\lambda_0$, $\lambda_0 + \lambda$,
+$\lambda_0 + \lambda + a \lambda$ in $\lambda_0 + a \lambda$.
+
+\input{asy/generator_mreze.tex}
+
+Sedaj ni težko videti, da velja
+$\abs{\lambda_0 - \mu} < \abs{\lambda}$ ali
+$\abs{\lambda_0 + \lambda + a \lambda - \mu} < \abs{\lambda}$, saj
+leži v notranjosti enega izmed krožnih izsekov s središčem v
+$\lambda_0$ ali $\lambda_0 + \lambda + a \lambda$ in polmerom
+$\abs{\lambda}$, označenima na sliki~\ref{slika:gen_mre}. To ni
+mogoče, saj sta tako $\lambda_0 - \mu$ kot
+$\lambda_0 + \lambda + a \lambda - \mu$ elementa mreže, $\lambda$
+pa je po dolžini najmanjši.
+
+Ker je $a \lambda \in \Lambda$, velja tudi
+$a^2 \lambda \in \Lambda$. Tako lahko izrazimo
+\[
+a^2 \lambda = m a \lambda + n \lambda,
+\]
+oziroma
+\[
+a^2 = ma + n.
+\]
+To je kvadratna enačba z realnimi koeficienti, zato sta njeni
+rešitvi $a$ in $\oline{a}$. Po Vietovih formulah tako dobimo $n=1$
+in $\abs{m} \leq 2$. Z obravnavo primerov dobimo
+\[
+a \in \set{\pm 1, \pm i,
+e^{\pm \frac{i \pi}{3}}, e^{\pm \frac{2i \pi}{3}}}.
+\]
 
 \subsection{Ploskve večjih rodov}
 

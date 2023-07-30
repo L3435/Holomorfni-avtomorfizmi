@@ -86,12 +86,12 @@
 \ProcessOptions\relax
 \LoadClass[12pt, a4paper]{article}
 \ifthenelse{\boolean{@drugastopnja}}{
-  \def\@stopnja{2. stopnja}
+  \def\@stopnja{2.\ stopnja}
   \def\@tipdela{Magistrsko delo}
   \def\@cycle{2nd cycle}
   \def\@thesistype{Master's thesis}
 }{
-  \def\@stopnja{1. stopnja}
+  \def\@stopnja{1.\ stopnja}
   \def\@tipdela{Delo diplomskega seminarja}
   \def\@cycle{1st cycle}
   \def\@thesistype{Diploma seminar work}
@@ -595,21 +595,21 @@
 }
 \def\@frontpages@sl@kljucnebesede{
   \noindent
-  \textbf{Math. Subj. Class. (2020):} \@klasifikacija \\[1mm]
+  \textbf{Math.\ Subj.\ Class.\ (2020):} \@klasifikacija \\[1mm]
   \def\sep{, } % Pri izpisu ključne besede ločimo z vejico.
   \textbf{Ključne besede:} \@kljucnebesede \\[1mm]
   \textbf{Keywords:} \@keywords
 }
 \def\@frontpages@en@keywords{
   \noindent
-  \textbf{Math. Subj. Class. (2020):} \@klasifikacija \\[1mm]
+  \textbf{Math.\ Subj.\ Class.\ (2020):} \@klasifikacija \\[1mm]
   \def\sep{, } % Pri izpisu ključne besede ločimo z vejico.
   \textbf{Keywords:} \@keywords \\[1mm]
   \textbf{Ključne besede:} \@kljucnebesede
 }
 \def\@frontpages@trst@keywords{
   \noindent
-  \textbf{Math. Subj. Class. (2020):} \@klasifikacija \\[1mm]
+  \textbf{Math.\ Subj.\ Class.\ (2020):} \@klasifikacija \\[1mm]
   \def\sep{, } % Pri izpisu ključne besede ločimo z vejico.
   \textbf{Keywords:} \@keywords \\[1mm]
   \textbf{Parole chiave:} \@it@keywords \\[1mm]

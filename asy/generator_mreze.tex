@@ -1,0 +1,18 @@
+\begin{figure}[!ht]
+\centering
+\begin{asy}
+pair A = 0, B = 1, D = dir(80), C = B + D - A;
+pair mu = 0.3 + 0.2I;
+
+filldraw(A--arc(A, 1, 0, 80)--cycle, cyan+opacity(0.2));
+draw(C--arc(C, 1, 180, 260)--cycle);
+
+dot("$\lambda_0$", A, dir(225));
+dot("$\lambda_0 + \lambda$", B, dir(315));
+dot("$\lambda_0 + \lambda + a \lambda$", C, dir(45));
+dot("$\lambda_0 + a \lambda$", D, dir(135));
+dot("$\mu$", mu, dir(mu));
+\end{asy}
+\caption{Element mreže ne more ležati v notranjosti romba}
+\label{slika:gen_mre}
+\end{figure}
