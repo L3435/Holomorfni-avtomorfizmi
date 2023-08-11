@@ -231,14 +231,14 @@ $N = \kvoc{M}{G}$. Naj bo $\pi \colon M \to N$ kvocientna
 projekcija. Ni težko videti, da je $\deg \pi = \abs{G}$, saj ima
 vsaka točka $P$, ki ni fiksna točka nobenega netrivialnega
 avtomorfizma, orbito velikosti $\abs{G}$. Za preslikavo $\pi$ so
-BRANCHING NUMBER enaka $b(P) = \ord G_P - 1$, pri čemer označimo
-$G_P = \setb{g \in G}{G(P) = P}$. Vzemimo maksimalno množico
+BRANCHING NUMBER enaka $b(P) = \abs{G_P} - 1$, pri čemer označimo
+$G_P = \setb{g \in G}{g(P) = P}$. Vzemimo maksimalno množico
 $\setb{P_j}{1 \leq j \leq r}$ točk, ki so fiksne točke nekega
 netrivialnega avtomorfizma in imajo disjunktne orbite, in označimo
 $v_j = \abs{G_{P_j}}$. Jasno je, da je velikost orbite točke $P_j$
 enaka $\frac{\abs{G}}{v_j}$, zato za TOTAL BRANCH NUMBER velja
 \[
-B = \sum_{j=1}^r \frac{N}{v_j} \cdot \br{v_j - 1},
+B = \sum_{j=1}^r \frac{\abs{G}}{v_j} \cdot \br{v_j - 1},
 \]
 zato po izreku~\ref{iz:rie-hur} sledi
 \[

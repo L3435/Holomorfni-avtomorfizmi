@@ -182,36 +182,151 @@ $z \mapsto e^{i \theta} \frac{r}{z}$.
 \subsection{Avtomorfizmi \texorpdfstring{$p$}{p}-povezanih območij}
 
 Oglejmo si avtomorfizme območja
-$\Omega = \C \setminus \setb{x_i}{1 \leq i \leq p}$, pri čemer
+$\Omega = \rs \setminus \setb{x_i}{1 \leq i \leq p}$, pri čemer
 brez škode za splošnost vzamemo $x_p = \infty$. Za $p = 1$ dobimo
-kompleksno ravnino. Pri $p = 2$ lahko brez škode za splošnost
-vzamemo $x_1 = 0$. Ni težko videti, da so vsi avtomorfizmi oblike
+kar kompleksno ravnino, katere avtomorfizme že poznamo. Pri $p = 2$
+lahko brez škode za splošnost vzamemo $x_1 = 0$. Ni težko videti,
+da so vsi avtomorfizmi oblike
 $z \mapsto e^{i \theta} \cdot z^{\pm 1}$.
 
 Sedaj si oglejmo še primer $p > 2$. Preverimo lahko, da se vsak
 avtomorfizem $\Omega$ razširi do avtomorfizma Riemannove ploskve,
 ki permutira točke $x_i$. Ker je vsaka Möbiusova transformacija
 enolično določena s tremi točkami, je moč grupe $\Aut(\Omega)$ tako
-omejena s $p (p-1) (p-2)$.
+omejena s $p (p-1) (p-2)$. Izkaže se, da lahko to mejo še bistveno
+izboljšamo.
 
-Izkaže se, da lahko to mejo še bistveno izboljšamo. Znano je
-namreč, da je vsaka končna podgrupa $\Aut(\rs)$ konjugirana
-podgrupi grupe rotacij $\SO_3$ \cite{Lyndol}. Vse končne podgrupe
-$\SO_3$ so natanko rotacijske, diedrske, tetraedrska, oktaedrska in
-ikozaedrska \cite{Artin_1991}. Preverimo lahko, da je za $p = 4$
-največja možna moč grupe avtomorfizmov enaka $12$, za $p = 6$ in
-$p = 8$ dobimo $24$, za $p = 12$ in $p = 20$ pa $60$. Za vse ostale
-$p$ je največja grupa simetrij kar dierska, zato je
-$\abs{\Aut(\Omega)} \leq 2p$.
+\begin{trditev}
+Naj bo $p > 2$ naravno število in
+$\Omega = \rs \setminus \setb{x_i}{1 \leq i \leq p}$. Tedaj velja
+$\abs{G} \leq 2p$ ali pa $\abs{G} \in \set{12, 24, 60}$.<
+\end{trditev}
 
-%TODO Podrobnejša razlaga
+\begin{proof}
+Predpostavimo, da je $\abs{G} \geq 2$. Označimo $G = \Aut \Omega$
+in za vsako točko $z \in \Omega$ njen stabilizator označimo z
+$G_z = \setb{g \in G}{g(z) = z}$. Vzemimo neko maksimalno množico
+$\setb{z_j}{1 \leq j \leq r}$ točk, ki imajo netrivialen
+stabilizator in paroma disjunktne orbite. Naj bo še
+$v_j = \abs{G_{z_j}}$ za vse $j \leq r$. Sedaj na dva načina
+preštejmo fiksne točke netrivialnih avtomorfizmov (z
+večkratnostmi). Ker ima vsak avtomorfizem natanko $2$ fiksni točki,
+je teh skupaj enako kar $2 \cdot \br{\abs{G} - 1}$. Zlahka
+preverimo, da so fiksne točke ravno elementi orbit točk $z_j$.
+Vsaka točka orbite točke $z_j$ je fiksna točka natanko $v_j - 1$
+netrivialnih avtomorfizmov, takih točk pa je seveda
+$\frac{\abs{G}}{v_j}$. Tako dobimo enakost
+\[
+2 \cdot \br{\abs{G} - 1} =
+\sum_{j=1}^r \frac{\abs{G}}{v_j} \cdot \br{v_j - 1}.
+\]
+Z malo spretnosti lahko to enakost preoblikujemo v
+\[
+2 - \frac{2}{\abs{G}} = \sum_{j=1}^r \br{1 - \frac{1}{v_j}}.
+\]
+Sedaj ločimo naslednje primere:
+
+\begin{enumerate}[i)]
+\item Velja $r = 1$. Velja
+\[
+1 - \frac{1}{v_1} < 1 \leq 2 - \frac{2}{\abs{G}},
+\]
+kar je seveda protislovje.
+
+\item Velja $r = 2$. Enakost lahko v tem primeru prepišemo v obliko
+\[
+\frac{2}{\abs{G}} = \frac{1}{v_1} + \frac{1}{v_2}.
+\]
+Ker velja $v_1, v_2 \leq \abs{G}$, je lahko zgornja enakost
+izpolnjena le v primeru $v_1 = v_2 = \abs{G}$. To pomeni, da imamo
+natanko dve fiksni točki, ki sta fiksni točki vsakega avtomorfizma.
+Ker je vsak avtomorfizem Riemannove sfere natanko določen s tremi
+točkami, je tako dovolj določiti, kam se slika ena izmed $p$ točk,
+za to pa imamo kvečjemu $p$ možnosti. V tem primeru tako velja
+$\abs{\Aut(\Omega)} \leq p$.\footnote{Dokazati se da celo, da velja
+$\Aut(\Omega) \cong \Z_k$ za nek $k \leq p$.}
+
+\item Velja $r = 3$. V tem primeru lahko zgornjo enakost prepišemo
+v
+\[
+\frac{2}{\abs{G}} =
+\frac{1}{v_1} + \frac{1}{v_2} + \frac{1}{v_3} - 1.
+\]
+Brez škode za splošnost naj velja $v_1 \leq v_2 \leq v_3$. Če za
+vse $j$ velja $v_j \geq 3$, je desna stran enačbe nepozitivna. Tako
+sledi $v_1 = 2$. Če velja tudi $v_2 = 2$, lahko izrazimo
+$v_3 = \frac{\abs{G}}{2}$. Orbita točke $z_3$ je tako enaka kar
+$\set{z_3, z_3'}$. Sledi, da stabilizatorji točke $z_3$ fiksirajo
+ta dva elementa, kar po istem argumentu kot zgoraj implicira, da je
+$v_3 \leq p$ in zato $\abs{G} \leq 2p$.\footnote{V tem primeru je
+$\Aut(\Omega)$ izomorfna neki diedrski grupi.}
+
+Ostane še primer, ko je $v_1 = 2$ in $v_2, v_3 \geq 3$. Če velja
+$v_3 \geq 6$, dobimo
+\[
+\frac{1}{v_1} + \frac{1}{v_2} + \frac{1}{v_3} - 1 \leq
+\frac{1}{2} + \frac{1}{3} + \frac{1}{6} - 1 = 0,
+\]
+kar je seveda protislovje. Podobno pridemo do protislovja, če velja
+$v_2, v_3 \geq 4$. Tako nam preostanejo le še primeri
+\[
+(v_1, v_2, v_3) \in \set{(2,3,3), (2,3,4), (2,3,5)}.
+\]
+Ni težko izračunati, da velja $\abs{G} \in \set{12, 24, 60}$.
+
+\item Velja $r \geq 4$. Ker je $v_j \geq 2$, sledi
+\[
+\sum_{j=1}^r \br{1 - \frac{1}{v_j}} \geq
+\frac{r}{2} \geq 2 > 2 - \frac{2}{\abs{G}},
+\]
+kar je seveda protislovje. \qedhere
+\end{enumerate}
+\end{proof}
+
+Za katera števila $p$ pa lahko velja $\abs{G} > 2p$? Če imamo v
+točki $x_j$ luknjo območja $\Omega$, jo moramo imeti tudi v vsakem
+elementu njene orbite. Oglejmo si vsak primer posebej:
+
+\begin{enumerate}
+\item Velja $\abs{G} = 12$. V tem primeru imamo dve orbiti
+velikosti $4$ in eno orbito velikosti $6$, vse ostale pa so
+velikosti $12$. Tako sledi
+\[
+p = 4a + 6b + 12c,
+\]
+pri čemer veljajo omejitve $a \leq 2$ in $b \leq 1$. Ker želimo še
+$p < 6$, je edina možnost kar $p = 4$.
+
+\item Velja $\abs{G} = 24$. V tem primeru imamo po eno orbito
+velikosti $6$, $8$ in $12$, zato velja
+\[
+p = 6a + 8b + 12c + d
+\]
+z omejitvami $a, b, c \leq 1$. Ob pogoju $p < 12$ tako sledi
+$p \in \set{6, 8}$.
+
+\item Velja $\abs{G} = 60$. V tem primeru imamo po eno orbito
+velikosti $12$, $20$ in $30$, od koder sledi
+\[
+p = 12a + 20b + 30c + 60d
+\]
+z omejitvami $a, b, c \leq 1$. Z dodatnim pogojem $p < 30$ sta tako
+edini možnosti $p \in \set{12, 20}$.
+\end{enumerate}
+
+Zgornje primere si lahko predstavljamo tudi geometrijsko. Grupe
+redov $12$, $24$ in $60$ ustrezajo ravno grupam rotacij tetraedra,
+oktaedra in ikozaedra. Orbite netrivialnih velikosti v teh primerih
+predstavljajo kar oglišča, razpolovišča robov in pa središča mejnih
+ploskev. Če za $p$ točk izberemo eno izmed teh orbit, bodo vse
+rotacije še vedno avtomorfizmi območja.
 
 Oglejmo si še primer, ko robne komponente niso nujno točke.
 
 \begin{izrek}
 Naj bo $\Omega$ območje na Riemannovi sferi, katerega robne
 komponente sestavlja $p$ točk ali Jordanovih krivulj. Tedaj za
-moč grupe $\Aut \Omega$ veljajo enake ocene kot zgoraj.
+moč grupe $\Aut(\Omega)$ veljajo enake ocene kot zgoraj.
 \end{izrek}
 
 \begin{proof}
@@ -220,7 +335,7 @@ predpostavimo, da je $\Omega$ kar enotski disk, ki mu odstranimo
 nekaj točk in diskov. Po Carathéodoryjevem izreku
 \cite[izrek~5.1.1 in opomba~5.1.2]{krantz} sledi, da avtomorfizem
 permutira robne komponente območja $\Omega$. Tako obstaja
-homomorfizem $\lambda \colon \Aut \Omega \to S_{\partial \Omega}$,
+homomorfizem $\lambda \colon \Aut(\Omega) \to S_{\partial \Omega}$,
 kjer je $S_{\partial{\Omega}}$ permutacijska grupa. Jedro
 homomorfizma so natanko tisti avtomorfizmi, ki fiksirajo vsako
 robno komponento posebej. Pokažimo, da je jedro trivialno.
@@ -260,7 +375,7 @@ popraviti z rotacijo in translacijo.
 \input{asy/inverzija.tex}
 
 Sedaj si izberimo poljubno točko $z \not \in \Omega$ in si oglejmo
-njeno orbito, torej množico $A = \setb{T(z)}{T \in \Aut \Omega}$.
+njeno orbito, torej množico $A = \setb{T(z)}{T \in \Aut(\Omega)}$.
 Po enakem razmisleku kot zgoraj se namreč vsak avtomorfizem
 $\Omega$ razširi do avtomorfizma kompleksne ravnine. V vsaki
 komponenti $\Omega^\mathsf{c}$ imamo kvečjemu en element množice
@@ -268,7 +383,7 @@ $A$. Sedaj si izberimo poljubno točko v eni izmed komponent, ki je
 množica $A$ ne obišče, in postopek ponovimo. Tako na koncu dobimo
 množico $S = \setb{z_i}{1 \leq i \leq p}$, pri čemer je v vsaki
 komponenti $\Omega^\mathsf{c}$ natanko ena točka. Poljuben
-avtomorfizem $T \in \Aut \Omega$ se torej razširi do avtomorfizma
+avtomorfizem $T \in \Aut(\Omega)$ se torej razširi do avtomorfizma
 območja $\Omega \setminus S$, s tem pa je izrek dokazan.
 \end{proof}
 
