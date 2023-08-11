@@ -2,7 +2,87 @@
 
 \subsection{Gladke in kompleksne mnogoterosti}
 
-%TODO Definicije gladkih mnogoterosti
+V tem poglavju bomo rezultate iz območij na Riemannovi sferi
+posplošili na bolj splošne množice. Seveda hočemo še naprej
+govoriti o holomorfnih preslikavah, zato potrebujejo te množice
+neko strukturo, v kateri znamo odvajati. Naravna izbira so tako
+mnogoterosti.
+
+\begin{definicija}
+\emph{Topološka mnogoterost} dimenzije $n$ je Hausdorffov, 2-števen
+topološki prostor $M$, v katerem ima vsaka točka $p \in M$ okolico,
+homeomorfno odprti podmnožici $\R^n$. Paru okolice in homeomorfizma
+pravimo \emph{lokalna karta}.
+\end{definicija}
+
+Zdi se, da lahko za vsako primerno preslikavo $f \colon M \to N$
+med mnogoterostima $M$ in $N$ preverimo, ali je diferenciabilna --
+za vsako točko $P \in M$ poiščemo evklidski okolici s
+homeomorfizmoma $(U, \varphi)$ in $(V, \psi)$ točk $P$ in $f(P)$ in
+preverimo, ali je preslikava
+$\tilde{f} = \psi \circ f \circ \varphi^{-1}$ diferenciabilna. To
+seveda lahko naredimo, a pridemo do težave -- diferenciabilnost je
+v tem primeru odvisna od lokalne karte.
+
+V nadaljevanju se omejimo na dvodimenzionalne mnogoterosti
+(ploskve), saj so lokalno homeomorfne podmnožici kompleksne
+ravnine, kar nam bo olajšalo definicijo holomorfnosti.
+
+\begin{definicija}
+\emph{Atlas} ploskve $M$ je množica lokalnih kart
+$\mathcal{U} = \setb{(U_i, \varphi_i)}{i \in I}$, za katero velja
+\[
+M = \bigcup_{i \in I} U_i.
+\]
+Če velja
+$U_i \cap U_j \ne \emptyset$, definiramo \emph{prehodno preslikavo}
+$\varphi_{i,j} \colon
+\varphi_i(U_i \cap U_j) \to \varphi_j(U_i \cap U_j)$ s predpisom
+$\varphi_{i,j} = \varphi_j \circ \varphi_i^{-1}$. Atlas je
+\emph{kompleksen}, če so vse prehodne preslikave holomorfne.
+\end{definicija}
+
+S to definicijo smo se znebili zgornje težave. Če namreč vzamemo
+lokalne karte iz istega kompleksnega atlasa, je holomorfnost
+preslikave neodvisna od izbire lokalne karte -- če so
+$(U, \varphi_i)$ in $(V, \psi_i)$ lokalne karte točk $P$ in $f(P)$,
+za $f_i = \psi_i \circ f \circ \varphi_i^{-1}$ velja
+\[
+f_2 = \br{\psi_2 \circ \psi_1^{-1}} \circ
+f_1 \circ \br{\varphi_1 \circ \varphi_2^{-1}}.
+\]
+Če je funkcija $f_1$ holomorfna, je zaradi holomorfnosti prehodnih
+preslikav holomorfna tudi $f_2$.
+\[
+\begin{tikzcd}[column sep=large, row sep=large]
+U_1 \subseteq \C \arrow[r, dashrightarrow, "f_1"] &
+V_1 \subseteq \C
+\\
+U \arrow[r, "f"] \arrow[d, "\varphi_2"'] \arrow[u, "\varphi_1"] &
+V \arrow[u, "\psi_1"'] \arrow[d, "\psi_2"] \\
+U_2 \subseteq \C \arrow[r, dashrightarrow, "f_2"'] &
+V_2 \subseteq \C
+\end{tikzcd}
+\]
+
+Pravimo, da sta kompleksna atlasa $\mathcal{U}$ in $\mathcal{V}$
+\emph{kompatibilna}, če je tudi $\mathcal{U} \cup \mathcal{V}$
+kompleksen atlas. Lahko se prepričamo, da je kompatibilnost
+ekvivalenčna relacija. Ko izbiramo atlas za mnogoterost je tako
+pomembno le, v katerem ekvivalenčnem razredu je ta atlas.
+
+\begin{definicija}
+\emph{Riemannova ploskev} je povezana mnogoterost dimenzije $2$
+(kompleksne dimenzije $1$) skupaj z izborom ekvivalenčnega razreda
+kompleksnih atlasov.
+\end{definicija}
+
+V nadaljevanju se bomo omejili na kompaktne Riemannove ploskve.
+Izkaže se, da so vse Riemannove ploskve
+orientabilne~\cite[razdelek 1.2.6]{Forstneric}. Z geometrijsko
+topologijo lahko te klasificiramo kot $g$-toruse -- za $g=0$ to
+pomeni sfero, za $g=1$ torus, za $g \geq 2$ pa $g$ torusov, ki so
+zlepljeni skupaj. Številu $g$ pravimo \emph{rod} ploskve.
 
 \input{asy/3-torus.tex}
 
