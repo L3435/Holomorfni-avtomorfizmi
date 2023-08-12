@@ -16,18 +16,41 @@ avtomorfizmov Riemannove sfere enaka
 \]
 
 Vemo pa, da je grupa avtomorfizmov odvisna ne samo od topoloških
-lastnosti objekta, ampak tudi njegove kompleksne strukture.
-%TODO To ni problem
+lastnosti objekta, ampak tudi njegove kompleksne strukture. Izkaže
+se, da imamo na ploskvah roda $g = 0$ do konformne ekvivalence le
+eno kompleksno strukturo:
+
+\begin{lema}
+Naj bo $M$ kompaktna Riemannova ploskev roda $g = 0$. Tedaj je $M$
+konformno ekvivalentna Riemannovi sferi.
+\end{lema}
+
+\begin{proof}
+Naj bo $P \in M$ poljubna točka. Po Riemann-Rochovem izreku velja
+\[
+r \br{P^{-1}} = 1 - 0 + 1 + i(P) \geq 2,
+\]
+zato obstaja nekonstantna meromorfna funkcija $f \in L \br{P^-1}$.
+Ker ima ta pol, je ta v točki $P$ in je enostaven. Sledi, da je
+stopnja preslikave $f$ enaka $1$, zato je $f$ bijektivna.
+\end{proof}
+
+Posledica zgornje leme je, da imajo vse Riemannove ploskve roda
+$g = 0$ izomorfne grupe avtomorfizmov. Lema je pravzaprav poseben
+primer Koebejevega izreka o uniformizaciji, ki pravi, da je vsaka
+enostavno povezana Riemannova ploskev konformno ekvivalenta
+Riemannovi sferi, kompleksni ravnini ali enotskemu disku.
 
 Naslednji izziv so ploskve z rodom $g=1$ -- torusi. Za toruse
-IZREK ne velja, zato imamo več različnih grup avtomorfizmov.
+izrek o uniformizaciji seveda ne velja, zato bomo dobili drugačne
+(in tudi med seboj različne) grupe avtomorfizmov.
 
 Topološko je torus kvocient $\kvoc{\R^2}{\Z^2}$, pri čemer $\Z^2$
 deluje na $\R^2$ s predpisom $(m,n) \cdot (x,y) = (x+m, y+n)$.
-Množico $\R^2$ lahko seveda enačimo s $\C$. Delovanje grupe $\Z^2$
-je povsem nezvezno in brez negibnih točk, zato je kvocient
-$\kvoc{\C}{\Z^2}$ spet kompleksna mnogoterost (VIR). Tako smo
-dobili kompleksno strukturo na torusu.
+Množico $\R^2$, ki ji pravimo tudi \emph{krovni prostor}, lahko
+seveda enačimo s $\C$. Kvocient $\kvoc{\C}{\Z^2}$ je spet
+Riemannova ploskev s podedovano kompleksno
+strukturo~\cite[razdelek~1.8.2]{Forstneric}.
 
 Seveda pa lahko za delovanje grupe $\Z^2$ vzamemo tudi kak drug
 predpis, na primer $(m,n) \cdot z = z + m \lambda+ n \mu$ za
@@ -78,9 +101,10 @@ T \circ \pi = \pi \circ F.
 \begin{proof}
 Najprej opazimo, da lahko $T$ razširimo do preslikave
 $f \colon \C \to \kvoc{\C}{\Lambda}$ s predpisom $f = T \circ \pi$,
-kjer je $\pi$ krovna projekcija. Mnogoterost $\C$ je enostavno
-povezana, zato po izreku o dvigu preslikave v krov (VIR) obstaja
-taka holomorfna funkcija $F \colon \C \to \C$, da velja
+kjer je $\pi$ (krovna) projekcija. Mnogoterost $\C$ je enostavno
+povezana, zato po izreku o dvigu preslikave v krov
+(glej~\cite[izrek~1.106]{Forstneric}) obstaja taka holomorfna
+funkcija $F \colon \C \to \C$, da velja
 \[
 T \circ \pi = \pi \circ F.
 \]
@@ -193,7 +217,7 @@ $T \in \Aut M$ velja $T(W) = W$.
 \end{lema}
 
 \begin{proof}
-Avtomorfizmi ohranjajo GAPE.
+Avtomorfizmi ohranjajo luknje.
 \end{proof}
 
 \begin{izrek}[Schwarz]
@@ -231,12 +255,13 @@ $N = \kvoc{M}{G}$. Naj bo $\pi \colon M \to N$ kvocientna
 projekcija. Ni težko videti, da je $\deg \pi = \abs{G}$, saj ima
 vsaka točka $P$, ki ni fiksna točka nobenega netrivialnega
 avtomorfizma, orbito velikosti $\abs{G}$. Za preslikavo $\pi$ so
-BRANCHING NUMBER enaka $b(P) = \abs{G_P} - 1$, pri čemer označimo
-$G_P = \setb{g \in G}{g(P) = P}$. Vzemimo maksimalno množico
-$\setb{P_j}{1 \leq j \leq r}$ točk, ki so fiksne točke nekega
-netrivialnega avtomorfizma in imajo disjunktne orbite, in označimo
-$v_j = \abs{G_{P_j}}$. Jasno je, da je velikost orbite točke $P_j$
-enaka $\frac{\abs{G}}{v_j}$, zato za TOTAL BRANCH NUMBER velja
+razvejiščna števila točk enaka $b(P) = \abs{G_P} - 1$, pri čemer
+označimo $G_P = \setb{g \in G}{g(P) = P}$. Vzemimo maksimalno
+množico $\setb{P_j}{1 \leq j \leq r}$ točk, ki so fiksne točke
+nekega netrivialnega avtomorfizma in imajo disjunktne orbite, in
+označimo $v_j = \abs{G_{P_j}}$. Jasno je, da je velikost orbite
+točke $P_j$ enaka $\frac{\abs{G}}{v_j}$, zato za razvejiščno
+število preslikave velja
 \[
 B = \sum_{j=1}^r \frac{\abs{G}}{v_j} \cdot \br{v_j - 1},
 \]

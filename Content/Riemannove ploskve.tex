@@ -77,6 +77,47 @@ pomembno le, v katerem ekvivalenčnem razredu je ta atlas.
 kompleksnih atlasov.
 \end{definicija}
 
+\begin{primer}
+Najpreprostejši primeri Riemannovih ploskev so kar območja v
+kompleksni ravnini. Kompleksna struktura na teh množicah je podana
+kar z vložitvijo okolic v kompleksno ravnino.
+
+Kompleksno strukturo lahko uvedemo tudi na sferi, in sicer s
+stereografsko projekcijo. Če sta $N$ in $S$ severni in južni pol
+sfere $S^2$, nam preslikavi
+\[
+\pi_N \colon (z, t) \mapsto \frac{z}{1-t}
+\qquad \text{in} \qquad
+\pi_S \colon (z, t) \mapsto \frac{\oline{z}}{1+t}
+\]
+podata lokalni karti za $S^2 \setminus \set{N}$ in
+$S^2 \setminus \set{S}$. Krajši izračun pokaže, da je
+\[
+\pi_N \circ \pi_S^{-1}(\xi) = \frac{1}{\xi},
+\]
+kar je holomorfna preslikava, zato je to res kompleksen atlas.
+\end{primer}
+
+\begin{definicija}
+Preslikava $f \colon M \to N$ med Riemannovima ploskvama je
+\emph{holomorfna} v točki $P$, če je za poljubni lokalni karti
+$(U, \varphi)$ in $(V, \psi)$ točk $P$ ter $f(P)$ preslikava
+$\tilde{f} = \psi \circ f \circ \varphi^{-1}$ holomorfna v točki
+$\varphi(P)$. Preslikava $f$ je holomorfna, če je holomorfna v
+vsaki točki $P \in M$.
+\end{definicija}
+
+Po zgornjem razmisleku je holomorfnost dovolj preveriti na enem
+paru lokalnih kart. Pomembno je omeniti, da imajo holomorfne
+preslikave med Riemannovimi ploskvami po definiciji enake lokalne
+lastnosti kot holomorfne preslikave v kompleksni ravnini -- velja
+na primer izrek o odprti preslikavi za nekonstantne holomorfne
+funkcije.
+
+Sedaj, ko imamo definirano holomorfnost, lahko uvedemo še pojem
+holomorfnega avtomorfizma ploskve $M$ -- to bo preprosto vsaka
+bijektivna holomorfna preslikava $f \colon M \to M$.
+
 V nadaljevanju se bomo omejili na kompaktne Riemannove ploskve.
 Izkaže se, da so vse Riemannove ploskve
 orientabilne~\cite[razdelek 1.2.6]{Forstneric}. Z geometrijsko
@@ -135,8 +176,8 @@ $m$-krat.\footnote{Šteto z večkratnostmi.}
 Iz kompleksne analize vemo, da za vsako točko $P \in M$ obstajajo
 take lokalne koordinate $\tilde{z}$, da je
 $f(\tilde{z}) = f(P) + \tilde{z}^n$. Število $n-1$ označimo z
-$b(P)$ in mu pravimo BRANCHING NUMBER. To je seveda dobro
-definirano.
+$b(P)$ in mu pravimo \emph{razvejiščno število točke}. To je seveda
+dobro definirano.
 
 Za vsako naravno število $m$ naj bo
 \[
@@ -154,7 +195,8 @@ okolico $U$ točke $P$ velja
 \[
 b(P) + 1 = \sum_{Q \in U \cap f^{-1}(P')} (b(Q) + 1),
 \]
-kjer je $P' \in f(U)$. Če to enakost seštejemo po okolicah vseh točk $P \in f^{-1}(X)$, dobimo
+kjer je $P' \in f(U)$. Če to enakost seštejemo po okolicah vseh
+točk $P \in f^{-1}(X)$, dobimo
 \[
 m \leq \varphi(X) \leq \varphi(P').
 \]
@@ -196,7 +238,7 @@ $f(M) = \C$, kar je v protislovju s kompaktnostjo.
 \begin{definicija}
 Za kompaktni Riemannovo ploskvi $M$ in $N$ ter nekonstantno
 preslikavo $f \colon M \to N$ definiramo
-\emph{TOTAL BRANCH NUMBER} kot
+\emph{razvejiščno število} kot
 \[
 B = \sum_{P \in M} b_f(P).
 \]
@@ -210,7 +252,7 @@ končna.
 \label{iz:rie-hur}
 Naj bosta $M$ in $N$ kompaktni Riemannovi ploskvi rodov $g$ in
 $\gamma$, $f \colon M \to N$ pa nekonstantna preslikava stopnje
-$n$. Tedaj za TOTAL BRANCHING NUMBER $B$ velja
+$n$. Tedaj za razvejiščno število $B$ velja
 \[
 g = n(\gamma - 1) + 1 + \frac{B}{2}.
 \]
@@ -400,7 +442,7 @@ enodimenzionalen prostor.
 
 \begin{zgled}
 Če je $\deg \mathfrak{A} > 0$, je $r(\mathfrak{A}) = 0$. Iz
-neenakosti $(f) \geq \mathfrak{A}$ za neničenlno funkcijo $f$
+neenakosti $(f) \geq \mathfrak{A}$ za neničelno funkcijo $f$
 namreč sledi $0 = \deg (f) \geq \deg \mathfrak{A} > 0$, kar je
 protislovje.
 \end{zgled}
@@ -455,7 +497,7 @@ $i(\mathfrak{A}) = 0$.
 \end{trditev}
 
 \begin{proof}
-Naj bo $\omega \in i(1)$ neničelna holomorfen diferencial. Tedaj je
+Naj bo $\omega \in i(1)$ neničeln holomorfen diferencial. Tedaj je
 \[
 r \br{(\omega)^{-1}} = \deg (\omega) - g + 1 + i \br{(\omega)}.
 \]
@@ -480,13 +522,13 @@ natanko $g$ števil
 \]
 za katera ne obstaja funkcija $f \in \mathscr{K}(M)$, ki je
 holomorfna na $M \setminus \set{P}$ in ima pol reda $n_j$ v $P$.
-Tem številom pravimo GAP.
+Tem številom pravimo \emph{luknje}.
 \end{izrek}
 
 \begin{proof}
-Najprej opazimo, da je število $n$ GAP natanko tedaj, ko je
+Najprej opazimo, da je število $n$ luknja natanko tedaj, ko je
 $r(P^{-n}) = r(P^{1-n})$. Ker je $r(P^{-n}) \leq r(P^{1-n}) + 1$,
-število $n$ ni GAP natanko tedaj, ko velja
+število $n$ ni luknja natanko tedaj, ko velja
 \[
 r \br{P^{-n}} - r \br{P^{1-n}} = 1.
 \]
@@ -509,21 +551,22 @@ Ker je $i(1) = g$ in za vse $n > 2g-2$ velja $i(P^n) = 0$, sledi
 \[
 r \br{P^{-n}} - 1 = n - g.
 \]
-Opazimo, da leva stran šteje ravno število NEGAPOV $\leq n$.
-Sledi, da je GAPOV natanko $g$ in so vsi strogo manjši od $2g$.
+Opazimo, da leva stran prešteje ravno števila, ki so manjša od $n$
+in niso luknje. Sledi, da je lukenj natanko $g$ in so vse strogo
+manjše od $2g$.
 \end{proof}
 
-Izkaže se, da je lažje analizirati komplement tega zaporedja, torej
-števila
+Izkaže se, da je lažje analizirati \emph{neluknje} -- komplement
+tega zaporedja, torej števila
 \[
 1 < \alpha_1 < \dots < \alpha_g = 2g,
 \]
 za katera obstaja funkcija s polom reda $\alpha_j$ v $P$. Če sta
-števili $\alpha_i$ in $\alpha_j$ NEGAPA, je tako tudi število
+števili $\alpha_i$ in $\alpha_j$ neluknji, je tako tudi število
 $\alpha_i + \alpha_j$, saj lahko vzamemo kar produkt pripadajočih
-funkcij. Posebej je vsak večkratnik NEGAPA spet NEGAP. Če je
-$\alpha_1 = 2$, so tako vsa soda števila NEGAPI in GAPI natanko
-liha števila, manjša od $2g$.
+funkcij. Posebej je vsak večkratnik neluknje spet neluknja. Če je
+$\alpha_1 = 2$, so tako vsa soda števila neluknje in so luknje
+natanko liha števila, manjša od $2g$.
 
 \begin{lema}
 Za vsako naravno število $j < g$ velja
@@ -534,8 +577,8 @@ Za vsako naravno število $j < g$ velja
 
 \begin{proof}
 Denimo, da je $\alpha_j + \alpha_{g-j} < 2g$. Tedaj so vsa števila
-$\alpha_k + \alpha_{g-j}$ za $k \leq j$ NEGAPI, manjši od $2g$.
-Tako imamo skupaj vsaj $g-j + j + 1 = g+1$ NEGAPOV, manjših od
+$\alpha_k + \alpha_{g-j}$ za $k \leq j$ neluknje, manjši od $2g$.
+Tako imamo skupaj vsaj $g-j + j + 1 = g+1$ nelukenj, manjših od
 $2g$. To je seveda protislovje.
 \end{proof}
 
@@ -553,18 +596,18 @@ izraza sta enaka natanko tedaj, ko za vsak $j < g$ velja
 \[
 \alpha_j + \alpha_{g-j} = 2g.
 \]
-Če je število $\alpha$ NEGAP, je tako torej tudi $2g - \alpha$.
-Opazimo, da je za NEGAPA $\alpha_i < \alpha_j$ tudi
-$\alpha_i + (2g - \alpha_j)$ NEGAP, zato je tak tudi
+Če je število $\alpha$ neluknja, je tako torej tudi $2g - \alpha$.
+Opazimo, da je za neluknja $\alpha_i < \alpha_j$ tudi
+$\alpha_i + (2g - \alpha_j)$ neluknja, zato je tak tudi
 \[
 2g - (\alpha_i + (2g - \alpha_j)) = \alpha_j - \alpha_i.
 \]
-Sledi, da je tudi vsaka razlika NEGAPOV NEGAP. Sledi, da so vsi
-NEGAPI večkratnik najmanjšega NEGAPA (osnovni izrek o deljenju),
-kar pa takoj implicira $\alpha_1 = 2$.
+Sledi, da je tudi vsaka razlika nelukenj spet neluknja. Sledi, da
+so vse neluknje večkratnik najmanjše neluknje (osnovni izrek o
+deljenju), kar pa takoj implicira $\alpha_1 = 2$.
 \end{proof}
 
-Število $n$ je GAP natanko tedaj, ko je
+Število $n$ je luknja natanko tedaj, ko je
 $r \br{P^{-n}} = r \br{P^{1-n}}$. To je po Riemann-Rochovem izreku
 ekvivalentno $i \br{P^{n-1}} - i \br{P^n} = 1$. Sledi, da imajo
 holomorfni diferenciali na $M$ v točki $P$ lahko red enak le enemu
@@ -577,11 +620,11 @@ holomorfnih diferencialov, pri čemer velja
 $\ord_P \omega_i = n_i - 1$.
 
 \begin{definicija}
-TEŽA točke $P \in M$ je vsota
+\emph{Teža} točke $P \in M$ je vsota
 \[
 \tau(P) = \sum_{j=1}^g (n_j - j),
 \]
-kjer so $n_j$ GAPI za $P$.
+kjer so $n_j$ luknje za $P$.
 \end{definicija}
 
 \begin{lema}
@@ -774,7 +817,8 @@ obstaja $q$-diferencial z ničlo reda vsaj $\dim \mathscr{H}^q(M)$.}
 \end{definicija}
 
 \begin{trditev}
-Ekvivalentno, vsaj eno izmed števil $2, \dots, g$ ni GAP.
+Točka $P$ je Weierstrassova natanko tedaj, ko vsaj eno izmed števil
+$2, \dots, g$ ni luknja za $P$.
 \end{trditev}
 
 \begin{proof}
@@ -785,7 +829,7 @@ neenakost ekvivalentna
 r \br{P^{-g}} - 1 > 0,
 \]
 oziroma $r \br{P^{-g}} \geq 2$. Ker je $r(1) = 1$, med
-$2, \dots, g$ obstaja število, ki ni GAP.
+$2, \dots, g$ obstaja število, ki ni luknja.
 \end{proof}
 
 \begin{trditev}
@@ -833,7 +877,7 @@ Ekvivalentno to pomeni, da obstaja tak efektiven divizor
 $D \in \Div M$, da je $\deg D = 2$ in $r(D^{-1}) \geq 2$.
 
 \begin{trditev}
-Weierstrassove ploskve imajo natanko $2g+2$ BRANCH točk.
+Weierstrassove ploskve imajo natanko $2g+2$ razvejišč.
 \end{trditev}
 
 \begin{proof}
@@ -844,20 +888,20 @@ g = 2 \cdot (0-1) + 1 + \frac{B}{2}. \qedhere
 \end{proof}
 
 \begin{trditev}
-BRANCH točke preslikave $f$ so natanko Weierstrassove točke ploskve
+Razvejišča preslikave $f$ so natanko Weierstrassove točke ploskve
 $M$.
 \end{trditev}
 
 \begin{proof}
-Naj bo $P \in M$ BRANCH točka. Če je $P$ pol funkcije $f$, je
-njegova stopnja tako enaka $2$. V nasprotnem primeru ima funkcija
+Naj bo $P \in M$ razvejišče. Če je $P$ pol funkcije $f$, je njegova
+stopnja tako enaka $2$. V nasprotnem primeru ima funkcija
 \[
 g \equiv \frac{1}{f - f(P)}
 \]
-pol stopnje $2$ v $P$. V obeh primerih sledi, da $2$ ni GAP za
+pol stopnje $2$ v $P$. V obeh primerih sledi, da $2$ ni luknja za
 točko $P$, zato je ta Weierstrassova.
 
-Vsaka BRANCH točka ima tako TEŽO
+Vsako razvejišče ima tako težo
 \[
 \sum_{k=1}^g \br{2k-1} - \sum_{k=1}^g k = \frac{1}{2} g (g-1),
 \]
@@ -872,8 +916,8 @@ $f^{-1}(\infty) \sim P^2$.
 \end{lema}
 
 \begin{proof}
-Točka $P$ je BRANCH točka funkcije $f$. Če je $P$ pol te funkcije,
-je zato reda $2$ in je $f^{-1}(\infty) = P^2$. V nasprotnem primeru
+Točka $P$ je razvejišče funkcije $f$. Če je $P$ pol te funkcije, je
+zato reda $2$ in je $f^{-1}(\infty) = P^2$. V nasprotnem primeru
 definiramo funkcijo
 \[
 g = \frac{1}{f - f(P)}.
@@ -941,7 +985,7 @@ Tako je $J$ holomorfna tudi na $W$.
 
 Predpostavimo sedaj, da obstaja involucija $J \in \Aut M$ z
 $2g + 2$ fiksnimi točkami. Ker se projekcija
-$f \colon M \to \kvoc{M}{\skl{J}}$ BRANCHA v natanko $2g + 2$
+$f \colon M \to \kvoc{M}{\skl{J}}$ razveja v natanko $2g + 2$
 točkah, po izreku~\ref{iz:rie-hur} sledi, da je rod ploskve
 $\kvoc{M}{\skl{J}}$ enak $0$. Sledi, da je
 $\kvoc{M}{\skl{J}} \cong \rs$, zato je $f$ meromorfna funkcija z

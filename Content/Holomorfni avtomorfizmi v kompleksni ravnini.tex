@@ -190,11 +190,60 @@ da so vsi avtomorfizmi oblike
 $z \mapsto e^{i \theta} \cdot z^{\pm 1}$.
 
 Sedaj si oglejmo še primer $p > 2$. Preverimo lahko, da se vsak
-avtomorfizem $\Omega$ razširi do avtomorfizma Riemannove ploskve,
-ki permutira točke $x_i$. Ker je vsaka Möbiusova transformacija
+avtomorfizem $\Omega$ razširi do avtomorfizma Riemannove sfere, ki
+permutira točke $x_i$. Ker je vsaka Möbiusova transformacija
 enolično določena s tremi točkami, je moč grupe $\Aut(\Omega)$ tako
 omejena s $p (p-1) (p-2)$. Izkaže se, da lahko to mejo še bistveno
-izboljšamo.
+izboljšamo. Najprej dokažimo naslednjo lemo:
+
+\begin{lema}
+Naj bo $p > 2$ naravno število in $f \in \Aut(\Omega)$ netrivialen
+avtomorfizem območja
+$\Omega = \rs \setminus \setb{x_i}{1 \leq i \leq p}$. Tedaj ima $f$
+natanko dve fiksni točki.
+\end{lema}
+
+\begin{proof}
+Naj bo
+\[
+f(z) = \frac{az + b}{cz + d}
+\]
+naš avtomorfizem. Ker je $\Aut(\Omega)$ končna grupa, obstaja tako
+naravno število $n$, da je $f^n = \id$. Spomnimo se, da kompozitum
+Möbiusovih transformacij ustreza množenju pripadajočih matrik.
+Sedaj lahko poiščemo Jordanovo formo
+\[
+\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}
+=
+P \cdot J \cdot P^{-1}
+=
+P \cdot
+\begin{bmatrix}
+\lambda & \varepsilon \\
+   0    & \mu
+\end{bmatrix}
+\cdot P^{-1},
+\]
+pri čemer je $\varepsilon \in \set{0, 1}$. Če je $\varepsilon = 1$,
+velja $\lambda = \mu$ in
+\[
+J^n =
+\begin{bmatrix}
+\lambda^n & n \cdot \lambda^{n-1} \\
+    0     & \lambda^n
+\end{bmatrix}
+\ne I.
+\]
+Tako sledi $\varepsilon = 0$. Sledi, da se $f$ konjugira k
+preslikavi
+\[
+z \mapsto \frac{\lambda z}{\mu} = \alpha z,
+\]
+ta pa ima natanko dve fiksni točki; $0$ in $\infty$.
+\end{proof}
 
 \begin{trditev}
 Naj bo $p > 2$ naravno število in
