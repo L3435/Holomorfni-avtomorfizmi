@@ -199,12 +199,14 @@ izboljšamo.
 \begin{trditev}
 Naj bo $p > 2$ naravno število in
 $\Omega = \rs \setminus \setb{x_i}{1 \leq i \leq p}$. Tedaj velja
-$\abs{G} \leq 2p$ ali pa $\abs{G} \in \set{12, 24, 60}$.<
+$\abs{\Aut(\Omega)} \leq 2p$ ali pa
+$\abs{\Aut(\Omega)} \in \set{12, 24, 60}$.
 \end{trditev}
 
 \begin{proof}
-Predpostavimo, da je $\abs{G} \geq 2$. Označimo $G = \Aut \Omega$
-in za vsako točko $z \in \Omega$ njen stabilizator označimo z
+Označimo $G = \Aut(\Omega)$ in predpostavimo, da je
+$\abs{G} \geq 2$. Označimo $G = \Aut \Omega$ in za vsako točko
+$z \in \Omega$ njen stabilizator označimo z
 $G_z = \setb{g \in G}{g(z) = z}$. Vzemimo neko maksimalno množico
 $\setb{z_j}{1 \leq j \leq r}$ točk, ki imajo netrivialen
 stabilizator in paroma disjunktne orbite. Naj bo še
@@ -287,7 +289,7 @@ Za katera števila $p$ pa lahko velja $\abs{G} > 2p$? Če imamo v
 točki $x_j$ luknjo območja $\Omega$, jo moramo imeti tudi v vsakem
 elementu njene orbite. Oglejmo si vsak primer posebej:
 
-\begin{enumerate}
+\begin{enumerate}[i)]
 \item Velja $\abs{G} = 12$. V tem primeru imamo dve orbiti
 velikosti $4$ in eno orbito velikosti $6$, vse ostale pa so
 velikosti $12$. Tako sledi
@@ -314,7 +316,7 @@ z omejitvami $a, b, c \leq 1$. Z dodatnim pogojem $p < 30$ sta tako
 edini možnosti $p \in \set{12, 20}$.
 \end{enumerate}
 
-Zgornje primere si lahko predstavljamo tudi geometrijsko. Grupe
+Zgornje množice si lahko predstavljamo tudi geometrijsko. Grupe
 redov $12$, $24$ in $60$ ustrezajo ravno grupam rotacij tetraedra,
 oktaedra in ikozaedra. Orbite netrivialnih velikosti v teh primerih
 predstavljajo kar oglišča, razpolovišča robov in pa središča mejnih
@@ -330,15 +332,16 @@ moč grupe $\Aut(\Omega)$ veljajo enake ocene kot zgoraj.
 \end{izrek}
 
 \begin{proof}
-Po posplošitvi Riemannovega upodobitvenega izreka lahko
-predpostavimo, da je $\Omega$ kar enotski disk, ki mu odstranimo
-nekaj točk in diskov. Po Carathéodoryjevem izreku
-\cite[izrek~5.1.1 in opomba~5.1.2]{krantz} sledi, da avtomorfizem
-permutira robne komponente območja $\Omega$. Tako obstaja
-homomorfizem $\lambda \colon \Aut(\Omega) \to S_{\partial \Omega}$,
-kjer je $S_{\partial{\Omega}}$ permutacijska grupa. Jedro
-homomorfizma so natanko tisti avtomorfizmi, ki fiksirajo vsako
-robno komponento posebej. Pokažimo, da je jedro trivialno.
+Po posplošitvi Riemannovega upodobitvenega izreka
+(glej~\cite{Koebe_uni}) lahko predpostavimo, da je $\Omega$ kar
+enotski disk, ki mu odstranimo nekaj točk in diskov. Po
+Carathéodoryjevem izreku \cite[izrek~5.1.1 in opomba~5.1.2]{krantz}
+sledi, da avtomorfizem permutira robne komponente območja $\Omega$.
+Tako obstaja homomorfizem
+$\lambda \colon \Aut(\Omega) \to S_{\partial \Omega}$, kjer je
+$S_{\partial{\Omega}}$ permutacijska grupa. Jedro homomorfizma so
+natanko tisti avtomorfizmi, ki fiksirajo vsako robno komponento
+posebej. Pokažimo, da je jedro trivialno.
 
 Naj bo $T \in \ker \lambda$ poljuben avtomorfizem. Najprej se lahko
 znebimo točkastih robnih komponent, saj se te preslikajo same vase.
@@ -386,5 +389,3 @@ komponenti $\Omega^\mathsf{c}$ natanko ena točka. Poljuben
 avtomorfizem $T \in \Aut(\Omega)$ se torej razširi do avtomorfizma
 območja $\Omega \setminus S$, s tem pa je izrek dokazan.
 \end{proof}
-
-%TODO Vir izreka
