@@ -323,7 +323,7 @@ $v_2, v_3 \geq 4$. Tako nam preostanejo le še primeri
 \[
 (v_1, v_2, v_3) \in \set{(2,3,3), (2,3,4), (2,3,5)}.
 \]
-Ni težko izračunati, da velja $\abs{G} \in \set{12, 24, 60}$.
+S krajšim računom dobimo $\abs{G} \in \set{12, 24, 60}$.
 
 \item Velja $r \geq 4$. Ker je $v_j \geq 2$, sledi
 \[
@@ -438,3 +438,37 @@ komponenti $\Omega^\mathsf{c}$ natanko ena točka. Poljuben
 avtomorfizem $T \in \Aut(\Omega)$ se torej razširi do avtomorfizma
 območja $\Omega \setminus S$, s tem pa je izrek dokazan.
 \end{proof}
+
+Za konec še opomnimo, da avtomorfizmov ni nujno končno mnogo, če
+ima $\Omega^\mathsf{c}$ neskončno mnogo komponent. Na
+sliki~\ref{sl:inf} je območje
+\[
+\Omega = \dsk \bigsetminus \bigcup_{n \in \Z} f^n(D),
+\]
+kjer je $D$ zaprt disk s središčem v $0$ in radijem $\frac{1}{5}$
+ter
+\[
+f(z) = \frac{z - \frac{1}{2}}{1 - \frac{1}{2} z}.
+\]
+
+\input{asy/neskoncno_povezan.tex}
+
+Seveda je $f^n \in \Aut(\Omega)$ za vsak $n \in \Z$. Ker sta lastni
+vrednosti matrike
+\[
+\begin{bmatrix}
+      1      & -\frac{1}{2} \\
+-\frac{1}{2} &       1
+\end{bmatrix}
+\]
+$\frac{1}{2}$ in $\frac{3}{2}$, je njena Jordanova forma enaka
+\[
+J =
+\begin{bmatrix}
+\frac{1}{2} &      0      \\
+     0      & \frac{3}{2}
+\end{bmatrix}.
+\]
+Tako je $J^n$ skalarni večkratnik identitete natanko tedaj, ko je
+$n = 0$, kar pomeni, da $f$ nima končnega reda. Grupa
+$\Aut(\Omega)$ je v tem primeru torej res neskončna.

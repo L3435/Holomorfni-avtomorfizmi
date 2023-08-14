@@ -1,0 +1,42 @@
+\begin{figure}[!ht]
+\centering
+\begin{asy}
+real STEP = pi/10;
+real R = 0.2;
+
+pair aut(pair z) {
+	return (z - 0.5) / (1 - 0.5 * z);
+}
+
+pair inv(pair z) {
+	return (z + 0.5) / (1 + 0.5 * z);
+}
+
+pair power(pair z, int n) {
+	if(n == 0) return z;
+	if(n > 0) return power(aut(z), n-1);
+	if(n < 0) return power(inv(z), n+1);
+	return 0;
+}
+
+path iter(real r, int n) {
+	guide p;
+	for(real t = 0; t < 2pi; t += STEP) {
+		p = p .. power(r * exp(-I * t), n);
+	}
+	return p .. cycle;
+}
+
+path[] g;
+g = g ^^ circle(0,1);
+for(int n = -10; n < 10; ++n) {
+	g = g ^^ iter(R, n);
+}
+
+filldraw(g, cyan+opacity(0.2), linewidth(0));
+label("$\Omega$", dir(45), align = N+E);
+label("$D$", 0.2 * dir(45), align = S+W);
+\end{asy}
+\caption{Neskončno-povezano območje z neskončno avtomorfizmi}
+\label{sl:inf}
+\end{figure}
