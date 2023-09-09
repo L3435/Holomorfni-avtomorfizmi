@@ -1,6 +1,8 @@
-\section{Avtomorfizmi Riemannovih poloskev}
+\section{Avtomorfizmi Riemannovih ploskev}
 
 \subsection{Sfere in torusi}
+
+Razdelek je prirejen po~\cite{cerne}.
 
 Za določanje grupe avtomorfizmov Riemannovih ploskev so pomembne
 njihove topološke lastnosti -- vsak avtomorfizem je namreč tudi
@@ -16,9 +18,9 @@ avtomorfizmov Riemannove sfere enaka
 \]
 
 Vemo pa, da je grupa avtomorfizmov odvisna ne samo od topoloških
-lastnosti objekta, ampak tudi njegove kompleksne strukture. Izkaže
-se, da imamo na ploskvah roda $g = 0$ do konformne ekvivalence le
-eno kompleksno strukturo:
+lastnosti objekta, ampak tudi od njegove kompleksne strukture.
+Izkaže se, da imamo na ploskvah roda $g = 0$ do konformne
+ekvivalence le eno kompleksno strukturo:
 
 \begin{lema}
 Naj bo $M$ kompaktna Riemannova ploskev roda $g = 0$. Tedaj je $M$
@@ -30,15 +32,16 @@ Naj bo $P \in M$ poljubna točka. Po Riemann-Rochovem izreku velja
 \[
 r \br{P^{-1}} = 1 - 0 + 1 + i(P) \geq 2,
 \]
-zato obstaja nekonstantna meromorfna funkcija $f \in L \br{P^-1}$.
-Ker ima ta pol, je ta v točki $P$ in je enostaven. Sledi, da je
-stopnja preslikave $f$ enaka $1$, zato je $f$ bijektivna.
+zato obstaja nekonstantna meromorfna funkcija
+$f \in L \br{P^{-1}}$. Ker ima ta pol, je ta v točki $P$ in je
+enostaven. Sledi, da je stopnja preslikave $f$ enaka $1$, zato je
+$f$ bijektivna.
 \end{proof}
 
 Posledica zgornje leme je, da imajo vse Riemannove ploskve roda
 $g = 0$ izomorfne grupe avtomorfizmov. Lema je pravzaprav poseben
 primer Koebejevega izreka o uniformizaciji, ki pravi, da je vsaka
-enostavno povezana Riemannova ploskev konformno ekvivalenta
+enostavno povezana Riemannova ploskev konformno ekvivalentna
 Riemannovi sferi, kompleksni ravnini ali enotskemu disku.
 
 Naslednji izziv so ploskve z rodom $g=1$ -- torusi. Za toruse
@@ -56,9 +59,9 @@ Seveda pa lahko za delovanje grupe $\Z^2$ vzamemo tudi kak drug
 predpis, na primer $(m,n) \cdot z = z + m \lambda+ n \mu$ za
 $\R$-linearno neodvisna $\lambda, \mu \in \C$. Topološko spet
 dobimo enak prostor ne glede na izbiro
-$\lambda, \mu \in \C \setminus \R$, izkaže pa se, da tako dobimo
-bistveno različne kompleksne strukture. To lahko dokažemo tako, da
-poiščemo grupe avtomorfizmov.
+$\lambda, \mu \in \C$, izkaže pa se, da tako dobimo bistveno
+različne kompleksne strukture. To lahko dokažemo tako, da poiščemo
+grupe avtomorfizmov.
 
 Naj bo $\Lambda = \setb{m \lambda + n \mu}{m, n \in \Z}$, torej
 neka mreža v ravnini. Kompleksen torus, generiran s to mrežo,
@@ -84,14 +87,14 @@ inverz
 \[
 f^{-1}(z + \Lambda) = z-\alpha + \Lambda.
 \]
-oba sta seveda holomorfna, saj je kompleksna struktura na torusu
+Oba sta seveda holomorfna, saj je kompleksna struktura na torusu
 podedovana iz kompleksne ravnine. Opazimo še, da je tudi
 $f(z + \Lambda) = -z + \Lambda$ avtomorfizem torusa. To nas privede
 do naslednje trditve:
 
 \begin{trditev}
-Naj bo $T \in \Aut \kvoc{\C}{\Lambda}$ poljuben avtomorfizem in
-$\pi \colon \C \to \kvoc{\C}{\Lambda}$ krovna projekcija. Tedaj
+Naj bo $T \in \Aut \br{\kvoc{\C}{\Lambda}}$ poljuben avtomorfizem
+in $\pi \colon \C \to \kvoc{\C}{\Lambda}$ krovna projekcija. Tedaj
 obstaja taka afina funkcija $F \colon \C \to \C$, da velja
 \[
 T \circ \pi = \pi \circ F.
@@ -119,11 +122,13 @@ Tedaj velja
 T(\pi(z)) - T(\pi(z + \alpha)) =
 0.
 \]
-Sledi, da je $\Phi(\C) \subseteq \Lambda$, ker pa je to diskretna
-množica in $\Phi$ zvezna funkcija, sledi, da je $\Phi$ konstantna.
-Tako dobimo $F(z + \alpha) = F(z) + c$ za vsak $a \in \Lambda$,
-oziroma $F'(z + \alpha) = F'(z)$. To že pomeni, da je $F'$ omejena,
-zato je po Liouvilleovem izreku konstantna, kar pomeni, da je
+Pri tem odštevanje na torusu interpretiramo kot odštevanje v
+kvocientni grupi. Sledi, da je $\Phi(\C) \subseteq \Lambda$, ker pa
+je to diskretna množica in $\Phi$ zvezna funkcija, sledi, da je
+$\Phi$ konstantna. Tako dobimo $F(z + \alpha) = F(z) + c$ za vsak
+$\alpha \in \Lambda$, oziroma $F'(z + \alpha) = F'(z)$. To že
+pomeni, da je $F'$ omejena, zato je po Liouvilleovem izreku
+konstantna, kar pomeni, da je
 \[
 F(z) = az + b,
 \]
@@ -150,7 +155,7 @@ Oglejmo si $\lambda \in \Lambda \setminus \set{0}$ z najmanjšo
 dolžino. Brez škode za splošnost lahko vzamemo $F(0) = 0$, kar
 pomeni, da je $a \lambda \in \Lambda \setminus \set{0}$, od koder
 sledi $\abs{a} \geq 1$. Z enakim premislekom za $T^{-1}$ dobimo še
-$\abs{a} \leq 1$.
+$\abs{a} \leq 1$, torej $\abs{a} = 1$.
 
 Če je $a = \pm 1$, dobimo avtomorfizme, ki smo jih našteli zgoraj.
 Sicer sta $\lambda$ in $a \lambda$ $\R$-linearno neodvisna. Denimo,
@@ -168,8 +173,8 @@ $\abs{\lambda_0 - \mu} < \abs{\lambda}$ ali
 $\abs{\lambda_0 + \lambda + a \lambda - \mu} < \abs{\lambda}$, saj
 leži v notranjosti enega izmed krožnih izsekov s središčem v
 $\lambda_0$ ali $\lambda_0 + \lambda + a \lambda$ in polmerom
-$\abs{\lambda}$, označenima na sliki~\ref{slika:gen_mre}. To ni
-mogoče, saj sta tako $\lambda_0 - \mu$ kot
+$\abs{\lambda}$, označenih na sliki~\ref{sl:gen_mre}. To ni mogoče,
+saj sta tako $\lambda_0 - \mu$ kot
 $\lambda_0 + \lambda + a \lambda - \mu$ elementa mreže, $\lambda$
 pa je po dolžini najmanjši.
 
@@ -190,11 +195,15 @@ a \in \set{\pm 1, \pm i,
 e^{\pm \frac{i \pi}{3}}, e^{\pm \frac{2i \pi}{3}}}.
 \]
 
-\subsection{Ploskve večjih rodov}
+\subsection{Ploskve višjih rodov}
+
+Razdelek je povzet po~\cite[poglavje V.1]{Farkas_Kra_1980}.
 
 \begin{trditev}
-Naj bo $T \in \Aut M$ netrivialen avtomorfizem. Tedaj ima $T$
-največ $2g + 2$ fiksnih točk.
+\label{td:fix_num}
+Naj bo $M$ kompaktna Riemannova ploskev roda $g \geq 2$ in
+$T \in \Aut(M)$ netrivialen avtomorfizem. Tedaj ima $T$ največ
+$2g + 2$ fiksnih točk.
 \end{trditev}
 
 \begin{proof}
@@ -202,22 +211,13 @@ Naj bo $P \in M$ točka, za katero je $T(P) \ne P$. Tedaj obstaja
 meromorfna funkcija $f \in \mathscr{K}(M)$ z divizorjem polov
 $P^r$ za nek $1 \leq r \leq g + 1$. Oglejmo si funkcijo
 $h = f - f \circ T$. Njen divizor polov je očitno
-$P^r (T^{-1}P)^r$. Velja torej
+$P^r (T^{-1}(P))^r$. Velja torej
 \[
 \deg h^{-1}(0) = \deg h^{-1}(\infty) = 2r \leq 2g + 2,
 \]
-zato ima $h$ kvečjemu $2g + 2$ ničel. Ni težko videti, da so njene
-ničle natanko fiksne točke avtomorfizma $T$.
-\end{proof}
-
-\begin{lema}
-Naj bo $M$ kompaktna Riemannova ploskev roda $g \geq 2$, $W$ pa
-množica njenih Weierstrassovih točk. Tedaj ta vsak avtomorfizem
-$T \in \Aut M$ velja $T(W) = W$.
-\end{lema}
-
-\begin{proof}
-Avtomorfizmi ohranjajo luknje.
+zato ima $h$ kvečjemu $2g + 2$ ničel. Ni težko videti, da so fiksne
+točke avtomorfizma $T$ ničle funkcije $h$, zato je tudi teh
+kvečjemu $2g + 2$.
 \end{proof}
 
 \begin{izrek}[Schwarz]
@@ -225,41 +225,42 @@ Grupe avtomorfizmov kompaktnih ploskev roda $g \geq 2$ so končne.
 \end{izrek}
 
 \begin{proof}
-Po zgornji lemi sledi, da obstaja homomorfizem
-$\lambda \colon \Aut M \to S_W$, kjer je $S_W$ simetrična grupa.
+Po lemi~\ref{lm:perm_wei} sledi, da obstaja homomorfizem
+$\lambda \colon \Aut(M) \to S_W$, kjer je $S_W$ simetrična grupa.
 Dovolj je pokazati, da ima $\lambda$ končno jedro. Ločimo dva
 primera.
 
 \begin{enumerate}[a)]
 \item Če $M$ ni hipereliptična, ima več kot $2g + 2$
 Weierstrassovih točk. Vsak avtomorfizem, ki fiksira Weierstrassove
-točke, je zato kar identiteta, zato je $\ker \lambda$ trivialno.
+točke, je zato po trditvi~\ref{td:fix_num} kar identiteta, zato je
+$\ker \lambda$ trivialno.
 
 \item Če je $M$ hipereliptična, velja kar
 $\ker \lambda = \skl{J}$, kjer je $J$ hipereliptična involucija.
 Ostali avtomorfizmi imajo namreč kvečjemu $4$ fiskne točke. Ker
-velja $\abs{\skl{J}} = 2$, je grupa $\Aut M$ res končna. \qedhere
+velja $\abs{\skl{J}} = 2$, je grupa $\Aut(M)$ res končna. \qedhere
 \end{enumerate}
 \end{proof}
 
 \begin{izrek}[Hurwitz]
 Naj bo $M$ kompaktna Riemannova ploskev roda $g \geq 2$. Tedaj je
 \[
-\abs{\Aut M} \leq 84(g-1).
+\abs{\Aut(M)} \leq 84(g-1).
 \]
 \end{izrek}
 
 \begin{proof}
-Ker je $G = \Aut M$ končna grupa, lahko tvorimo kvocient
+Ker je $G = \Aut(M)$ končna grupa, lahko tvorimo kvocient
 $N = \kvoc{M}{G}$. Naj bo $\pi \colon M \to N$ kvocientna
 projekcija. Ni težko videti, da je $\deg \pi = \abs{G}$, saj ima
 vsaka točka $P$, ki ni fiksna točka nobenega netrivialnega
 avtomorfizma, orbito velikosti $\abs{G}$. Za preslikavo $\pi$ so
 razvejiščna števila točk enaka $b(P) = \abs{G_P} - 1$, pri čemer
-označimo $G_P = \setb{g \in G}{g(P) = P}$. Vzemimo maksimalno
-množico $\setb{P_j}{1 \leq j \leq r}$ točk, ki so fiksne točke
-nekega netrivialnega avtomorfizma in imajo disjunktne orbite, in
-označimo $v_j = \abs{G_{P_j}}$. Jasno je, da je velikost orbite
+označimo $G_P = \setb{g \in G}{g(P) = P}$. Vzemimo po številu točk
+maksimalno množico $\setb{P_j}{1 \leq j \leq r}$, ki so fiksne
+točke nekega netrivialnega avtomorfizma in imajo disjunktne orbite,
+in označimo $v_j = \abs{G_{P_j}}$. Jasno je, da je velikost orbite
 točke $P_j$ enaka $\frac{\abs{G}}{v_j}$, zato za razvejiščno
 število preslikave velja
 \[
@@ -327,3 +328,4 @@ negativna ali pa sledi ocena $\abs{G} \leq 40(g-1)$. \qedhere
 
 Za konec omenimo še, da je enakost $\abs{G} = 84 (g-1)$ dejansko
 dosežena za nekatere vrednosti $g$, na primer $g = 3$ in $g = 7$.
+Za preostale $g \leq 10$ zgornja meja ni dosežena.

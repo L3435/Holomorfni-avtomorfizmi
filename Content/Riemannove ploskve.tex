@@ -5,8 +5,11 @@
 V tem poglavju bomo rezultate iz območij na Riemannovi sferi
 posplošili na bolj splošne množice. Seveda hočemo še naprej
 govoriti o holomorfnih preslikavah, zato potrebujejo te množice
-neko strukturo, v kateri znamo odvajati -- evklidsko. Naravna
-izbira so tako mnogoterosti.
+neko strukturo, v kateri znamo odvajati. Naravna izbira so tako
+mnogoterosti.
+
+Razdelek je povzet po~\cite[razdelek 1.2]{Forstneric}
+in~\cite[poglavja I.1, III.7 ter II.5]{Farkas_Kra_1980}.
 
 \begin{definicija}
 \emph{Topološka mnogoterost} dimenzije $n$ je Hausdorffov, 2-števen
@@ -37,7 +40,8 @@ M = \bigcup_{i \in I} U_i.
 Če velja
 $U_i \cap U_j \ne \emptyset$, definiramo \emph{prehodno preslikavo}
 $\varphi_{i,j} \colon
-\varphi_i(U_i \cap U_j) \to \varphi_j(U_i \cap U_j)$ s predpisom
+\varphi_i(U_i \cap U_j) \subseteq \C \to
+\varphi_j(U_i \cap U_j) \subseteq \C$ s predpisom
 $\varphi_{i,j} = \varphi_j \circ \varphi_i^{-1}$. Atlas je
 \emph{kompleksen}, če so vse prehodne preslikave holomorfne.
 \end{definicija}
@@ -45,8 +49,10 @@ $\varphi_{i,j} = \varphi_j \circ \varphi_i^{-1}$. Atlas je
 S to definicijo smo se znebili zgornje težave. Če namreč vzamemo
 lokalne karte iz istega kompleksnega atlasa, je holomorfnost
 preslikave neodvisna od izbire lokalne karte -- če so
-$(U, \varphi_i)$ in $(V, \psi_i)$ lokalne karte točk $P$ in $f(P)$,
-za $f_i = \psi_i \circ f \circ \varphi_i^{-1}$ velja
+$(U_i \subseteq M, \varphi_i)$ in $(V_i \subseteq N, \psi_i)$
+za $i \in \set{1, 2}$ lokalne karte točk $P$ in $f(P)$, za
+$f_i = \psi_i \circ f \circ \varphi_i^{-1}$ na dovolj majhni
+okolici velja
 \[
 f_2 = \br{\psi_2 \circ \psi_1^{-1}} \circ
 f_1 \circ \br{\varphi_1 \circ \varphi_2^{-1}}.
@@ -55,13 +61,15 @@ f_1 \circ \br{\varphi_1 \circ \varphi_2^{-1}}.
 preslikav holomorfna tudi $f_2$.
 \[
 \begin{tikzcd}[column sep=large, row sep=large]
-U_1 \subseteq \C \arrow[r, dashrightarrow, "f_1"] &
-V_1 \subseteq \C
+\varphi_1(U) \subseteq \C \arrow[r, dashrightarrow, "f_1"] &
+\psi_1(V) \subseteq \C
 \\
-U \arrow[r, "f"] \arrow[d, "\varphi_2"'] \arrow[u, "\varphi_1"] &
-V \arrow[u, "\psi_1"'] \arrow[d, "\psi_2"] \\
-U_2 \subseteq \C \arrow[r, dashrightarrow, "f_2"'] &
-V_2 \subseteq \C
+U = U_1 \cap U_2
+\arrow[r, "f"] \arrow[d, "\varphi_2"'] \arrow[u, "\varphi_1"] &
+V = V_1 \cap V_2
+\arrow[u, "\psi_1"'] \arrow[d, "\psi_2"] \\
+\varphi_2(U) \subseteq \C \arrow[r, dashrightarrow, "f_2"'] &
+\psi_2(V) \subseteq \C
 \end{tikzcd}
 \]
 
@@ -69,7 +77,8 @@ Pravimo, da sta kompleksna atlasa $\mathcal{U}$ in $\mathcal{V}$
 \emph{kompatibilna}, če je tudi $\mathcal{U} \cup \mathcal{V}$
 kompleksen atlas. Lahko se prepričamo, da je kompatibilnost
 ekvivalenčna relacija. Ko izbiramo atlas za mnogoterost je tako
-pomembno le, v katerem ekvivalenčnem razredu je ta atlas.
+pomembno le, v katerem ekvivalenčnem razredu je ta atlas. Taki
+izbiri razreda atlasov pravimo tudi \emph{kompleksna struktura}.
 
 \begin{definicija}
 \emph{Riemannova ploskev} je povezana mnogoterost dimenzije $2$
@@ -77,14 +86,14 @@ pomembno le, v katerem ekvivalenčnem razredu je ta atlas.
 kompleksnih atlasov.
 \end{definicija}
 
-\begin{primer}
+\begin{zgled}
 Najpreprostejši primeri Riemannovih ploskev so kar območja v
 kompleksni ravnini. Kompleksna struktura na teh množicah je podana
 kar z vložitvijo okolic v kompleksno ravnino.
 
 Kompleksno strukturo lahko uvedemo tudi na sferi, in sicer s
 stereografsko projekcijo. Če sta $N$ in $S$ severni in južni pol
-sfere $S^2$, nam preslikavi
+sfere $S^2 \subseteq \C \times \R$, nam preslikavi
 \[
 \pi_N \colon (z, t) \mapsto \frac{z}{1-t}
 \qquad \text{in} \qquad
@@ -96,23 +105,22 @@ $S^2 \setminus \set{S}$. Krajši izračun pokaže, da je
 \pi_N \circ \pi_S^{-1}(\xi) = \frac{1}{\xi},
 \]
 kar je holomorfna preslikava, zato je to res kompleksen atlas.
-\end{primer}
+\end{zgled}
 
 \begin{definicija}
 Preslikava $f \colon M \to N$ med Riemannovima ploskvama je
-\emph{holomorfna} v točki $P$, če je za poljubni lokalni karti
-$(U, \varphi)$ in $(V, \psi)$ točk $P$ ter $f(P)$ preslikava
-$\tilde{f} = \psi \circ f \circ \varphi^{-1}$ holomorfna v točki
-$\varphi(P)$. Preslikava $f$ je holomorfna, če je holomorfna v
-vsaki točki $P \in M$.
+\emph{holomorfna}, če je za vsako točko $P \in M$ in poljubni
+lokalni karti $(U, \varphi)$ in $(V, \psi)$ točk $P$ ter $f(P)$
+preslikava $\tilde{f} = \psi \circ f \circ \varphi^{-1}$
+holomorfna.
 \end{definicija}
 
 Po zgornjem razmisleku je holomorfnost dovolj preveriti na enem
-paru lokalnih kart. Pomembno je omeniti, da imajo holomorfne
-preslikave med Riemannovimi ploskvami po definiciji enake lokalne
-lastnosti kot holomorfne preslikave v kompleksni ravnini -- velja
-na primer izrek o odprti preslikavi za nekonstantne holomorfne
-funkcije.
+paru lokalnih kart vsake točke. Pomembno je omeniti, da imajo
+holomorfne preslikave med Riemannovimi ploskvami po definiciji
+enake lokalne lastnosti kot holomorfne preslikave v kompleksni
+ravnini -- velja na primer izrek o odprti preslikavi za
+nekonstantne holomorfne funkcije.
 
 Sedaj, ko imamo definirano holomorfnost, lahko uvedemo še pojem
 holomorfnega avtomorfizma ploskve $M$ -- to bo preprosto vsaka
@@ -139,11 +147,12 @@ $m$-krat.\footnote{Šteto z večkratnostmi.}
 \end{trditev}
 
 \begin{proof}
-Iz kompleksne analize vemo, da za vsako točko $P \in M$ obstaja
-taka lokalna koordinata $\tilde{z}$, da je
-$f(\tilde{z}) = f(P) + \tilde{z}^n$. Število $n-1$ označimo z
-$b(P)$ in mu pravimo \emph{razvejiščno število točke}. To je seveda
-dobro definirano.
+Iz kompleksne analize vemo, da za vsako točko $P \in M$ obstajata
+taki lokalni koordinati $\tilde{z}_1$ in $\tilde{z}_2$ točk $P$ in
+$f(P)$, da je $f(\tilde{z}_1) = \tilde{z}_2^n$. Število $n-1$
+označimo z $b(P)$ in mu pravimo \emph{razvejiščno število točke}.
+Namesto oznake $b(P)$ bomo v nadaljevanju pogosto uporabili tudi
+\emph{red} točke $\ord_P f = b(P) + 1$.
 
 Za vsako naravno število $m$ naj bo
 \[
@@ -154,7 +163,8 @@ Označimo še
 \[
 \varphi(X) = \sum_{f(P) = X} (b(P)+1).
 \]
-Vse množice $\Sigma_m$ so odprte -- če je $b(P) = n-1$, lahko v
+Posebej, če je $X \not \in f(M)$, velja $\varphi(X) = 0$. Vse
+množice $\Sigma_m$ so odprte -- če je $b(P) = n-1$, lahko v
 lokalnih koordinatah zapišemo $f(\tilde{z}) = \tilde{z}^n$. Enačba
 $f(\tilde{z}) = \varepsilon$ ima tako natanko $n$ rešitev, zato za
 okolico $U$ točke $P$ velja
@@ -192,15 +202,15 @@ holomorfna preslikava, je konstantna.
 \begin{proof}
 Preslikavo $f$ lahko opazujemo kot preslikavo med Riemannovo
 ploskvijo $M$ in Riemannovo sfero $\rs$. Če $f$ ni konstantna, ima
-pozitivno stopnjo, kar pa ni mogoče, saj je $f^{-1}(\infty) = 0$.
+pozitivno stopnjo, kar pa ni mogoče, saj je
+$f^{-1}(\infty) = \emptyset$.
 \end{proof}
 
-To posledico lahko pravzaprav dokažemo z uporabo lastnosti
+To posledico lahko pravzaprav dokažemo tudi z uporabo lastnosti
 holomorfnih preslikav. Denimo, da je $f$ nekonstantna. Ker je $M$
-kompaktna namreč sledi, da je taka tudi $f(M)$. Ker pa so
-nekonstantne holomorfne preslikave odprte, pa sledi, da je $f(M)$
-tudi odprta. To seveda pomeni, da je $f(M) = \C$, kar je v
-protislovju s kompaktnostjo.
+kompaktna, je taka tudi $f(M)$. Ker pa so nekonstantne holomorfne
+preslikave odprte, pa sledi, da je $f(M)$ tudi odprta. To seveda
+pomeni, da je $f(M) = \C$, kar je v protislovju s kompaktnostjo.
 
 \begin{definicija}
 Za kompaktni Riemannovo ploskvi $M$ in $N$ ter nekonstantno
@@ -221,7 +231,7 @@ Naj bosta $M$ in $N$ kompaktni Riemannovi ploskvi rodov $g$ in
 $\gamma$, $f \colon M \to N$ pa nekonstantna preslikava stopnje
 $n$. Tedaj za razvejiščno število $B$ velja
 \[
-g = n(\gamma - 1) + 1 + \frac{B}{2}.
+2 - 2g = n(2 - 2 \gamma) - B.
 \]
 \end{izrek}
 
@@ -229,7 +239,7 @@ g = n(\gamma - 1) + 1 + \frac{B}{2}.
 Ker je množica $\setb{P \in M}{b_f(P) > 0}$ končna, jo lahko
 uporabimo za triangulacijo ploskve $N$. Denimo, da ima
 triangulacija $F$ lic, $E$ povezav in $V$ vozlišč. To
-triangulacijo lahko z $f^{-1}$ preslikamo na $M$. Tako dobimo
+triangulacijo lahko z $f^{-1}$ prenesemo na $M$. Tako dobimo
 triangulacijo ploskve $M$ z $nF$ lici, $nE$ povezavami in $nV - B$
 vozlišči. Sledi, da je\footnote{Eulerjeva karakteristika.}
 \begin{align*}
@@ -239,29 +249,31 @@ nF - nE + nV - B &= 2 - 2g.
 \end{align*}
 Iz teh enačb očitno sledi
 \[
-g = n(\gamma - 1) + 1 + \frac{B}{2}. \qedhere
+2 - 2g = n(2 - 2 \gamma) - B. \qedhere
 \]
 \end{proof}
 
 \begin{trditev}
-Naj bo $H \subseteq \Aut M$ končna podgrupa grupe avtomorfizmov
+Naj bo $H \subseteq \Aut(M)$ končna podgrupa grupe avtomorfizmov
 Riemannove ploskve $M$. Tedaj je podgrupa
 $H_P = \setb{h \in H}{h(P) = P}$ ciklična.
 \end{trditev}
 
 \begin{proof}
-Dokazali bomo, da obstaja enostavno povezana množica $D$, ki je
-invariantna za $H_P$ -- za vsak $h \in H_P$ torej velja $h(D) = D$.
-Po Riemannovem upodobitvenem izreku namreč tedaj obstaja
-biholomorfna preslikava $f \colon D \to \dsk$, za katero velja
-$f(P) = 0$. Avtomorfizmi diska $f \circ h \circ f^{-1}$ so torej
-rotacije, vsaka končna grupa rotacij pa je ciklična.
+Dokazali bomo, da obstaja enostavno povezana množica
+$D \subseteq M$, ki je invariantna za $H_P$ -- za vsak $h \in H_P$
+torej velja $h(D) = D$. Po Riemannovem upodobitvenem izreku namreč
+tedaj obstaja biholomorfna preslikava $f \colon D \to \dsk$, za
+katero velja $f(P) = 0$. Avtomorfizmi diska
+$f \circ h \circ f^{-1}$ so torej rotacije, vsaka končna grupa
+rotacij pa je ciklična.
 
 Opazujmo avtomorfizme v lokalni koordinati točke $P$. Pokažimo, da
-vsak element $h \in H_P$ slika dovolj majhne diske v konveksne
-množice. Dovolj je pokazati, da dovolj majhne krožnice slika v
-konveksne krivulje, oziroma da je argument smeri tangentnega
-vektorja na sliko krožnice monotona.
+vsak element $h \in H_P$ dovolj majhne diske s središčem v $P$
+slika v konveksne množice. Dovolj je pokazati, da dovolj majhne
+krožnice s središčem v $P$ slika v konveksne krivulje, oziroma da
+je argument smeri tangentnega vektorja na sliko krožnice monotona
+funkcija.
 
 Tangentni vektor v točki $z$ na sliko krožnice z radijem
 $r = \abs{z}$ dobimo kot
@@ -298,14 +310,15 @@ kar je za dovolj majhne $z$ zaradi zveznosti seveda pozitivno.
 Sedaj naj bo $r > 0$ tako realno število, da je
 $h(\dsk(r))$ konveksna za vse $h \in H_P$. Tedaj je
 \[
-D = \bigcup_{h \in H_P} h(\dsk(r))
+D = \bigcap_{h \in H_P} h(\dsk(r))
 \]
 konveksna množica, zato je enostavno povezana.
 \end{proof}
 
 \begin{definicija}
-Naj bo $H \subseteq \Aut M$ končna podgrupa grupe avtomorfizmov
-Riemannove ploskve $M$. Na množici $\kvoc{M}{H}$ uvedemo kompleksno
+Naj bo $H \subseteq \Aut(M)$ končna podgrupa grupe avtomorfizmov
+Riemannove ploskve $M$. Naj bo $\pi \colon M \to \kvoc{M}{H}$
+kvocientna projekcija. Na množici $\kvoc{M}{H}$ uvedemo kompleksno
 strukturo na naslednji način:
 
 \begin{enumerate}[i)]
@@ -313,8 +326,8 @@ strukturo na naslednji način:
 lokalna karta na dovolj majhni okolici $P$ inducira lokalno karto
 pri $\pi(P)$.
 \item Če je v lokalni koordinati $H_P$ generirana s preslikavo
-$z \mapsto e^{\frac{2 \pi i}{k}} z$, za lokalno karto točke $P$
-vzamemo $z^k$.
+$z \mapsto e^{\frac{2 \pi i}{k}} z$, za lokalno karto točke
+$\pi(P)$ vzamemo $z^k$.
 \end{enumerate}
 \end{definicija}
 
@@ -336,8 +349,21 @@ $\omega$ priredi funkciji $f_U$ in $f_V$, mora tako veljati
 \[
 f_U = f_V \cdot \br{\br{\psi \circ \varphi^{-1}}'}^q.
 \]
-Opazimo, da je $q$-ta potenca meromorfnega diferenciala meromorfen
+Če je $\omega$ meromorfen diferencial, ki je v lokalnih koordinatah
+podan z $f_U(z)\,dz$, je $\omega^q = f_U(z)^q\,dz^q$ meromorfen
 $q$-diferencial.
+
+\begin{zgled}
+Naj bosta $z$ in $\xi = \frac{1}{z}$ lokalni koordinati za
+$\rs \setminus \set{\infty}$ in $\rs \setminus \set{0}$. Tedaj je
+$\xi' = -\frac{1}{z^2}$, zato velja
+\[
+\frac{1}{z} = -\frac{1}{\xi} \cdot \xi'.
+\]
+S predpisoma $\omega = \frac{1}{z}\,dz$ in
+$\omega = -\frac{1}{\xi}\,d\xi$ je tako podan meromorfen
+diferencial na $\rs$.
+\end{zgled}
 
 \begin{trditev}
 Naj bosta $\alpha$ in $\beta$ meromorfna $q$-diferenciala. Tedaj je
@@ -362,6 +388,8 @@ meromorfen $q$-diferencial.
 
 \subsection{Riemann-Rochov izrek}
 
+Razdelek je povzet po~\cite[poglavje III.4]{Farkas_Kra_1980}.
+
 \begin{definicija}
 \emph{Divizor} na Riemannovi ploskvi $M$ je formalni simbol
 \[
@@ -375,11 +403,16 @@ $\mathfrak{A}$ je definirana kot
 \]
 \end{definicija}
 
+Divizorji se pogosto označujejo tudi linearno, torej simbolno
+\[
+\mathfrak{A} = \sum_{P \in M} \alpha(P) P.
+\]
+
 Divizorji na $M$ tvorijo grupo za naravno definirano množenje --
 to grupo označimo z $\Div(M)$. Tako je
 $\deg \colon \Div(M) \to \Z$ homomorfizem grup.
 
-Za vsako neničelno meromorfno funkcijo $f \in \mathscr{K}(M)$
+Za vsako nekonstantno meromorfno funkcijo $f \in \mathscr{K}(M)$
 definiramo njen \emph{glavni divizor} kot\footnote{Glavne divizorje
 na enak način definiramo še za meromorfne diferenciale.}
 \[
@@ -404,7 +437,7 @@ Na divizorjih uvedemo ekvivalenčno relacijo $\sim$ na naslednji način:
 \]
 
 \begin{lema}
-Naj bo $M$ kompaktna Riemannova ploskev. Za vsako neničelno
+Naj bo $M$ kompaktna Riemannova ploskev. Za vsako nekonstantno
 funkcijo $f \in \mathscr{K}(M)$ velja
 $\deg f^{-1}(0) = \deg f^{-1}(\infty)$. Ekvivalentno je
 $\deg (f) = 0$.
@@ -417,8 +450,8 @@ polov, štetih z večkratnostmi, stopnja divizorja ničel pa
 trditvi~\ref{td:deg}.
 \end{proof}
 
-Posebej velja opomniti, da to pomeni, da imajo funkcije na
-kompaktnih Riemannovih ploskvah enako število ničel in polov
+Posebej velja opomniti, da to pomeni, da imajo meromorfne funkcije
+na kompaktnih Riemannovih ploskvah enako število ničel in polov
 (štetih z večkratnostmi).
 
 Na divizorjih lahko uvedemo relacijo delne urejenosti kot
@@ -428,13 +461,14 @@ Na divizorjih lahko uvedemo relacijo delne urejenosti kot
 \forall P \in M \colon \alpha(P) \geq \beta(P).
 \]
 Pravimo, da je divizor $\mathfrak{A}$ \emph{efektiven}, če velja
-$\mathfrak{A} \geq 1$. Ni težko videti, da je za vsak divizor
-$\mathfrak{A}$ na $M$ množica
+$\mathfrak{A} \geq 1$. Ekvivalentno to pomeni, da je
+$\alpha(P) \geq 0$ za vsak $P \in M$. Ni težko videti, da je za
+vsak divizor $\mathfrak{A}$ na $M$ množica
 \[
 L(\mathfrak{A}) =
 \setb{f \in \mathscr{K}(M)}{(f) \geq \mathfrak{A}}
 \]
-vektorski prostor -- njegovo dimenzijo označimo z
+vektorski prostor nad $\C$ -- njegovo dimenzijo označimo z
 $r(\mathfrak{A})$.
 
 \begin{zgled}
@@ -460,27 +494,28 @@ r \br{P^{-n}} \leq r \br{P^{1-n}} + 1.
 \end{trditev}
 
 \begin{proof}
-Naj bosta $f$ in $g$ meromorfni funkciji s polom stopnje $n$ v
-točki $P$. V neki lokalni karti lahko torej zapišemo
+Naj bosta $f$ in $g$ meromorfni funkciji s polom stopnje natanko
+$n$ v točki $P$. V neki lokalni karti lahko torej zapišemo
 \[
 f(z) = \frac{a}{z^n} + f_1(z)
 \quad \text{in} \quad
 g(z) = \frac{b}{z^n} + g_1(z),
 \]
-kjer velja $f_1, g_1 \in r \br{P^{1-n}}$. Sledi, da je
+kjer velja $f_1, g_1 \in L \br{P^{1-n}}$. Sledi, da je
 \[
-b f - a g \in r \br{P^{1-n}},
+b f - a g \in L \br{P^{1-n}},
 \]
-zato je $r \br{P^{1-n}} \cup \set{f}$ ogrodje za $r \br{P^{-n}}$.
+zato je $L \br{P^{1-n}} \cup \set{f}$ ogrodje za $L \br{P^{-n}}$.
 \end{proof}
 
-Podobno kot zgoraj lahko definiramo vektorski prostor
+Podobno je tudi za meromorfne diferenciale
 \[
 \Omega(\mathfrak{A}) =
 \setb{\omega}{\text{$\omega$ je meromorfen diferencial} \land
-(\omega) \geq \mathfrak{A}}.
+(\omega) \geq \mathfrak{A}}
 \]
-Označimo $i(\mathfrak{A}) = \dim \Omega(\mathfrak{A})$.
+vektorski prostor nad $\C$. Označimo
+$i(\mathfrak{A}) = \dim \Omega(\mathfrak{A})$.
 
 \begin{trditev}\label{td:mero_dif}
 Naj bo $\mathfrak{A}$ poljuben divizor in $\omega$ meromorfen
@@ -503,18 +538,21 @@ vektorskih prostorov. Sledi, da imata enako dimenzijo.
 Naj bo $M$ kompaktna Riemannova ploskev roda $g$ in $\mathfrak{A}$
 divizor na $M$. Tedaj velja
 \[
-r \br{\mathfrak{A}^{-1}} =
-\deg \mathfrak{A} - g + 1 + i(\mathfrak{A}).
+r \br{\mathfrak{A}^{-1}} - i(\mathfrak{A}) =
+\deg \mathfrak{A} - g + 1.
 \]
 \end{izrek}
 
-Dokaz izreka najdemo v~\cite[theorem~III.4.11]{Farkas_Kra_1980}.
+Dokaz izreka najdemo v~\cite[izrek III.4.11]{Farkas_Kra_1980}.
 
 \begin{zgled}
 Z uporabo zgornjega izreka lahko izračunamo $i(1)$. Velja namreč
 \[
 i(1) = r(1) - \deg 1 + g - 1 = g. \qedhere
 \]
+To pomeni, da je dimenzija vektorskega prostora holomorfnih
+diferencialov (torej meromorfnih diferencialov brez polov) enaka
+$g$.
 \end{zgled}
 
 \begin{trditev}
@@ -538,7 +576,12 @@ i(\mathfrak{A}) = r \br{\mathfrak{A} (\omega)^{-1}} = 0,
 saj je $\deg \br{\mathfrak{A} (\omega)^{-1}} > 0$.
 \end{proof}
 
+To pomeni, da je stopnja glavnih divizorjev meromorfnih
+diferencialov navzgor omejena z $2g - 2$.
+
 \subsection{Weierstrassove točke}
+
+Razdelek je povzet po~\cite[poglavje III.5]{Farkas_Kra_1980}.
 
 Podobno kot pri ravninskih območjih bo tudi pri Riemannovih
 ploskvah naš cilj vložiti grupo avtomorfizmov v neko končno
@@ -555,13 +598,20 @@ natanko $g$ števil
 \]
 za katera ne obstaja funkcija $f \in \mathscr{K}(M)$, ki je
 holomorfna na $M \setminus \set{P}$ in ima pol reda $n_j$ v $P$.
-Tem številom pravimo \emph{luknje}.
+Tem številom pravimo \emph{vrzeli}.
 \end{izrek}
 
 \begin{proof}
-Najprej opazimo, da je število $n$ luknja natanko tedaj, ko je
+Najprej se prepričajmo, da res velja $n_1 = 1$. V nasprotnem
+primeru bi obstajala meromorfna funkcija $f \colon M \to \rs$, ki
+ima natanko en pol prve stopnje. Po trditvi~\ref{td:deg} sledi, da
+je $f$ bijekcija, zato je $M$ konformno ekvivalentna Riemannovi
+sferi. To seveda ni mogoče, saj smo privzeli, da za rod ploskve $M$
+velja $g > 0$.
+
+Opazimo, da je število $n$ vrzel natanko tedaj, ko je
 $r(P^{-n}) = r(P^{1-n})$. Ker je $r(P^{-n}) \leq r(P^{1-n}) + 1$,
-število $n$ ni luknja natanko tedaj, ko velja
+število $n$ ni vrzel natanko tedaj, ko velja
 \[
 r \br{P^{-n}} - r \br{P^{1-n}} = 1.
 \]
@@ -585,46 +635,64 @@ Ker je $i(1) = g$ in za vse $n > 2g-2$ velja $i(P^n) = 0$, sledi
 r \br{P^{-n}} - 1 = n - g.
 \]
 Opazimo, da leva stran prešteje ravno števila, ki so manjša od $n$
-in niso luknje. Sledi, da je lukenj natanko $g$ in so vse strogo
-manjše od $2g$.
+in niso vrzeli. Sledi, da je vrzeli natanko $g$ in so vse strogo
+manjše od $2g$ -- enakost namreč nastopi že pri $n = 2g - 1$.
 \end{proof}
 
 \begin{definicija}
 Točka $P \in M$ je \emph{Weierstrassova točka}, če na $M$ obstaja
-neničelna holomorfen diferencial z ničlo reda vsaj $g$ v
-$P$.\footnote{V splošnem definiramo $q$-Weierstrassove točke --
-obstaja $q$-diferencial z ničlo reda vsaj $\dim \mathscr{H}^q(M)$.}
+neničelni holomorfen diferencial z ničlo reda vsaj $g$ v
+$P$.
 \end{definicija}
 
 \begin{trditev}
 Točka $P$ je Weierstrassova natanko tedaj, ko vsaj eno izmed števil
-$2, \dots, g$ ni luknja za $P$.
+$2, \dots, g$ ni vrzel za $P$.
 \end{trditev}
 
 \begin{proof}
-Obstoj diferencialne $1$-forme z ničlo reda vsaj $g$ v $P$ je
-ekvivalentna pogoju $i(P^g) > 0$. Po Riemann-Rochovem izreku je ta
+Obstoj meromorfnega diferenciala z ničlo reda vsaj $g$ v $P$ je
+ekvivalenten pogoju $i(P^g) > 0$. Po Riemann-Rochovem izreku je ta
 neenakost ekvivalentna
 \[
 r \br{P^{-g}} - 1 > 0,
 \]
 oziroma $r \br{P^{-g}} \geq 2$. Ker je $r(1) = 1$, med
-$2, \dots, g$ obstaja število, ki ni luknja.
+$2, \dots, g$ obstaja število, ki ni vrzel.
 \end{proof}
+
+Weierstrassove točke nam bodo pomagale pri analizi grup
+avtomorfizmov Riemannovih ploskev:
+
+\begin{lema}
+\label{lm:perm_wei}
+Naj bo $M$ kompaktna Riemannova ploskev roda $g \geq 2$, $W$ pa
+množica njenih Weierstrassovih točk. Tedaj za vsak avtomorfizem
+$T \in \Aut(M)$ velja $T(W) = W$.
+\end{lema}
+
+\begin{proof}
+Ker lahko meromorfno funkcijo s polom primerne stopnje komponiramo
+z avtomorfizmom, sledi, da ti ohranjajo vrzeli.
+\end{proof}
+
+Podobno kot pri ravninskih območjih smo dobili homomorfizem med
+grupo avtomorfizmov in neko simetrično grupo. V nadaljevanju bomo
+pokazali, da je Weierstrassovih točk končno mnogo.
 
 Preostanek tega razdelka bo namenjen oceni števila Weierstrassovih
 točk.
 
-Posebno pozornost najprej namenimo \emph{neluknjam} -- komplementu
+Posebno pozornost najprej namenimo \emph{nevrzelim} -- komplementu
 tega zaporedja, torej številom
 \[
 1 < \alpha_1 < \dots < \alpha_g = 2g,
 \]
 za katera obstaja funkcija s polom reda $\alpha_j$ v $P$. Če sta
-števili $\alpha_i$ in $\alpha_j$ neluknji, je tako tudi število
+števili $\alpha_i$ in $\alpha_j$ nevrzel, je tako tudi število
 $\alpha_i + \alpha_j$, saj lahko vzamemo kar produkt pripadajočih
-funkcij. Posebej je vsak večkratnik neluknje spet neluknja. Če je
-$\alpha_1 = 2$, so tako vsa soda števila neluknje in so luknje
+funkcij. Posebej je vsak večkratnik nevrzel spet nevrzel. Če je
+$\alpha_1 = 2$, so tako vsa soda števila nevrzeli in so vrzeli
 natanko liha števila, manjša od $2g$.
 
 \begin{lema}
@@ -636,17 +704,18 @@ Za vsako naravno število $j < g$ velja
 
 \begin{proof}
 Denimo, da je $\alpha_j + \alpha_{g-j} < 2g$. Tedaj so vsa števila
-$\alpha_k + \alpha_{g-j}$ za $k \leq j$ neluknje, manjši od $2g$.
+$\alpha_k + \alpha_{g-j}$ za $k \leq j$ nevrzeli, manjše od $2g$.
 Dobimo zaporedje
 \[
 \alpha_1 < \alpha_2 < \dots < \alpha_{g-j} <
 \alpha_1 + \alpha_{g-j} < \dots < \alpha_j + \alpha_{g-j} < 2g.
 \]
-Tako imamo skupaj vsaj $g-j + j + 1 = g + 1$ nelukenj, manjših ali
+Tako imamo skupaj vsaj $g-j + j + 1 = g + 1$ nevrzeli, manjših ali
 enakih $2g$. To je seveda protislovje.
 \end{proof}
 
 \begin{lema}
+\label{lm:nongap_ineq}
 Velja neenakost
 \[
 \sum_{j=1}^{g} \alpha_j \geq g \cdot(g+1)
@@ -660,18 +729,18 @@ izraza sta enaka natanko tedaj, ko za vsak $j < g$ velja
 \[
 \alpha_j + \alpha_{g-j} = 2g.
 \]
-Če je število $\alpha$ neluknja, je tako torej tudi $2g - \alpha$.
-Opazimo, da je za neluknji $\alpha_i < \alpha_j$ tudi
-$\alpha_i + (2g - \alpha_j)$ neluknja, zato je tak tudi
+Če je število $\alpha$ nevrzel, je tako torej tudi $2g - \alpha$.
+Opazimo, da je za nevrzeli $\alpha_i < \alpha_j$ tudi
+$\alpha_i + (2g - \alpha_j)$ nevrzel, zato je tak tudi
 \[
 2g - (\alpha_i + (2g - \alpha_j)) = \alpha_j - \alpha_i.
 \]
-Sledi, da je tudi vsaka razlika nelukenj spet neluknja. Sledi, da
-so vse neluknje večkratnik najmanjše neluknje (osnovni izrek o
+Sledi, da je tudi vsaka razlika nevrzel spet nevrzel. Sledi, da
+so vse nevrzel večkratnik najmanjše nevrzel (osnovni izrek o
 deljenju), kar pa takoj implicira $\alpha_1 = 2$.
 \end{proof}
 
-Število $n$ je luknja natanko tedaj, ko je
+Število $n$ je vrzel natanko tedaj, ko je
 $r \br{P^{-n}} = r \br{P^{1-n}}$. To je po Riemann-Rochovem izreku
 ekvivalentno $i \br{P^{n-1}} - i \br{P^n} = 1$. Sledi, da imajo
 holomorfni diferenciali na $M$ v točki $P$ lahko red enak le enemu
@@ -684,16 +753,16 @@ holomorfnih diferencialov, pri čemer velja
 $\ord_P \omega_i = n_i - 1$.
 
 \begin{definicija}
-\emph{Teža} točke $P \in M$ je vsota
+\emph{Utež} točke $P \in M$ je vsota
 \[
 \tau(P) = \sum_{j=1}^g (n_j - j),
 \]
-kjer so $n_j$ luknje za $P$.
+kjer so $n_j$ vrzeli za $P$.
 \end{definicija}
 
 \begin{lema}
 Naj bodo $\varphi_1$, $\varphi_2$, \dots, $\varphi_n$ meromorfne
-preslikave s paroma različnim redom v točki $P \in X$. Tedaj za
+funkcije s paroma različnim redom v točki $P \in X$. Tedaj za
 determinanto
 \[
 \Phi(z) = \det
@@ -796,8 +865,9 @@ n \cdot \ord_z \varphi_1 +
 \end{align*}
 \end{proof}
 
-Posledično lahko zapišemo $\tau(P) = \ord_P \Phi$, pri čemer za
-$\varphi_i$ vzamemo kar $\omega_i$.
+Naj v neki lokalni koordinati velja $\omega_i = f_{U_i}\,dz$. Če
+vzamemo $\varphi_i = f_{U_i}$, lahko zapišemo kar
+$\tau(P) = \ord_P \Phi$.
 
 \begin{trditev}
 Naj bo $M$ kompaktna Riemannova ploskev z rodom $g \geq 2$. Tedaj
@@ -808,12 +878,14 @@ je
 \end{trditev}
 
 \begin{proof}
-Pokažimo, da je zgoraj definiran $\Phi$ holomorfen $m$-diferencial
-za $m = \frac{g \cdot (g+1)}{2}$. Denimo, da $\omega_i$ priredi
-okolici $U$ karto $\varphi$, okolici $V$ pa karto $\psi$, $f$ pa
-naj bo prehodna preslikava. Tako velja
+Pokažimo, da je zgoraj definirani $\Phi$ holomorfen $m$-diferencial
+za $m = \frac{g \cdot (g+1)}{2}$. Denimo, da lokalno velja
+$\omega_i = \varphi_i(z)\,dz = \psi_i \br{\tilde{z}}\,d\tilde{z}$,
+in naj bo $f \br{\tilde{z}} = z$ prehodna preslikava. Tako velja
 \[
-\psi(f(z)) f'(z) = \varphi(z),
+\psi_i(f(z)) \cdot f'(z) =
+\psi_i \br{\tilde{z}} \cdot f'(z) =
+\varphi_i(z),
 \]
 dokazujemo pa
 \[
@@ -859,13 +931,15 @@ $(f')^{i-1}$. Tako dobimo
 \end{bmatrix}
 \circ f}.
 \]
-Spomnimo se, da za meromorfen diferencial $\omega$ velja
+Spomnimo se, da za holomorfen diferencial $\omega$ velja
 $\deg (\omega) = 2g - 2$. Ker je $\frac{\omega^m}{\Phi}$ meromorfna
 funkcija, sledi
 \[
 \deg (\Phi) = m \cdot \deg (\omega) = m \cdot (2g - 2).
 \]
-Tako je
+Ker imajo meromorfni diferenciali diskretni množici ničel in polov,
+zgornja vsota vsebuje kvečjemu končno mnogo neničelnih členov. Tako
+dobimo
 \[
 \sum_{P \in M} \tau(P) =
 \sum_{P \in M} \ord_P \Phi =
@@ -894,7 +968,7 @@ takoj sledi $w \leq g^3 - g$. Velja pa
 \sum_{j=1}^{2g} j - \sum_{j=1}^g \alpha_j - \sum_{j=1}^g j
 \\
 &=
-g(2g+1) - \frac{g(g+1)}{2} - \sum_{j=1}^{g-1} \alpha_j
+g(2g+1) - \frac{g(g+1)}{2} - \sum_{j=1}^g \alpha_j
 \\
 &\leq
 g(2g+1) - \frac{g(g+1)}{2} - g(g+1)
@@ -902,17 +976,22 @@ g(2g+1) - \frac{g(g+1)}{2} - g(g+1)
 &=
 \frac{g(g-1)}{2}.
 \end{align*}
-Posledično je res $w \geq 2g + 2$.
+Tako sledi
+\[
+g^3 - g = \sum_{P \in M} \tau(P) \leq w \cdot \frac{g(g-1)}{2},
+\]
+oziroma $w \geq 2g + 2$.
 \end{proof}
 
 \subsection{Hipereliptične ploskve}
 
-V prejšnjem razdelku smo identificirali točke, ki jih bodo
-avtomorfizmi permutirali. Da bo število avtomorfizmov končno, mora
-obstajati končno mnogo avtomorfizmov, ki fiksirajo Weierstrassove
-točke. To bo seveda lažje doseči, če bo teh točk čim več. Oglejmo
-si torej lastnosti ploskev, ki imajo samo $2g + 2$ Weierstrassovih
-točk.
+Razdelek je povzet po~\cite[poglavje III.7]{Farkas_Kra_1980}.
+
+V prejšnjem razdelku smo identificirali točke, ki jih avtomorfizmi
+permutirajo. Da bo število avtomorfizmov končno, mora obstajati
+končno mnogo avtomorfizmov, ki fiksirajo Weierstrassove točke. To
+bo seveda težje doseči, če bo teh točk malo. Oglejmo si torej
+lastnosti ploskev, ki imajo samo $2g + 2$ Weierstrassovih točk.
 
 \begin{definicija}
 Kompaktna Riemannova ploskev $M$ je \emph{hipereliptična}, če
@@ -927,14 +1006,16 @@ dokažimo, da je ta definicija res ekvivalentna temu, da ima ploskev
 natanko $2g + 2$ Weierstrassovih točk.
 
 \begin{trditev}
-Naj bo $M$ kompaktna Riemannova ploskev z natanko $2g + 2$
+Naj bo $M$ kompaktna Riemannova ploskev roda $g$ z natanko $2g + 2$
 Weierstrassovimi točkami. Tedaj je $M$ hipereliptična.
 \end{trditev}
 
 \begin{proof}
-Če v neenakosti $w \geq 2g + 2$ velja enakost, mora za vsako
-Weierstrassovo točko veljati $\alpha_1 = 2$, kar takoj implicira
-obstoj meromorfne funkcije s polom druge stopnje.
+Če v neenakosti $w \geq 2g + 2$ velja enakost, mora po
+lemi~\ref{lm:nongap_ineq} za vsako Weierstrassovo točko veljati
+$\alpha_1 = 2$. To pomeni, da obstaja meromorfna funkcija, ki ima
+pol druge stopnje v neki Weierstrassovi točki, kar je ravno
+definicija hipereliptične ploskve.
 \end{proof}
 
 \begin{trditev}
@@ -960,14 +1041,14 @@ stopnja tako enaka $2$, sicer pa ima funkcija
 \[
 g \equiv \frac{1}{f - f(P)}
 \]
-pol stopnje $2$ v $P$. V obeh primerih sledi, da $2$ ni luknja za
+pol stopnje $2$ v $P$. V obeh primerih sledi, da $2$ ni vrzel za
 točko $P$, zato je ta Weierstrassova.
 
-Vsako razvejišče ima tako težo
+Vsako razvejišče ima tako utež
 \[
 \sum_{k=1}^g \br{2k-1} - \sum_{k=1}^g k = \frac{1}{2} g (g-1),
 \]
-saj velja $\alpha_1 = 2$. Njihova skupna teža je tako $g^3 - g$.
+saj velja $\alpha_1 = 2$. Njihova skupna utež je tako $g^3 - g$.
 Sledi, da so to vse Weierstrassove točke.
 \end{proof}
 
@@ -976,32 +1057,35 @@ hipereliptičnih ploskev.
 
 \begin{trditev}
 Naj bo $M$ kompaktna Riemannova ploskev roda $g$. Tedaj je $M$
-hipereliptična natanko tedaj, ko obstaja involucija $J \in \Aut M$
+hipereliptična natanko tedaj, ko obstaja involucija $J \in \Aut(M)$
 z natanko $2g + 2$ fiksnimi točkami.
 \end{trditev}
 
 \begin{proof}
 Predpostavimo najprej, da je $M$ hipereliptična. Naj bo
 $f \colon M \to \rs$ meromorfna funkcija stopnje $2$. Za vsak
-$P \in M$ tako obstaja še ena točka $Q \in M$, za katero je
+$P \in M$ tako obstaja še natanko ena točka $Q \in M$, za katero je
 $f(P) = f(Q)$ (če je $\ord_P f = 2$, vzamemo $Q=P$). Tako lahko
 enostavno definiramo $J(P) = Q$. Ni težko videti, da je $J$
 res involucija z $2g + 2$ fiksnimi točkami.
 
-Če je $Q = J(P) \ne P$, lahko na okolici $U_Q$ točke $Q$ zapišemo
+Preverimo še holomorfnost preslikave $J$. Če je $Q = J(P) \ne P$,
+lahko za neki okolici $U_P$ in $U_Q$ točk $P$ in $Q$ za vse
+$X \in U_P$ zapišemo
 \[
 J(X) = \br{\eval{f}{U_Q}{}}^{-1}(f(X)),
 \]
 zato je $J$ holomorfna na $M \setminus W$, kjer $W$ označuje
-množico Weierstrassovih točk. Če pa je $J(P) = P$, pa je
-$h = \sqrt{f - f(P)}$ lokalna koordinata, za katero velja
-$J(h) = -h$, saj je
+množico Weierstrassovih točk. Če pa je $J(P) = P$, pa lahko lokalno
+zapišemo $f(z) = f(P) + h(z)^2$. Tako definiran $h$ je lokalna
+koordinata za točko $P$, v kateri velja $f(h) = f(P) + h^2$. Tako
+sledi
 \[
-f(P_h) = h^2 + f(P) = (-h)^2 + f(P) = f(P_{-h}).
+f(h) = h^2 + f(P) = (-h)^2 + f(P) = f(-h),
 \]
-Tako je $J$ holomorfna tudi na $W$.
+zato je $J(h) = -h$. Tako je $J$ holomorfna na $M$.
 
-Predpostavimo sedaj, da obstaja involucija $J \in \Aut M$ z
+Predpostavimo sedaj, da obstaja involucija $J \in \Aut(M)$ z
 $2g + 2$ fiksnimi točkami. Ker se projekcija
 $f \colon M \to \kvoc{M}{\skl{J}}$ razveja v natanko $2g + 2$
 točkah, po izreku~\ref{iz:rie-hur} sledi, da je rod ploskve
@@ -1009,6 +1093,8 @@ $\kvoc{M}{\skl{J}}$ enak $0$. Sledi, da je
 $\kvoc{M}{\skl{J}} \cong \rs$, zato je $f$ meromorfna funkcija z
 dvema poloma.
 \end{proof}
+
+Zgornji involuciji $J$ pravimo \emph{hipereliptična involucija}.
 
 Opazimo, da so fiksne točke hipereliptične involucije natanko
 Weierstrassove točke. Cilj preostanka razdelka je, da dokažemo, da
@@ -1018,8 +1104,8 @@ imajo kvečjemu po $2$ fiksni točki.
 
 \begin{lema}
 Naj bo $P$ Weierstrassova točka hipereliptične ploskve $M$ in
-$f \in \mathscr{K}(M)$ funkcija stopnje $2$. Tedaj velja
-$f^{-1}(\infty) \sim P^2$.
+$f \in \mathscr{K}(M)$ funkcija stopnje $2$. Tedaj za divizor polov
+velja $f^{-1}(\infty) \sim P^2$.
 \end{lema}
 
 \begin{proof}
@@ -1033,40 +1119,41 @@ Ni težko videti, da je $(g) = f^{-1}(\infty) P^{-2}$.
 \end{proof}
 
 \begin{trditev}
-Naj bosta $f$ in $g$ dve funkciji $f \colon M \to \rs$ stopnje
+Naj bo $M$ kompaktna Riemannova ploskev roda $g \geq 1$ in naj
+bosta $f_1$ in $f_2$ dve funkciji $f_i \colon M \to \rs$ stopnje
 $2$. Tedaj obstaja Möbiusova transformacija $A$, za katero je
 \[
-g = A \circ f.
+f_2 = A \circ f_1.
 \]
 \end{trditev}
 
 \begin{proof}
-Naj bo $f^{-1}(\infty) = P_1 Q_1$ in $g^{-1}(\infty) = P_2 Q_2$.
-Ker na $M$ ne obstajajo funkcije stopnje $1$, sledi
+Naj bo $f_i^{-1}(\infty) = P_i Q_i$ za $i \in \set{1,2}$. Ker na
+$M$ ne obstajajo meromorfne funkcije stopnje $1$, sledi
 $r(P_1^{-1} Q_1^{-1}) = r(P_2^{-1} Q_2^{-1}) = 2$. Prostora
 $L(P_1^{-1} Q_1^{-1})$ in $L(P_2^{-1} Q_2^{-1})$ imata tako
-zaporedoma bazi $\set{1, f}$ in $\set{1, g}$. Ker za Weierstrassovo
-točko $P$ velja $P_1 Q_1 \sim P^2 \sim P_2 Q_2$, sledi, da obstaja
-meromorfna preslikava $h$, za katero je
+zaporedoma bazi $\set{1, f_1}$ in $\set{1, f_2}$. Ker za
+Weierstrassovo točko $P$ velja $P_1 Q_1 \sim P^2 \sim P_2 Q_2$,
+sledi, da obstaja meromorfna preslikava $h$, za katero je
 $(h) = P_1 Q_1 P_2^{-1} Q_2^{-1}$. Ker je s predpisom
 $\varphi \mapsto h \cdot \varphi$ očitno podan izomorfizem
 prostorov $L(P_1^{-1} Q_1^{-1})$ in $L(P_2^{-1} Q_2^{-1})$,
 obstajajo konstante $\alpha, \beta, \gamma$ in $\delta$, za katere
 je
 \[
-1 = \alpha h + \beta hf
+1 = \alpha h + \beta hf_1
 \quad \text{in} \quad
-g = \gamma h + \delta hf.
+f_2 = \gamma h + \delta hf_1.
 \]
 Tako lahko izrazimo
 \[
-g = \frac{\gamma + \delta f}{\alpha + \beta f}. \qedhere
+f_2 = \frac{\gamma + \delta f_1}{\alpha + \beta f_1}. \qedhere
 \]
 \end{proof}
 
 \begin{trditev}
 Naj bo $M$ hipereliptična Riemannova ploskev roda $g \geq 2$ in
-$T \in \Aut M$. Če je $T \not \in \skl{J}$, ima $T$ kvečjemu $4$
+$T \in \Aut(M)$. Če je $T \not \in \skl{J}$, ima $T$ kvečjemu $4$
 fiksne točke.
 \end{trditev}
 
