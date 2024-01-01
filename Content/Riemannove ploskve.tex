@@ -39,9 +39,12 @@ M = \bigcup_{i \in I} U_i.
 \]
 Če velja
 $U_i \cap U_j \ne \emptyset$, definiramo \emph{prehodno preslikavo}
-$\varphi_{i,j} \colon
+\[
+\varphi_{i,j} \colon
 \varphi_i(U_i \cap U_j) \subseteq \C \to
-\varphi_j(U_i \cap U_j) \subseteq \C$ s predpisom
+\varphi_j(U_i \cap U_j) \subseteq \C
+\]
+s predpisom
 $\varphi_{i,j} = \varphi_j \circ \varphi_i^{-1}$. Atlas je
 \emph{kompleksen}, če so vse prehodne preslikave holomorfne.
 \end{definicija}
@@ -213,7 +216,7 @@ preslikave odprte, pa sledi, da je $f(M)$ tudi odprta. To seveda
 pomeni, da je $f(M) = \C$, kar je v protislovju s kompaktnostjo.
 
 \begin{definicija}
-Za kompaktni Riemannovo ploskvi $M$ in $N$ ter nekonstantno
+Za kompaktni Riemannovi ploskvi $M$ in $N$ ter nekonstantno
 preslikavo $f \colon M \to N$ definiramo
 \emph{razvejiščno število} kot
 \[
@@ -667,8 +670,8 @@ avtomorfizmov Riemannovih ploskev:
 \begin{lema}
 \label{lm:perm_wei}
 Naj bo $M$ kompaktna Riemannova ploskev roda $g \geq 2$, $W$ pa
-množica njenih Weierstrassovih točk. Tedaj za vsak avtomorfizem
-$T \in \Aut(M)$ velja $T(W) = W$.
+naj označuje množico njenih Weierstrassovih točk. Tedaj za vsak
+avtomorfizem $T$ ploskve $M$ velja $T(W) = W$.
 \end{lema}
 
 \begin{proof}
@@ -691,7 +694,7 @@ tega zaporedja, torej številom
 za katera obstaja funkcija s polom reda $\alpha_j$ v $P$. Če sta
 števili $\alpha_i$ in $\alpha_j$ nevrzel, je tako tudi število
 $\alpha_i + \alpha_j$, saj lahko vzamemo kar produkt pripadajočih
-funkcij. Posebej je vsak večkratnik nevrzel spet nevrzel. Če je
+funkcij. Posebej je vsak večkratnik nevrzeli spet nevrzel. Če je
 $\alpha_1 = 2$, so tako vsa soda števila nevrzeli in so vrzeli
 natanko liha števila, manjša od $2g$.
 
@@ -1153,8 +1156,8 @@ f_2 = \frac{\gamma + \delta f_1}{\alpha + \beta f_1}. \qedhere
 
 \begin{trditev}
 Naj bo $M$ hipereliptična Riemannova ploskev roda $g \geq 2$ in
-$T \in \Aut(M)$. Če je $T \not \in \skl{J}$, ima $T$ kvečjemu $4$
-fiksne točke.
+$T$ avtomorfizem ploskve $M$. Če je $T \not \in \skl{J}$, ima $T$
+kvečjemu $4$ fiksne točke.
 \end{trditev}
 
 \begin{proof}

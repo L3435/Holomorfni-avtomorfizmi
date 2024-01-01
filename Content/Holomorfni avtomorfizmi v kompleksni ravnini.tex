@@ -97,9 +97,8 @@ transformacije, torej
 Razdelek je povzet po~\cite{cerne}.
 
 Po obravnavi enostavno povezanih območij so naslednji korak
-območja z ">luknjami"<. Eden izmed osnovnejših primerov takih
-območij je punktirani disk
-$\dsk_\alpha = \dsk \setminus \set{\alpha}$.
+območja z ">luknjami"<. Enostaven primer takega območja je
+punktirani disk $\dsk_\alpha = \dsk \setminus \set{\alpha}$.
 
 Disk $\dskx = \dsk \setminus \set{0}$ je biholomorfno
 ekvivalenten vsakemu punktiranemu disku, saj je preslikava
@@ -163,12 +162,12 @@ težko videti, da velja
 \]
 saj je avtomorfizem diska natančno določen z dvema točkama.
 
-Sedaj si oglejmo še kolobar $R = \dsk \setminus \oline{\dsk(r)}$.
-Naj bo $f \colon R \to R$ avtomorfizem. Po Carathéodoryjevem
-izreku~\cite[izrek~5.1.1 in opomba~5.1.2]{krantz} se $f$ zvezno
-razširi na $\partial R$. Ker lahko $f$ komponiramo s preslikavo
-$\varphi \colon z \mapsto \frac{\rho}{z}$, lahko predpostavimo, da
-je $f(\partial \dsk) = \partial \dsk$.
+Sedaj si oglejmo še kolobar $R = \dsk \setminus \oline{\dsk(r)}$ za
+$0 < r < 1$. Naj bo $f \colon R \to R$ avtomorfizem. Po
+Carathéodoryjevem izreku~\cite[izrek~5.1.1 in opomba~5.1.2]{krantz}
+se $f$ zvezno razširi na $\partial R$. Ker lahko $f$ komponiramo s
+preslikavo $\varphi \colon z \mapsto \frac{r}{z}$, lahko
+predpostavimo, da je $f(\partial \dsk) = \partial \dsk$.
 
 Naj bo
 \[
@@ -394,12 +393,12 @@ avtomorfizma, je ta kar rotacija okoli izhodišča
 $z \mapsto \omega^k \cdot z$, saj mora biti afina preslikava.
 Preverimo lahko, da je tudi preslikava
 \[
-z \mapsto \frac{\omega z + 1}{z - \omega^2}
+z \mapsto \frac{\omega z + 2}{z - \omega^2}
 \]
 avtomorfizem območja $\Omega$, ki prav tako ustreza rotaciji
 tetraedra. Ti preslikavi generirata simetrično grupo tetraedra.
 Tako sledi $\abs{\Aut(\Omega)} \geq 12$. Ker je $\Aut(\Omega)$
-podgrupa permutacijske grupe, velja $\abs{\Aut(\Omega)} \mid 24$.
+podgrupa permutacijske grupe, velja $\abs{\Aut(\Omega)} \leq 24$.
 Ker pa po zgornjem premisleku $\Aut(\Omega)$ ne vsebuje preslikave,
 ki bi fiksirala $1$ in $\infty$ ter hkrati zamenjala točki $\omega$
 in $\omega^2$, sledi $\abs{\Aut(\Omega)} < 24$, oziroma
